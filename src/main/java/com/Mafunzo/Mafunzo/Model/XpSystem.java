@@ -1,4 +1,4 @@
-package Model;
+package com.Mafunzo.Mafunzo.Model;
 
 public class XpSystem {
 
