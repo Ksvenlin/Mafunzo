@@ -8,6 +8,8 @@ public class User {
     private String password;
     private XpSystem xpSystem;
 
+
+
     public User(XpSystem xpSystem, String fname, String lname, String email, String password) {
         this.xpSystem = xpSystem;
         this.fname = fname;
