@@ -8,11 +8,10 @@ nav {
     border-radius: 10px;
 }
 
-
 body {
     margin: 0;
     padding: 0;
-    background-image: url('img/bakgrund2.webp');
+    background-image: url('static/images/bakgrund2.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
