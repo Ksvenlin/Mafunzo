@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 nav {
     margin-bottom: 30px;
@@ -18,9 +19,6 @@ body {
     background-attachment: fixed;
 }
 
-
-
-/* Header Styles */
 header {
     background-color: #ff7100;
     display: flex;
@@ -29,54 +27,48 @@ header {
     padding: 0.5rem;
 }
 
-
 nav a {
-    font-size: 3rem;
-    font-family: sans-serif;
+    font-size: 2rem;
+    font-family: 'Press Start 2P', cursive;
     color: #ffffff;
     padding: 1rem;
-    border-radius: 30px;
     justify-content: space-around;
     align-items: center;
     display: flex;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    background-color: rgba(37, 37, 37, 0.49);
     color: black;
-    transition: background-color 0.3s ease;
 }
 
 nav a:active {
     color: #834615;
-    background-color: #ff7100;
 }
 
-
-header img, .profile-pic {
+header img,
+.profile-pic {
     max-height: 80px;
     max-width: 80px;
     height: auto;
     width: auto;
     object-fit: contain;
-}
-
-.profile-pic {
     border-radius: 50%;
-    object-fit: cover;
-    margin-left:auto;
 }
-
 
 header h1 {
-    font-size: 3rem;
-    font-family: sans-serif;
+    font-size: 2rem;
+    font-family: 'Press Start 2P', cursive;
     text-align: center;
     color: #ffffff;
     margin: 0.5rem;
+    transition: color 0.3s ease;
 }
 
+header:hover h1 {
+    color: black;
+}
 
 .fas.fa-search {
     color: white;
@@ -84,5 +76,3 @@ header h1 {
     justify-content: center;
     align-items: center;
 }
-
-
