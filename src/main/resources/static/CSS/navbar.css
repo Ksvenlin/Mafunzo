@@ -1,0 +1,124 @@
+
+nav {
+    margin-bottom: 30px;
+    background-color: #ff7100;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('img/bakgrund2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.caption {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-family: sans-serif;
+}
+
+
+.content-container {
+    background-color: rgba(59, 56, 56, 0.8);
+    width: 80%;
+    margin: 30px auto;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Styles */
+header {
+    background-color: #ff7100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+
+nav a {
+    font-size: 3rem;
+    font-family: sans-serif;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 30px;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: rgba(37, 37, 37, 0.49);
+    color: black;
+    transition: background-color 0.3s ease;
+}
+
+nav a:active {
+    color: #834615;
+    background-color: #ff7100;
+}
+
+
+header img, .profile-pic {
+    max-height: 80px;
+    max-width: 80px;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left:auto;
+}
+
+
+header h1 {
+    font-size: 3rem;
+    font-family: sans-serif;
+    text-align: center;
+    color: #ffffff;
+    margin: 0.5rem;
+}
+
+
+.fas.fa-search {
+    color: white;
+    font-size: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 20px;
+    background-color: transparent;
+    padding: 0;
+}
+
+.image-grid img {
+    border-radius: 20%;
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
