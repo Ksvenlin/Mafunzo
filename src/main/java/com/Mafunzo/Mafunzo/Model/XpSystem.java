@@ -5,47 +5,19 @@ public class XpSystem {
     private double xp;
     private int lvl = 1;
     private static final int maxLvl = 100;
-    private static int xpToLevel = 100;
+    private int xpToLevel = 100;
     private int streak;
     private int inactiveDays;
 
 
-    public XpSystem(double xp, int lvl, int streak) {
+    public XpSystem(double xp, int lvl, int streak, int inactiveDays, int xpToLevel) {
         this.xp = xp;
         this.lvl = lvl;
         this.streak = streak;
+        this.inactiveDays = inactiveDays;
+        this.xpToLevel = xpToLevel;
     }
 
-    /**
-     * Räknar ut hur xp ökar beroende på level och streak
-     */
-    public double calculateXPIncrease() {
-        double xpIncrease = 1.0;
-        if (streak >= 7 && streak <= 14) {
-        xpIncrease = (streak == 7 || streak == 14) ? 1.08 : 1.07;
-        }return xpIncrease * (1 + (lvl - 1) * 0.01);
-    }
-
-    /**
-     * Räknar ut hur mycket xp som behövs för att levla upp
-     */
-    public void checkLvlUp() {
-       while(xp >= xpToLevel && lvl < maxLvl){
-            lvl++;
-            xp -= xpToLevel;
-            xpToLevel += lvl * 10;
-       }
-    }
-
-    public void resetStreak(){
-        streak = 0;
-    }
-
-    public void inactiveDays(){
-        if(inactiveDays >= 3){
-            resetStreak();
-        }
-    }
 
     public double getXp() {
         return xp;
@@ -71,4 +43,19 @@ public class XpSystem {
         this.streak = streak;
     }
 
+    public int getInactiveDays() {
+        return inactiveDays;
+    }
+
+    public static int getMaxLvl() {
+        return maxLvl;
+    }
+
+    public int getXpToLevel() {
+        return xpToLevel;
+    }
+
+    public void setXpToLevel(int xpToLevel) {
+        this.xpToLevel = xpToLevel;
+    }
 }
