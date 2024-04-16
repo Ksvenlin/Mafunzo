@@ -61,7 +61,7 @@
 .activities{
     width: 100%;
     padding: 1em;
-    margin-top: 20px; /* Space from the profile */
+    margin-top: 20px;
     background-color: rgba(59, 56, 56, 0.8);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;

@@ -13,7 +13,9 @@ public class User {
     private List<User> friends;
     private List<Activities> activitiesList;
 
+    public User(){
 
+    }
 
     public User(XpSystem xpSystem, String fname, String lname, String email, String password) {
         this.xpSystem = xpSystem;
@@ -55,5 +57,9 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Activities> getActivitiesList() {
+        return activitiesList;
     }
 }
