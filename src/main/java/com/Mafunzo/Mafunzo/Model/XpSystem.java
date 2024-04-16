@@ -1,6 +1,8 @@
 package com.Mafunzo.Mafunzo.Model;
 
-public class XpSystem {
+import java.io.Serializable;
+
+public class XpSystem implements Serializable {
 
     private double xp;
     private int lvl = 1;
@@ -9,7 +11,6 @@ public class XpSystem {
     private int streak;
     private int inactiveDays;
 
-
     public XpSystem(double xp, int lvl, int streak, int inactiveDays, int xpToLevel) {
         this.xp = xp;
         this.lvl = lvl;
@@ -17,7 +18,6 @@ public class XpSystem {
         this.inactiveDays = inactiveDays;
         this.xpToLevel = xpToLevel;
     }
-
 
     public double getXp() {
         return xp;

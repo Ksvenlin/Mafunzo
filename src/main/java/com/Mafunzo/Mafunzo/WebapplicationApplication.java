@@ -6,7 +6,11 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class} )
 public class WebapplicationApplication {
+	private static MongoClientConnectionExample con = new MongoClientConnectionExample();
 	public static void main(String[] args) {
+
 		SpringApplication.run(WebapplicationApplication.class, args);
+		con.connectMongo();
+		
 	}
 }
