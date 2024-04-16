@@ -10,6 +10,7 @@ import java.util.List;
 public class User implements Serializable {
     private String fname;
     private String lname;
+    private int evaluationScore;
     @Id
     private String email;
     @Id
@@ -18,7 +19,7 @@ public class User implements Serializable {
     private List<User> friends;
     private List<Activities> activitiesList;
 
-    public User(XpSystem xp, String fname, String lname, String email, String password) {
+    public User(XpSystem xp, String fname, String lname, String email, String password, int evaluationScore) {
         this.xp = xp;
         this.fname = fname;
         this.lname = lname;
@@ -26,6 +27,7 @@ public class User implements Serializable {
         this.password = password;
         this.activitiesList = new ArrayList<>();
         this.friends = new ArrayList<>();
+        this.evaluationScore = evaluationScore;
     }
 
     //TOOD: koppla ett user objekt till profilsida.
@@ -55,6 +57,10 @@ public class User implements Serializable {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getEvaluationScore() {
+        return evaluationScore;
     }
 
     public double getXp() {
