@@ -56,6 +56,11 @@ header img,
     object-fit: contain;
     border-radius: 50%;
 }
+a img.profile-pic:hover {
+    border: 2px solid black;
+    transition: border 0.3s ease;
+
+}
 
 header h1 {
     font-size: 2rem;

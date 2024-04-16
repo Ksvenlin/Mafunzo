@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ProfileController {
     @Autowired
     UserService userService;
-    User newUser = new User(new XpSystem(40, 3, 0, 0, 100), "Kevin", "Doe", "kevin@gmail.com", "password123");
+    User newUser = new User(new XpSystem(99.9, 3, 0, 0, 100), "Kevin", "Doe", "kevin@gmail.com", "password123");
 
 
     @GetMapping("/profilepage")
@@ -39,7 +39,7 @@ public Document userDocument(User user) {
 
     @PostMapping("/addUser")
     public String addUser(Model model) {
-        User newUser = new User(new XpSystem(40, 3, 0, 0, 100), "Kevin", "Doe", "kevin@gmail.com", "password123");
+        User newUser = new User(new XpSystem(99.9, 1, 0, 0, 100), "Kevin", "Doe", "kevin@gmail.com", "password123");
         User savedUser = userService.saveUser(newUser);
         model.addAttribute("user", savedUser);
         return "profilepage";
