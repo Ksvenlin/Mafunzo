@@ -11,7 +11,7 @@ public class User {
 
 
 
-    public User(XpSystem xpSystem, String fname, String lname, String email, String password, int evaluationScore) {
+    public User(XpSystem xpSystem, String fname, String lname, String email, String password) {
         this.xpSystem = xpSystem;
         this.fname = fname;
         this.lname = lname;

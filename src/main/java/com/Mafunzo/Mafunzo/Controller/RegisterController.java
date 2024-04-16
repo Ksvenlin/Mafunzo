@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RegisterController {
     @GetMapping("/index")
     public String RegisterForm(){
-        return "index";
+        return "LoginPage";
     }
 }
