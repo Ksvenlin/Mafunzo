@@ -25,8 +25,7 @@ public class RegisterActivityController {
 
     @PostMapping("/registerWalk")
     public String registerWalk(@ModelAttribute WalkActivity walkActivity) {
-        User kevin = new User();
-        kevin.getActivitiesList().add(walkActivity);
+        //TODO: GÖR INGET JUST NU
         return "index";
     }
 }
