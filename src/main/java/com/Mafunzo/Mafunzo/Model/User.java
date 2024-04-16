@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 @Document("User")
 public class User implements Serializable {
     private String fname;
@@ -21,10 +22,6 @@ public class User implements Serializable {
 
 
     public User(XpSystem xp, String fname, String lname, String email, String password, int evaluationScore) {
-        this.xp = xp;
-    }
-
-    public User(XpSystem xp, String fname, String lname, String email, String password) {
             this.xp = xp;
             this.fname = fname;
             this.lname = lname;
@@ -32,6 +29,7 @@ public class User implements Serializable {
             this.password = password;
             this.activitiesList = new ArrayList<>();
             this.friends = new ArrayList<>();
+            this.evaluationScore = evaluationScore;
     }
 
         //TOOD: koppla ett user objekt till profilsida.
