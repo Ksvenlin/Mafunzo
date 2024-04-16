@@ -30,15 +30,15 @@
             <div class="profile-pic-in-page">
                 <img src="../images/kevin.jpeg" alt="profilePic">
 
-                <div th:if="${user}">
-                    <h2 th:text="'Name: ' + ${user.fname} + ' ' +  ${user.lname}"></h2>
+                <div class="fullName" th:if="${user}">
+                    <h2 th:text="${user.getName()}"></h2>
                 </div>
                 <div th:unless="${user}">
                     <p>User not found</p>
                 </div>
 
             </div>
-            <h3 th:text="'Din level: '+${user.getLvl()} "></h3>
+            <h3 th:text="'Level: '+${user.getLvl()} "></h3>
             <div class="xp-bar-container">
             <div class="xp-bar" th:style="'width: ' + ${user.getXp()} + '%;'">
                 <p th:text="${user.getXp()} + '/100'"></p>
