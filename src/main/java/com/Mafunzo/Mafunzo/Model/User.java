@@ -1,5 +1,8 @@
 package com.Mafunzo.Mafunzo.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 
     private String fname;
@@ -7,6 +10,8 @@ public class User {
     private String email;
     private String password;
     private XpSystem xpSystem;
+    private List<User> friends;
+    private List<Activities> activitiesList;
 
 
 
@@ -16,6 +21,8 @@ public class User {
         this.lname = lname;
         this.email = email;
         this.password = password;
+        this.activitiesList = new ArrayList<>();
+        this.friends = new ArrayList<>();
     }
 
     public String getFname() {
