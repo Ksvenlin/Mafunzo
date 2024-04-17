@@ -5,7 +5,9 @@
 .activities,
 .activity {
     font-family: 'Press Start 2P', cursive;
-}.profile-flex-container {
+}
+
+.profile-flex-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,18 +15,19 @@
     width: 80%;
     margin: auto;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
 
-.profile-pic-in-page{
+.profile-pic-in-page {
     object-fit: cover;
     margin: 50px;
     background-color: rgba(59, 56, 56, 0.8);
     border-radius: 10%;
     padding: 20px;
 }
-.fullName h2{
+
+.fullName h2 {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -33,14 +36,13 @@
     width: 100%;
 }
 
-
 .profile-pic-in-page img {
     border-radius: 10%;
     width: 100%;
     max-width: 400px;
     height: auto;
-
 }
+
 .profile-XP-bar p {
     font-size: 2rem;
     font-family: 'Press Start 2P', cursive;
@@ -78,10 +80,9 @@
     text-align: center;
     position: absolute;
     width: 100%;
-
 }
 
-.activities{
+.activities {
     width: 80%;
     padding: 0.5em;
     margin-top: 10px;
@@ -89,7 +90,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
-.activity{
+
+.activity {
     background-color: #ff7100;
     padding: 1em;
     margin-bottom: 20px;
