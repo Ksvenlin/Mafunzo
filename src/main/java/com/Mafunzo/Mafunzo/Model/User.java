@@ -70,7 +70,10 @@ public class User implements Serializable {
         }
         public int getLvl () {
             return xp.getLvl();
+        }
 
+        public void setXp(XpSystem xp) {
+            this.xp = xp;
         }
     }
 
