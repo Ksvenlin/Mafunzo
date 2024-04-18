@@ -7,6 +7,7 @@
     text-align:  center;
     overflow: hidden;
     alignment-baseline: auto;
+    max-width:1344px;
 }
 
 .image-grid button {

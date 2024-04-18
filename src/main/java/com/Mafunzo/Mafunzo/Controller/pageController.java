@@ -1,6 +1,6 @@
 package com.Mafunzo.Mafunzo.Controller;
 
-import com.Mafunzo.Mafunzo.Model.WalkActivity;
+import com.Mafunzo.Mafunzo.Model.Activity.WalkActivity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

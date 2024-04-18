@@ -26,9 +26,14 @@
     <div class="row">
         <img src="images/gorilla-promenerar.png" alt="Promenad" class="bild">
         <div class="in-data">
-            <form th:action="@{/registerWalk}" method="post" th:object="${walkActivity}">
-                <input type="number" th:field="*{duration}"  class="duration"> <br> <br>
+            <form th:action="@{/registerWalk}" th:object="${walkActivity}" method="post">
+                <input type="number" th:field="*{duration}"  class="duration">
+                <br>
+                <br>
                 <input type="number" th:field="*{distance}"  class="distance">
+                <br>
+                <br>
+                <button type="submit">Skicka</button>
             </form>
         </div>
     </div>

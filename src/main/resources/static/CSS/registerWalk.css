@@ -6,6 +6,7 @@
     margin: 50px 300px; /* marginaler på bakgrunden */
     border-radius: 50px;/* rundar hörnen */
     overflow: hidden;
+    max-width: 974px;
 }
 .caption {
     text-align: left;

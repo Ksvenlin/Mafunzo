@@ -75,5 +75,9 @@ public class User implements Serializable {
         public void setXp(XpSystem xp) {
             this.xp = xp;
         }
+
+    public List<Activities> getActivitiesList() {
+        return activitiesList;
     }
+}
 
