@@ -6,7 +6,7 @@
     <link href="CSS/navbar.css" rel="stylesheet"/>
 </head>
 <body>
-<link href="CSS/registerWalk.css" rel="stylesheet">
+<link href="CSS/Activities/enduraceActivities.css" rel="stylesheet">
 <nav class="navbar">
     <a href="index">
         <header>
@@ -22,18 +22,20 @@
     <a href="search.html" class="fas fa-search"></a>
 </nav>
 
-<div class="walk-container">
+<div class="endurance-container">
     <div class="row">
         <img src="images/gorilla-promenerar.png" alt="Promenad" class="bild">
         <div class="in-data">
+            <br>
+            <br>
+            <br>
             <form th:action="@{/registerWalk}" th:object="${walkActivity}" method="post">
                 <input type="number" th:field="*{duration}"  class="duration">
-                <br>
-                <br>
+                <br> <br>
                 <input type="number" th:field="*{distance}"  class="distance">
                 <br>
                 <br>
-                <button type="submit">Skicka</button>
+                <button type="submit">Registrera</button>
             </form>
         </div>
     </div>

@@ -1,5 +1,8 @@
 package com.Mafunzo.Mafunzo.Controller;
 
+import com.Mafunzo.Mafunzo.Model.Activity.BikeActivity;
+import com.Mafunzo.Mafunzo.Model.Activity.RunActivity;
+import com.Mafunzo.Mafunzo.Model.Activity.SwimActivity;
 import com.Mafunzo.Mafunzo.Model.Activity.WalkActivity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,6 +46,21 @@ public class pageController {
     public String walkTraining(Model model) {
         model.addAttribute("walkActivity", new WalkActivity());
         return "activities/walkTraining";
+    }
+    @GetMapping("/swimTraining")
+    public String swimTraining(Model model) {
+        model.addAttribute("swimActivity", new SwimActivity());
+        return "activities/swimTraining";
+    }
+    @GetMapping("/bikeTraining")
+    public String bikeTraining(Model model) {
+        model.addAttribute("bikeActivity", new BikeActivity());
+        return "activities/bikeTraining";
+    }
+    @GetMapping("/runTraining")
+    public String runTraining(Model model) {
+        model.addAttribute("runActivity", new RunActivity());
+        return "activities/runTraining";
     }
 
 }
