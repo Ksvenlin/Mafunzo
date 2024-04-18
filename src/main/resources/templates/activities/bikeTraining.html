@@ -26,19 +26,18 @@
     <div class="row">
         <img src="images/gorilla-cyklar.png" alt="Cykling" class="bild">
         <div class="in-data">
-            <br>
-            <br>
-            <br>
             <form th:action="@{/registerBike}" th:object="${bikeActivity}" method="post">
-                <input type="number" th:field="*{duration}"  class="duration">
+                <p> Varaktighet </p>
+                <input type="number" id="duration" th:field="*{duration}" class="duration">
                 <br> <br>
+                <p> Distans </p>
                 <input type="number" th:field="*{distance}"  class="distance">
                 <br>
                 <br>
-                <button type="submit">Registrera</button>
+                <button class="button" type="submit">Registrera</button>
             </form>
         </div>
     </div>
-    <div class="caption">Promenad</div>
+    <div class="caption">Cykling</div>
 </div>
 </body>

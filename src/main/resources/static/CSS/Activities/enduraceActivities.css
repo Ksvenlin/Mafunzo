@@ -15,8 +15,7 @@
     font-size: 3.5rem;
     font-family: sans-serif;
     text-align: left;
-    margin-top: 50px;
-
+    margin-top: 20px;
 }
 
 .endurance-container .bild{
@@ -25,6 +24,7 @@
     width: 250px;
     border-radius: 50px;
 }
+
 
 
 .endurance-container .duration {
@@ -36,6 +36,15 @@
     height: 50px;
     width: 400px;
 }
+.endurance-container p{
+    text-align: left;
+    margin-left: 410px;
+    color: #ffffff;
+    font-family: sans-serif;
+}
+
+
+
 
 
 
