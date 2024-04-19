@@ -260,6 +260,12 @@
         }, 3000);
     }
 
+    /*
+    The returnButton onclick function handles the logic for what happens when the return button is pressed.
+    it hides all the questions and sets the buttonfield with the login and register buttons to be displayed.
+    it also resets the width of the content container and brings back the continue button :)
+     */
+
     returnButton.onclick = function () {
         q1.style.maxHeight = '0';
         q1.style.padding = '0';
@@ -365,6 +371,8 @@
             }
         });
 
+        console.log(totalScore)
+/*
         fetch('/addUser', {
             method: 'POST',
             headers: {
@@ -391,7 +399,7 @@
                     window.location.href = "/home";
                 }, 2000);
                 return response.json()
-            })
+            }) */
     }
 </script>
 </body>

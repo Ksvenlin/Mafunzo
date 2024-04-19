@@ -38,7 +38,7 @@ public class userHandler {
 
     @PostMapping("/verifyUser")
     public ResponseEntity<String> verifyUser(@RequestBody User user) {
-        if(userService.getUserByEmail(user.getEmail()) == null){
+        if (userService.getUserByEmail(user.getEmail()) == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"message\": \"User not found\"}");
         } else if (!userService.getUserByEmail(user.getEmail()).getPassword().equals(user.getPassword())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"Wrong password\"}");

@@ -319,13 +319,13 @@
                 })
             })
                 .then(response => {
-                    if(response.status === 404){
+                    if (response.status === 404) {
                         email.style.borderColor = "#ff4444"
                         response.json().then(data => {
                             showSnackbar(data.message, "#ff4444", "#b20000")
                         })
                         throw new Error("Fel användarnamn eller lösenord")
-                    } else if (response.status === 401){
+                    } else if (response.status === 401) {
                         password.style.borderColor = "#ff4444"
                         response.json().then(data => {
                             showSnackbar(data.message, "#ff4444", "#b20000")
@@ -365,6 +365,9 @@
      */
 
     submitButton.onclick = function () {
+        email.style.borderColor = "#ccc"
+        password.style.borderColor = "#ccc"
+
         radioButtons.forEach(function (radio) {
             if (radio.checked) {
                 totalScore += parseInt(radio.value);
