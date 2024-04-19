@@ -7,6 +7,17 @@
     text-align: center;
 }
 
+.return-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 20px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 .content-container-register {
     display: flex;
     flex-direction: column;
@@ -51,6 +62,10 @@
     max-height: 65px;
     transition: max-height 0.5s;
     overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-left: 7px;
 }
 
 .input-group-question {
@@ -99,9 +114,37 @@ input {
     min-height: 100px;
 }
 
+input[type='text'][placeholder='Email'],
+input[type='password'] {
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
 .button-field button.disable {
     background: #eaeaea;
     color: #555;
+}
+
+input[type='radio'] {
+    display: none;
+}
+
+input[type='radio'] + label:before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+    border-radius: 50%;
+    border: 2px solid #ff7100;
+    background-color: #eaeaea;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    order: 1;
+}
+
+input[type='radio']:checked + label:before {
+    background-color: #ff7100;
 }
 
 .continue {

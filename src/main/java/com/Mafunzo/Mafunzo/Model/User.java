@@ -32,6 +32,9 @@ public class User implements Serializable {
             this.evaluationScore = evaluationScore;
     }
 
+    public User() {
+    }
+
         //TOOD: koppla ett user objekt till profilsida.
         public String getFname () {
             return fname;
