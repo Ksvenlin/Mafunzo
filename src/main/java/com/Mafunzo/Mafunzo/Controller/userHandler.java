@@ -37,22 +37,13 @@ public class userHandler {
     */
 
     @PostMapping("/verifyUser")
-    public ResponseEntity<String> verifyUser(@RequestBody User user, Model model) {
-        /*
-        Denna loginuser ska vara en user som finns i databasen så den ska kalla på databasen och jämföra om det finns
-        en user med samma email och lösenord som den som försöker logga in.
-        */
-        User loginUser = new User(null, "John", "Doe", "hej@gmail.com", "password", 0);
-
-        if (!loginUser.getEmail().equals(user.getEmail())) {
-            System.out.println("Login failed");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"User not found\"}");
-        } else if (!loginUser.getPassword().equals(user.getPassword())) {
+    public ResponseEntity<String> verifyUser(@RequestBody User user) {
+        if(userService.getUserByEmail(user.getEmail()) == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"message\": \"User not found\"}");
+        } else if (!userService.getUserByEmail(user.getEmail()).getPassword().equals(user.getPassword())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"Wrong password\"}");
         } else {
-            System.out.println("Login successful");
             return ResponseEntity.ok("{\"message\": \"Login successful\"}");
         }
     }
-
 }
