@@ -159,7 +159,13 @@
     let radioButtons = document.querySelectorAll("input[type='radio']");
 
     let totalScore = 0;
-    let isLogInButtonPressed = false;
+    fname.style.maxHeight = "0";
+    lname.style.maxHeight = "0";
+    title.innerHTML = "Logga in";
+    registerButton.classList.add("disable");
+    loginButton.classList.remove("disable");
+    isLogInButtonPressed = true;
+
 
     /*
     This part adds event listeners to the radio buttons in the evaluation form. When a radio button is checked
@@ -396,12 +402,26 @@
                 }
                 showSnackbar("Registreringen lyckades", "#44ff44", '#00b300')
 
-                setTimeout(function () {
-                    window.location.href = "/index";
-                }, 2000);
-                return response.json()
+                fetch('/verifyUser', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email.value,
+                        password: password.value
+                    })
+                }).then(response => {
+                    if(response.ok){
+                        setTimeout(function () {
+                            window.location.href = "/home";
+                        }, 2000);
+                    }
+                    return response.json()
+                })
             })
     }
 </script>
 </body>
 </html>
+
