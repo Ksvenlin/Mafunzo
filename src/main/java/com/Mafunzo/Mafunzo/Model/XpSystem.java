@@ -7,11 +7,11 @@ public class XpSystem implements Serializable {
     private double xp;
     private int lvl = 1;
     private static final int maxLvl = 100;
-    private int xpToLevel = 100;
+    private double xpToLevel = 100;
     private int streak;
     private int inactiveDays;
 
-    public XpSystem(double xp, int lvl, int streak, int inactiveDays, int xpToLevel) {
+    public XpSystem(double xp, int lvl, int streak, int inactiveDays, double xpToLevel) {
         this.xp = xp;
         this.lvl = lvl;
         this.streak = streak;
@@ -51,7 +51,7 @@ public class XpSystem implements Serializable {
         return maxLvl;
     }
 
-    public int getXpToLevel() {
+    public double getXpToLevel() {
         return xpToLevel;
     }
 

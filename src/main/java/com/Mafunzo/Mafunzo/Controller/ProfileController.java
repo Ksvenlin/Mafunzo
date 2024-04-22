@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ProfileController {
     @Autowired
-    UserService userService;
-    User newUser = new User(new XpSystem(99.9, 3, 0, 0, 100), "Kevin", "Doe", "kevin@gmail.com", "password123", 0);
+    private UserService userService;
+    private User user;
+
+
+    User newUser = new User(new XpSystem(99.9, 1, 0, 0, 100), "Kevin", "Doe", "a", "a",0);
 
 
     @GetMapping("/profilepage")

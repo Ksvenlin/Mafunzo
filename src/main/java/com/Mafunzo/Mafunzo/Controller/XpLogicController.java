@@ -26,7 +26,7 @@ public class XpLogicController {
         while(xpSystem.getXp() >= xpSystem.getXpToLevel() && xpSystem.getLvl() < xpSystem.getMaxLvl()){
             xpSystem.setLvl(xpSystem.getLvl()+1);
             xpSystem.setXp(xpSystem.getXp() - xpSystem.getXpToLevel());
-            xpSystem.setXpToLevel(xpSystem.getXpToLevel() + xpSystem.getLvl() * 10);
+            xpSystem.setXpToLevel((int) (xpSystem.getXpToLevel() + xpSystem.getLvl() * 10));
         }
     }
 
