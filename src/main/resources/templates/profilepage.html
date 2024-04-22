@@ -1,4 +1,4 @@
-<!-- profilePage.html -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -41,12 +41,11 @@
 
             </div>
             <div class="xp-bar-container">
-                <div class="xp-bar" th:style="'width: ' + ${user.getXp()} + '%;'">
-                    <p th:text="${user.getXp()} + '/' + ${user.getXpToLevel}"></p>
-                </div>
+                <div class="xp-bar" th:style="'width:' + ${user.getXp()} + '%'"></div>
+                <div class="xp-text" th:text="${user.getXp()} + '/' + ${user.getXpToLevel}">0/100</div>
                 <div class="streak-container">
-                    <img src="../images/fire-emoji-yo.png" alt="Fire Emoji" class="fire-emoji">
-                    <h4 class="streak" th:text="'' + ${user.getStreak()}">streak</h4>
+                    <img src="../images/fire-emoji-yo.png" alt="fire-emoji" class="fire-emoji">
+                    <h4 class="streak" th:text="${user.getStreak()}">0</h4>
                 </div>
             </div>
         </div>

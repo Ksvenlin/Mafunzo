@@ -5,5 +5,5 @@ Länk till Repository:
 https://github.com/Ksvenlin/Mafunzo.git
 
 Inloggnisuppgifter: 
-email: hej@gmail.com   
-password: password
+email: adam.mheisen@hotmail.com 
+password: Adam123
