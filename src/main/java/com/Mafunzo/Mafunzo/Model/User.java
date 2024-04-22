@@ -1,6 +1,7 @@
 package com.Mafunzo.Mafunzo.Model;
 
 import jakarta.persistence.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -9,10 +10,12 @@ import java.util.List;
 
 @Document("User")
 public class User implements Serializable {
+    @Id
+    private String id;
     private String fname;
     private String lname;
     private int evaluationScore;
-    @Id
+    @Indexed(unique = true)
     private String email;
     private String password;
     private XpSystem xp;

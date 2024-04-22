@@ -16,12 +16,13 @@ public class UserService {
         return userRepo.save(user);
     }
     @Transactional
-     public User updateActivity(User user) {
-        User oldUser = userRepo.findByEmail(user.getEmail()).orElse(null);
-        if(oldUser != null) {
-            oldUser.setActivitiesList(user.getActivitiesList());
-
+    public User updateActivity(User user) {
+        User existingUser = userRepo.findByEmail(user.getEmail()).orElse(null);
+        if(existingUser != null) {
+            existingUser.setActivitiesList(user.getActivitiesList());
+            return userRepo.save(existingUser);
+        } else {
+            throw new RuntimeException("User not found");
         }
-        return userRepo.save(oldUser);
-     }
+    }
 }
