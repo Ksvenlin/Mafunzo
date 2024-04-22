@@ -7,6 +7,17 @@
     text-align: center;
 }
 
+.return-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 20px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 .content-container-register {
     display: flex;
     flex-direction: column;
@@ -51,6 +62,10 @@
     max-height: 65px;
     transition: max-height 0.5s;
     overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-left: 7px;
 }
 
 .input-group-question {
@@ -99,16 +114,44 @@ input {
     min-height: 100px;
 }
 
+input[type='text'][placeholder='Email'],
+input[type='password'] {
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
 .button-field button.disable {
     background: #eaeaea;
     color: #555;
+}
+
+input[type='radio'] {
+    display: none;
+}
+
+input[type='radio'] + label:before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+    border-radius: 50%;
+    border: 2px solid #ff7100;
+    background-color: #eaeaea;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    order: 1;
+}
+
+input[type='radio']:checked + label:before {
+    background-color: #ff7100;
 }
 
 .continue {
     align-content: center;
 }
 
-.common-button{
+.common-button {
     margin: auto;
     margin-top: 20px;
     width: 80%;
@@ -139,7 +182,7 @@ input {
     bottom: 30px;
     font-size: 17px;
     border: 2px solid #b20000;
-    box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
 }
 
 #snackbar.show {
@@ -149,21 +192,45 @@ input {
 }
 
 @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
 }
 
 @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
 }
 
 @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }
 
 @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }

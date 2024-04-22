@@ -32,6 +32,9 @@ public class User implements Serializable {
             this.evaluationScore = evaluationScore;
     }
 
+    public User() {
+    }
+
         //TOOD: koppla ett user objekt till profilsida.
         public String getFname () {
             return fname;
@@ -71,14 +74,13 @@ public class User implements Serializable {
         public int getLvl () {
             return xp.getLvl();
         }
-        public int getStreak () {
-            return xp.getStreak();
+
+        public void setXp(XpSystem xp) {
+            this.xp = xp;
         }
-        public int getInactiveDays () {
-            return xp.getInactiveDays();
-        }
-        public double getXpToLevel () {
-            return xp.getXpToLevel();
-        }
+
+    public List<Activities> getActivitiesList() {
+        return activitiesList;
     }
+}
 
