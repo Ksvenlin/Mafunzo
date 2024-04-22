@@ -4,6 +4,8 @@ import com.Mafunzo.Mafunzo.Model.Activity.BikeActivity;
 import com.Mafunzo.Mafunzo.Model.Activity.RunActivity;
 import com.Mafunzo.Mafunzo.Model.Activity.SwimActivity;
 import com.Mafunzo.Mafunzo.Model.Activity.WalkActivity;
+import com.Mafunzo.Mafunzo.Model.User;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,8 +27,13 @@ public class pageController {
         return "homePage";
     }
 
-    @GetMapping("/profile")
-    public String profile() {
+    @GetMapping("/profilepage")
+    public String profile(HttpSession session, Model model) {
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
         return "profilepage";
     }
 

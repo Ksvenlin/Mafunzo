@@ -11,7 +11,7 @@
 <body>
 
 <nav class="navbar">
-    <a href="index">
+    <a href="home">
         <header>
             <img src="../images/logo.png" alt="Header image">
             <h1>Mafunzo</h1>
@@ -20,7 +20,8 @@
     <a href="registerActivity">Registrera Aktivitet</a>
     <a href="#register">Vänner</a>
     <a href="profilepage">
-        <img src="../images/kevin.jpeg" alt="Profile Picture" class="profile-pic"></a>
+        <img src="../images/kevin.jpeg" alt="Profile Picture" class="profile-pic" >
+    </a>
     <a href="search.html" class="fas fa-search"></a>
 </nav>
 
@@ -30,18 +31,22 @@
             <div class="profile-pic-in-page">
                 <img src="../images/kevin.jpeg" alt="profilePic">
 
-                <div class="fullName" th:if="${user}">
-                    <h2 th:text="${user.getName()}"></h2>
+                <div th:if="${user}">
+                    <h2 th:text="${user.getName()}">fullname</h2>
+                    <h3 th:text="'Level: '+${user.getLvl()} ">level</h3>
                 </div>
                 <div th:unless="${user}">
                     <p>User not found</p>
                 </div>
 
             </div>
-            <h3 th:text="'Level: '+${user.getLvl()} "></h3>
             <div class="xp-bar-container">
                 <div class="xp-bar" th:style="'width: ' + ${user.getXp()} + '%;'">
-                    <p th:text="${user.getXp()} + '/100'"></p>
+                    <p th:text="${user.getXp()} + '/' + ${user.getXpToLevel}"></p>
+                </div>
+                <div class="streak-container">
+                    <img src="../images/fire-emoji-yo.png" alt="Fire Emoji" class="fire-emoji">
+                    <h4 class="streak" th:text="'' + ${user.getStreak()}">streak</h4>
                 </div>
             </div>
         </div>

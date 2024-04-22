@@ -4,6 +4,7 @@ package com.Mafunzo.Mafunzo.Controller;
 import com.Mafunzo.Mafunzo.Model.User;
 import com.Mafunzo.Mafunzo.Model.UserService;
 import com.Mafunzo.Mafunzo.Model.XpSystem;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class userHandler {
 
     @PostMapping("/addUser")
     public String addUser(@RequestBody User user, Model model) {
-        user.setXp(new XpSystem(99.9, 1, 0, 0, 100));
+       // user.setXp(new XpSystem(99.9, 1, 0, 0, 100));
 
         //User newUser = new User(new XpSystem(99.9, 1, 0, 0, 100), "Kevin", "Doe", "kevin@gmail.com", "password123",0);
         User savedUser = userService.saveUser(user);
@@ -37,12 +38,14 @@ public class userHandler {
     */
 
     @PostMapping("/verifyUser")
-    public ResponseEntity<String> verifyUser(@RequestBody User user) {
-        if (userService.getUserByEmail(user.getEmail()) == null) {
+    public ResponseEntity<String> verifyUser(@RequestBody User user, HttpSession session) {
+        User loggedUser = userService.getUserByEmail(user.getEmail());
+        if (loggedUser == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"message\": \"User not found\"}");
-        } else if (!userService.getUserByEmail(user.getEmail()).getPassword().equals(user.getPassword())) {
+        } else if (!loggedUser.getPassword().equals(user.getPassword())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"Wrong password\"}");
         } else {
+            session.setAttribute("loggedUser", loggedUser);
             return ResponseEntity.ok("{\"message\": \"Login successful\"}");
         }
     }

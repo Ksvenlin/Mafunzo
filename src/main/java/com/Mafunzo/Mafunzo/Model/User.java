@@ -22,7 +22,7 @@ public class User implements Serializable {
 
 
     public User(XpSystem xp, String fname, String lname, String email, String password, int evaluationScore) {
-            this.xp = xp;
+            this.xp = new XpSystem(0,1,0,0,100);
             this.fname = fname;
             this.lname = lname;
             this.email = email;
@@ -68,10 +68,16 @@ public class User implements Serializable {
             return evaluationScore;
         }
 
-        public double getXp () {
-            return xp.getXp();
+    public double getXp() {
+        if (this.xp == null) {
+            return 0;
         }
-        public int getLvl () {
+        return xp.getXp();
+        }
+        public int getLvl() {
+            if (this.xp == null) {
+                return 1;
+            }
             return xp.getLvl();
         }
 
@@ -79,8 +85,21 @@ public class User implements Serializable {
             this.xp = xp;
         }
 
-    public List<Activities> getActivitiesList() {
+        public List<Activities> getActivitiesList() {
         return activitiesList;
     }
+
+        public int getStreak() {
+            if (this.xp == null) {
+                return 0;
+            }
+            return xp.getStreak();
+        }
+        public double getXpToLevel() {
+            if (this.xp == null) {
+                return 100;
+            }
+            return xp.getXpToLevel();
+        }
 }
 

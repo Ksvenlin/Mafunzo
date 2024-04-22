@@ -17,7 +17,7 @@ public class ProfileController {
 
     User newUser = new User(new XpSystem(99.9, 1, 0, 0, 100), "Kevin", "Doe", "a", "a",0);
 
-public Document userDocument(User user) {
+    public Document userDocument(User user) {
         return new Document("name", user.getName())
                 .append("email", user.getEmail())
                 .append("password", user.getPassword());
