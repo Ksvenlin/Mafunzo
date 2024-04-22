@@ -25,10 +25,8 @@ public class userHandler {
 
     @PostMapping("/addUser")
     public String addUser(@RequestBody User user, Model model) {
-       // user.setXp(new XpSystem(99.9, 1, 0, 0, 100));
-
-        //User newUser = new User(new XpSystem(99.9, 1, 0, 0, 100), "Kevin", "Doe", "kevin@gmail.com", "password123",0);
-        User savedUser = userService.saveUser(user);
+        //User savedUser = userService.saveUser(user);
+        User savedUser = userService.saveUser(new User(new XpSystem(user.getXp(), user.getLvl(), user.getStreak(), user.getInactiveDays(), user.getXpToLevel()), user.getFname(), user.getLname(), user.getEmail(), user.getPassword(), user.getEvaluationScore()));
         model.addAttribute("user", savedUser);
         return "profilepage";
     }

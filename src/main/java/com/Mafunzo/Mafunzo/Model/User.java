@@ -14,7 +14,6 @@ public class User implements Serializable {
     private int evaluationScore;
     @Id
     private String email;
-    @Id
     private String password;
     private XpSystem xp;
     private List<User> friends;
@@ -86,8 +85,11 @@ public class User implements Serializable {
         }
 
         public List<Activities> getActivitiesList() {
+        if(this.activitiesList == null){
+            return new ArrayList<>();
+        }
         return activitiesList;
-    }
+        }
 
         public int getStreak() {
             if (this.xp == null) {
@@ -101,5 +103,16 @@ public class User implements Serializable {
             }
             return xp.getXpToLevel();
         }
+
+        public int getInactiveDays() {
+            if (this.xp == null) {
+                return 0;
+            }
+            return xp.getInactiveDays();
+        }
+
+    public void setActivitiesList(List<Activities> activitiesList) {
+        this.activitiesList = activitiesList;
+    }
 }
 
