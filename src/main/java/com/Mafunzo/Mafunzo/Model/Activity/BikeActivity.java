@@ -16,6 +16,16 @@ public class BikeActivity implements Activities {
         this.duration = duration;
     }
 
+    @Override
+    public String getDescpriction() {
+        return "Min första cykeltur!";
+    }
+
+    @Override
+    public String getName() {
+        return "Bike Activity";
+    }
+
     public double getDuration() {
         return duration;
     }

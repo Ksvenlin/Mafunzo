@@ -16,6 +16,16 @@ public class SwimActivity implements Activities {
         this.duration = duration;
     }
 
+    @Override
+    public String getDescpriction() {
+        return "Min första simtur!";
+    }
+
+    @Override
+    public String getName() {
+        return "Simning";
+    }
+
     public double getDuration() {
         return duration;
     }

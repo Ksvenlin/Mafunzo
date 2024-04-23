@@ -7,16 +7,28 @@ import java.time.LocalDateTime;
 
 public class WalkActivity implements Activities {
 
+    private String description;
     private double duration;
     private double distance;
 
 
     public WalkActivity(){
+        this.description = "Min första promenad!";
 
     }
 
     public void setDuration(double duration) {
         this.duration = duration;
+    }
+
+    @Override
+    public String getDescpriction() {
+        return "Min första promenad!";
+    }
+
+    @Override
+    public String getName() {
+        return "Promenad";
     }
 
     public double getDuration() {

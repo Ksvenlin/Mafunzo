@@ -16,6 +16,16 @@ public class RunActivity implements Activities {
         this.duration = duration;
     }
 
+    @Override
+    public String getDescpriction() {
+        return "Min första löprunda!";
+    }
+
+    @Override
+    public String getName() {
+        return "Löpning";
+    }
+
     public double getDuration() {
         return duration;
     }
