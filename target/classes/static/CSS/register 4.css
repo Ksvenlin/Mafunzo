@@ -83,12 +83,10 @@
 
 .password-instructions {
     display: none;
-    border: 2px solid #ff0000;
+    border: #ff0000;
     margin-top: 5px;
-    font-size: 16px;
-    color: #ffffff;
-    padding: 10px;
-    box-sizing: border-box;
+    font-size: 8px;
+    color: #fd0000;
 }
 
 input {
