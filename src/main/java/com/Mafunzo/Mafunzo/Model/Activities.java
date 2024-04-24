@@ -1,9 +1,12 @@
 package com.Mafunzo.Mafunzo.Model;
 
 public interface Activities {
-    String getDescpriction();
+
     String getName();
+    String getDescription();
+    void setDescription(String description);
     double getDuration();
-    double getDistance();
+    void setDuration(double duration);
     String printInfo();
+
 }

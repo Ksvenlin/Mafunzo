@@ -2,23 +2,33 @@ package com.Mafunzo.Mafunzo.Model.Activity;
 
 import com.Mafunzo.Mafunzo.Model.Activities;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+
 public class SwimActivity implements Activities {
 
+    private String description;
     private double duration;
     private double distance;
 
 
     public SwimActivity(){
-
     }
 
     public void setDuration(double duration) {
         this.duration = duration;
     }
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     @Override
-    public String getDescpriction() {
-        return "Min första simtur!";
+    public String getDescription() {
+        return description;
     }
 
     @Override
@@ -34,12 +44,10 @@ public class SwimActivity implements Activities {
         return distance;
     }
 
-    @Override
-    public String printInfo() {
-        return null;
-    }
 
-    public void setDistance(double distance) {
-        this.distance = distance;
+    @Override
+    public String printInfo(){
+        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
+                "\n" + "Tid: " + getDuration() + " minuter" + "\n" + "Distans: " + getDistance() + " km";
     }
 }

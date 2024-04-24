@@ -1,9 +1,6 @@
 package com.Mafunzo.Mafunzo.Controller;
 
-import com.Mafunzo.Mafunzo.Model.Activity.BikeActivity;
-import com.Mafunzo.Mafunzo.Model.Activity.RunActivity;
-import com.Mafunzo.Mafunzo.Model.Activity.SwimActivity;
-import com.Mafunzo.Mafunzo.Model.Activity.WalkActivity;
+import com.Mafunzo.Mafunzo.Model.Activity.*;
 import com.Mafunzo.Mafunzo.Model.User;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.boot.Banner;
@@ -114,5 +111,17 @@ public class pageController {
         model.addAttribute("user", user);
         return "activities/runTraining";
     }
+    @GetMapping("/golfTraining")
+    public String golfTraining(Model model) {
+        model.addAttribute("golfActivity", new GolfActivity());
+        return "activities/golfTraining";
+    }
+
+    @GetMapping("/yogaTraining")
+    public String yogaTraining(Model model) {
+        model.addAttribute("yogaActivity", new YogaActivity());
+        return "activities/yogaTraining";
+    }
+
 
 }

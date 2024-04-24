@@ -13,17 +13,22 @@ public class WalkActivity implements Activities {
 
 
     public WalkActivity(){
-        this.description = "Min första promenad!";
-
     }
 
     public void setDuration(double duration) {
         this.duration = duration;
     }
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     @Override
-    public String getDescpriction() {
-        return "Min första promenad!";
+    public String getDescription() {
+        return description;
     }
 
     @Override
@@ -39,13 +44,10 @@ public class WalkActivity implements Activities {
         return distance;
     }
 
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
 
     @Override
     public String printInfo(){
-        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescpriction() +
+        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
                 "\n" + "Tid: " + getDuration() + " minuter" + "\n" + "Distans: " + getDistance() + " km";
     }
 }

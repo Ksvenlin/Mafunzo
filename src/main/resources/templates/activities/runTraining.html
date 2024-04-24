@@ -26,14 +26,16 @@
     <div class="row">
         <img src="images/gorilla-löper.png" alt="Löpning" class="bild">
         <div class="in-data">
-            <form th:action="@{/runTraining}" th:object="${runActivity}" method="post">
-                <p> Varaktighet </p>
-                <input type="number" id="duration" th:field="*{duration}" class="duration">
+            <form th:action="@{/registerRun}" th:object="${runActivity}" method="post">
+                <p> Varaktighet (HH, MM) </p>
+                <input type="number" th:field="*{duration}" class="duration">
                 <br> <br>
-                <p> Distans </p>
+                <p> Distans (km) </p>
                 <input type="number" th:field="*{distance}"  class="distance">
-                <br>
-                <br>
+                <br><br>
+                <p> Kommentar </p>
+                <input type="text" th:field="*{description}" class="description">
+                <br><br>
                 <button class="button" type="submit">Registrera</button>
             </form>
         </div>

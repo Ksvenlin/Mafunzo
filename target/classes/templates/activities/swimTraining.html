@@ -27,14 +27,17 @@
         <img src="images/gorilla-simmar.png" alt="Simning" class="bild">
         <div class="in-data">
             <form th:action="@{/registerSwim}" th:object="${swimActivity}" method="post">
-                <p> Varaktighet </p>
-                <input type="number" id="duration" th:field="*{duration}" class="duration">
+                <p> Varaktighet (HH, MM) </p>
+                <input type="number" th:field="*{duration}" class="duration">
                 <br> <br>
-                <p> Distans </p>
+                <p> Distans (km) </p>
                 <input type="number" th:field="*{distance}"  class="distance">
-                <br>
-                <br>
+                <br><br>
+                <p> Kommentar </p>
+                <input type="text" th:field="*{description}" class="description">
+                <br><br>
                 <button class="button" type="submit">Registrera</button>
+
             </form>
         </div>
     </div>

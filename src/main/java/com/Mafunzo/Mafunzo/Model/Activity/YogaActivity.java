@@ -2,17 +2,14 @@ package com.Mafunzo.Mafunzo.Model.Activity;
 
 import com.Mafunzo.Mafunzo.Model.Activities;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-
-public class BikeActivity implements Activities {
+public class YogaActivity implements Activities {
 
     private String description;
     private double duration;
     private double distance;
 
 
-    public BikeActivity(){
+    public YogaActivity(){
     }
 
     public void setDuration(double duration) {
@@ -33,7 +30,7 @@ public class BikeActivity implements Activities {
 
     @Override
     public String getName() {
-        return "Cykling";
+        return "Yoga";
     }
 
     public double getDuration() {

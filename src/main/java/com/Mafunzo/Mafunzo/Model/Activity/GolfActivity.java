@@ -2,17 +2,18 @@ package com.Mafunzo.Mafunzo.Model.Activity;
 
 import com.Mafunzo.Mafunzo.Model.Activities;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-public class BikeActivity implements Activities {
+public class GolfActivity implements Activities {
 
     private String description;
     private double duration;
     private double distance;
+    private List<ArrayList<Integer>> swings = new ArrayList<>();
 
 
-    public BikeActivity(){
+    public GolfActivity(){
     }
 
     public void setDuration(double duration) {
@@ -33,7 +34,7 @@ public class BikeActivity implements Activities {
 
     @Override
     public String getName() {
-        return "Cykling";
+        return "Golf";
     }
 
     public double getDuration() {
