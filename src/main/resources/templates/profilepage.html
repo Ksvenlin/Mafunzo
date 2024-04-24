@@ -54,10 +54,11 @@
                 <ul>
                     <li th:each="activity : ${user.activitiesList}">
                         <div class="activity">
-                            <h3 th:text="${activity.getName()}">Activity Name</h3>
+                            <!--<h3 th:text="${activity.getName()}">Activity Name</h3>
                             <p th:text="${activity.getDescpriction()}">Activity Description</p>
                             <p th:text="'duration: ' + ${activity.getDuration()} + ' min'">Duration</p>
-                            <p th:text="'distance: ' + ${activity.getDistance()} + 'km'">Distance  </p>
+                            <p th:text="'distance: ' + ${activity.getDistance()} + 'km'">Distance  </p>-->
+                            <p th:text="${activity.printInfo}">Activity Name</p>
                         </div>
                     </li>
                 </ul>

@@ -34,6 +34,11 @@ public class SwimActivity implements Activities {
         return distance;
     }
 
+    @Override
+    public String printInfo() {
+        return null;
+    }
+
     public void setDistance(double distance) {
         this.distance = distance;
     }

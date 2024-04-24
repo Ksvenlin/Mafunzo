@@ -42,4 +42,10 @@ public class WalkActivity implements Activities {
     public void setDistance(double distance) {
         this.distance = distance;
     }
+
+    @Override
+    public String printInfo(){
+        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescpriction() +
+                "\n" + "Tid: " + getDuration() + " minuter" + "\n" + "Distans: " + getDistance() + " km";
+    }
 }
