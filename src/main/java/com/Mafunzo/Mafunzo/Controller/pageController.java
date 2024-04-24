@@ -112,14 +112,24 @@ public class pageController {
         return "activities/runTraining";
     }
     @GetMapping("/golfTraining")
-    public String golfTraining(Model model) {
+    public String golfTraining(Model model , HttpSession session) {
         model.addAttribute("golfActivity", new GolfActivity());
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
         return "activities/golfTraining";
     }
 
     @GetMapping("/yogaTraining")
-    public String yogaTraining(Model model) {
+    public String yogaTraining(Model model , HttpSession session) {
         model.addAttribute("yogaActivity", new YogaActivity());
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
         return "activities/yogaTraining";
     }
 
