@@ -3,7 +3,7 @@
 nav {
     margin-bottom: 30px;
     background-color: #ff7100;
-    display: none;
+    display: flex;
     justify-content: space-around;
     padding: 0.5rem;
     border-radius: 10px;
@@ -21,13 +21,13 @@ body {
 
 header {
     background-color: #ff7100;
-    display: none;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
 }
 
-.nav-links {
+.nav a {
     font-size: 1rem;
     font-family: 'Press Start 2P', cursive;
     color: #ffffff;
@@ -36,16 +36,16 @@ header {
     text-decoration: none;
     transition: color 0.3s ease;
 }
-.nav-links {
+.nav a {
     font-size: 1rem;
     font-family: 'Press Start 2P', cursive;
 }
 
-.nav-links:hover {
+.nav a:hover {
     color: black;
 }
 
-.nav-links:active {
+.nav a:active {
     color: #834615;
 }
 
