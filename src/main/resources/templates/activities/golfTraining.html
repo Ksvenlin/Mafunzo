@@ -22,26 +22,112 @@
     <a th:href="@{/logOut}" class="button">Avsluta</a>
 </nav>
 
-<div class="endurance-container">
-    <div class="row">
-        <img src="images/gorilla-golfar.png" alt="Golf" class="bild">
-        <div class="in-data">
-            <form th:action="@{/registerGolf}" th:object="${golfActivity}" method="post">
-                <p> Varaktighet (HH, MM) </p>
-                <input type="number" th:field="*{duration}" class="duration">
-                <br> <br>
-                <p> Hål 1 </p>
-                <input type="number" th:field="" class="hole">
-                <p> Distans (km) </p>
-                <input type="number" th:field="*{distance}"  class="distance">
-                <br><br>
-                <p> Kommentar </p>
-                <input type="text" th:field="*{description}" class="description">
-                <br><br>
-                <button class="button" type="submit">Registrera</button>
-            </form>
+<div class="golf-container">
+    <form th:action="@{/registerGolf}" th:object="${golfActivity}" method="post">
+        <div class="row-one" >
+            <img src="images/gorilla-golfar.png" alt="Golf" class="bild">
+            <p> Varaktighet (HH, MM) </p>
+            <input type="number" th:field="*{duration}" class="duration">
+            <br> <br>
+            <p> Kommentar </p>
+            <input type="text" th:field="*{description}" class="description">
+            <br><br>
         </div>
-    </div>
-    <div class="caption">Promenad</div>
+        <div class="row-two" >
+            <div class="caption">Promenad</div>
+        </div>
+
+        <div class="row-three" >
+            <p> Hål 1</p>
+
+        </div>
+
+        <div class="row-four" >
+            <p> Hål 2</p>
+
+        </div>
+
+        <div class="row-five" >
+            <p> Hål 3</p>
+
+        </div>
+
+        <div class="row-six" >
+            <p> Hål 4</p>
+
+        </div>
+
+        <div class="row-seven" >
+            <p> Hål 5</p>
+
+
+        </div>
+
+        <div class="row-eight" >
+            <p> Hål 6</p>
+
+        </div>
+
+        <div class="row-nine" >
+            <p> Hål 7</p>
+
+        </div>
+
+        <div class="row-ten" >
+            <p> Hål 8</p>
+
+        </div>
+
+        <div class="row-eleven" >
+            <p> Hål 9</p>
+
+        </div>
+
+        <div class="row-twelve" >
+            <p> Hål 10</p>
+
+        </div>
+
+        <div class="row-thirteen" >
+            <p> Hål 11</p>
+
+        </div>
+
+        <div class="row-fourteen" >
+            <p> Hål 12</p>
+
+        </div>
+
+        <div class="row-fifteen" >
+            <p> Hål 13</p>
+
+        </div>
+
+        <div class="row-sixteen" >
+            <p> Hål 14</p>
+
+        </div>
+
+        <div class="row-seventeen" >
+            <p> Hål 15</p>
+
+        </div>
+
+        <div class="row-eighteen" >
+            <p> Hål 16</p>
+
+        </div>
+
+        <div class="row-nineteen" >
+            <p> Hål 17</p>
+
+        </div>
+        <div class="row-nineteen" >
+            <p> Hål 18</p>
+
+        </div>
+
+        <button class="button" type="submit">Registrera</button>
+
 </div>
-</body>
+

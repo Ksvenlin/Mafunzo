@@ -6,7 +6,7 @@ public class YogaActivity implements Activities {
 
     private String description;
     private double duration;
-    private double distance;
+
 
 
     public YogaActivity(){
@@ -15,9 +15,7 @@ public class YogaActivity implements Activities {
     public void setDuration(double duration) {
         this.duration = duration;
     }
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
+
 
     public void setDescription(String description) {
         this.description = description;
@@ -37,14 +35,12 @@ public class YogaActivity implements Activities {
         return duration;
     }
 
-    public double getDistance() {
-        return distance;
-    }
+
 
 
     @Override
     public String printInfo(){
         return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
-                "\n" + "Tid: " + getDuration() + " minuter" + "\n" + "Distans: " + getDistance() + " km";
+                "\n" + "Tid: " + getDuration() + " minuter";
     }
 }
