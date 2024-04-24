@@ -1,0 +1,43 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> Välkommen till Mafunzo! </title>
+    <link href="CSS/navbar.css" rel="stylesheet"/>
+</head>
+<body>
+<link href="CSS/Activities/enduraceActivities.css" rel="stylesheet">
+<nav class="navbar">
+    <a href="index">
+        <header>
+            <img src="images/logo.png" alt="Header image">
+            <h1>Mafunzo</h1>
+        </header>
+    </a>
+    <a href="registerActivity">Registrera Aktivitet</a>
+    <a href="#register">Vänner</a>
+    <a href="profilepage">
+        <img src="../images/profilepic.png" alt="Profile Picture" class="profile-pic">
+    </a>
+    <a href="search.html" class="fas fa-search"></a>
+</nav>
+
+<div class="endurance-container">
+    <div class="row">
+        <img src="images/gorilla-promenerar.png" alt="Promenad" class="bild">
+        <div class="in-data">
+            <form th:action="@{/registerWalk}" th:object="${walkActivity}" method="post">
+                <p> Varaktighet </p>
+                <input type="number" id="duration" th:field="*{duration}" class="duration">
+                <br> <br>
+                <p> Distans </p>
+                <input type="number" th:field="*{distance}"  class="distance">
+                <br>
+                <br>
+                <button class="button" type="submit">Registrera</button>
+            </form>
+        </div>
+    </div>
+    <div class="caption">Promenad</div>
+</div>
+</body>

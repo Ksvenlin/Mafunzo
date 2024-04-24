@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="../CSS/navbar.css"/>
+    <link rel="stylesheet" href="../CSS/profilePage.css"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="home">
+        <header>
+            <img src="../images/logo.png" alt="Header image">
+            <h1>Mafunzo</h1>
+        </header>
+    </a>
+    <a href="registerActivity">Registrera Aktivitet</a>
+    <a href="#register">Vänner</a>
+    <a href="profilepage">
+        <img src="../images/kevin.jpeg" alt="Profile Picture" class="profile-pic" >
+    </a>
+    <a href="search.html" class="fas fa-search"></a>
+</nav>
+
+<div class="content-container-profile">
+    <div class="profile-flex-container">
+        <div class="profile-and-xp">
+            <div class="profile-pic-in-page">
+                <img src="../images/kevin.jpeg" alt="profilePic">
+
+                <div th:if="${user}">
+                    <h2 th:text="${user.getName()}">fullname</h2>
+                    <h3 th:text="'Level: '+${user.getLvl()} ">level</h3>
+                </div>
+                <div th:unless="${user}">
+                    <p>User not found</p>
+                </div>
+
+            </div>
+            <div class="xp-bar-container">
+                <div class="xp-bar" th:style="'width:' + ${user.getXp()} + '%'"></div>
+                <div class="xp-text" th:text="${user.getXp()} + '/' + ${user.getXpToLevel}">0/100</div>
+                <div class="streak-container">
+                    <img src="../images/fire-emoji-yo.png" alt="fire-emoji" class="fire-emoji">
+                    <h4 class="streak" th:text="${user.getStreak()}">0</h4>
+                </div>
+            </div>
+        </div>
+        <div class="activities">
+            <div class="activity">
+                <h3>Aktivitet 1</h3>
+            </div>
+            <div class="activity">
+                <h3>Aktivitet 2</h3>
+            </div>
+            <div class="activity">
+                <h3>Aktivitet 3</h3>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+

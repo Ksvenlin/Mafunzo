@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+nav {
+    margin-bottom: 30px;
+    background-color: #ff7100;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/bakgrund2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: #ff7100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+nav a {
+    font-size: 2rem;
+    font-family: 'Press Start 2P', cursive;
+    color: #ffffff;
+    padding: 1rem;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: black;
+}
+
+nav a:active {
+    color: #834615;
+}
+
+header img,
+.profile-pic {
+    max-height: 80px;
+    max-width: 80px;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    border-radius: 50%;
+}
+a img.profile-pic:hover {
+    border: 2px solid black;
+    transition: border 0.3s ease;
+
+}
+
+header h1 {
+    font-size: 2rem;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    color: #ffffff;
+    margin: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+header:hover h1 {
+    color: black;
+}
+
+.fas.fa-search {
+    color: white;
+    font-size: 32px;
+    justify-content: center;
+    align-items: center;
+}

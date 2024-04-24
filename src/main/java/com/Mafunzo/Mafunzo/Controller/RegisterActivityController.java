@@ -32,21 +32,21 @@ private User user;
 
     @PostMapping("/registerRun")
     public String registerRun(@ModelAttribute RunActivity runActivity) {
-        User user = new User(new XpSystem(10, 10, 10, 10, 10), "fname","lname", "email", "password", 10);
+        //User user = new User(new XpSystem(10, 10, 10, 10, 10), "fname","lname", "email", "password", 10);
         user.getActivitiesList().add(runActivity);
         return "homePage";
     }
 
     @PostMapping("/registerSwim")
     public String registerSwim(@ModelAttribute SwimActivity swimActivity) {
-        User user = new User(new XpSystem(10, 10, 10, 10, 10), "fname","lname", "email", "password", 10);
+        //User user = new User(new XpSystem(10, 10, 10, 10, 10), "fname","lname", "email", "password", 10);
         user.getActivitiesList().add(swimActivity);
         return "homePage";
     }
 
     @PostMapping("/registerBike")
     public String registerBike(@ModelAttribute BikeActivity bikeActivity) {
-        User user = new User(new XpSystem(10, 10, 10, 10, 10), "fname","lname", "email", "password", 10);
+        //User user = new User(new XpSystem(10, 10, 10, 10, 10), "fname","lname", "email", "password", 10);
         user.getActivitiesList().add(bikeActivity);
         return "homePage";
     }

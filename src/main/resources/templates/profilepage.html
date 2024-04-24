@@ -20,7 +20,8 @@
     <a href="registerActivity">Registrera Aktivitet</a>
     <a href="#register">Vänner</a>
     <a href="profilepage">
-        <img src="../images/kevin.jpeg" alt="Profile Picture" class="profile-pic" >
+        <!--<img src="../images/kevin.jpeg" alt="Profile Picture" class="profile-pic" > -->
+        <img th:src="'data:image/jpeg;base64,'+${user.image}" alt="Profile Picture" class="profile-pic">
     </a>
     <a href="search.html" class="fas fa-search"></a>
 </nav>
@@ -29,7 +30,8 @@
     <div class="profile-flex-container">
         <div class="profile-and-xp">
             <div class="profile-pic-in-page">
-                <img src="../images/kevin.jpeg" alt="profilePic">
+                <!--<img src="../images/kevin.jpeg" alt="profilePic"> -->
+                <img th:src="'data:image/jpeg;base64,'+${user.image}" alt="Profile Picture" class="profile-pic">
 
                 <div th:if="${user}">
                     <h2 th:text="${user.getName()}">fullname</h2>

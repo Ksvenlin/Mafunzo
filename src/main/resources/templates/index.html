@@ -30,6 +30,9 @@
                 <div class="input-group">
                     <input type="password" placeholder="Lösenord">
                 </div>
+                <div class="input-group">
+                    <input type="file" id="file" name="file" accept="image/*" placeholder="Profilbild">
+                </div>
 
                 <div class="input-group-question" id="question1">
                     <p>Hur många träningspass kör du i veckan?</p>
@@ -140,6 +143,7 @@
     let loginButton = document.getElementById("loginButton");
     let fname = document.getElementById("nameField1")
     let lname = document.getElementById("nameField2")
+    let imagebox = document.getElementById("file")
     let title = document.getElementById("title");
     let q1 = document.getElementById("question1");
     let q2 = document.getElementById("question2");
@@ -157,10 +161,13 @@
     let contentContainer = document.querySelector('.content-container-register');
     let buttonfield = document.querySelector('.button-field');
     let radioButtons = document.querySelectorAll("input[type='radio']");
+    let file = document.querySelector("#file");
 
     let totalScore = 0;
     fname.style.maxHeight = "0";
     lname.style.maxHeight = "0";
+    imagebox.style.maxHeight = "0";
+    imagebox.style.display = "none";
     title.innerHTML = "Logga in";
     registerButton.classList.add("disable");
     loginButton.classList.remove("disable");
@@ -240,10 +247,13 @@
     registerButton.onclick = function () {
         fname.style.maxHeight = "60px";
         lname.style.maxHeight = "60px";
+        imagebox.style.maxHeight = "60px";
+        imagebox.style.display = "block";
         title.innerHTML = "Registrera dig";
         registerButton.classList.remove("disable");
         loginButton.classList.add("disable");
         isLogInButtonPressed = false;
+
     }
 
     /*
@@ -380,19 +390,30 @@
             }
         });
 
+        var formData = new FormData();
+        formData.append("fname", nameField1.value);
+        formData.append("lname", nameField2.value);
+        formData.append("email", email.value);
+        formData.append("password", password.value);
+        formData.append("evaluationScore", totalScore);
+        formData.append("image", file.files[0]);
+
         fetch('/addUser', {
             method: 'POST',
-            headers: {
+            /*headers: {
                 'Content-Type': 'application/json'
             },
+
             body: JSON.stringify({
                 fname: nameField1.value,
                 lname: nameField2.value,
                 email: email.value,
                 password: password.value,
                 evaluationScore: totalScore,
-            })
-        })
+                image: file.value
+            }) */
+        body: formData
+    })
             .then(response => {
                 if (!response.ok) {
                     return response.json().then(data => {
