@@ -6,6 +6,7 @@ import com.Mafunzo.Mafunzo.Model.Activity.SwimActivity;
 import com.Mafunzo.Mafunzo.Model.Activity.WalkActivity;
 import com.Mafunzo.Mafunzo.Model.User;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,12 @@ public class pageController {
     //Mapping for the pages accessible from the navigation bar
 
     @GetMapping("/home")
-    public String login() {
+    public String login(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
         return "homePage";
     }
 
@@ -38,35 +44,65 @@ public class pageController {
     }
 
     @GetMapping("/registerActivity")
-    public String registerActivity() {
+    public String registerActivity(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
         return "registerActivity";
     }
 
     //Mappings for rerouting the user to the correct page when clicking on the different activities
 
     @GetMapping("/strengthTraining")
-    public String strengthTraining() {
+    public String strengthTraining(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
         return "activities/strengthTraining";
     }
 
     @GetMapping("/walkTraining")
-    public String walkTraining(Model model) {
+    public String walkTraining(Model model, HttpSession session) {
         model.addAttribute("walkActivity", new WalkActivity());
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
         return "activities/walkTraining";
     }
     @GetMapping("/swimTraining")
-    public String swimTraining(Model model) {
+    public String swimTraining(Model model, HttpSession session) {
         model.addAttribute("swimActivity", new SwimActivity());
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
         return "activities/swimTraining";
     }
     @GetMapping("/bikeTraining")
-    public String bikeTraining(Model model) {
+    public String bikeTraining(Model model, HttpSession session) {
         model.addAttribute("bikeActivity", new BikeActivity());
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
         return "activities/bikeTraining";
     }
     @GetMapping("/runTraining")
-    public String runTraining(Model model) {
+    public String runTraining(Model model, HttpSession session) {
         model.addAttribute("runActivity", new RunActivity());
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
         return "activities/runTraining";
     }
 

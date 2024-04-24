@@ -67,7 +67,10 @@
     border-radius: 10%;
     width: 100%;
     max-width: 400px;
+    max-height: 400px;
     height: auto;
+    min-width: 400px;
+    min-height: 400px;
 }
 
 .profile-pic-in-page h5 {
