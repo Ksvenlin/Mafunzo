@@ -75,6 +75,7 @@ public class pageController {
         model.addAttribute("user", user);
         return "activities/walkTraining";
     }
+
     @GetMapping("/swimTraining")
     public String swimTraining(Model model, HttpSession session) {
         model.addAttribute("swimActivity", new SwimActivity());
@@ -85,6 +86,7 @@ public class pageController {
         model.addAttribute("user", user);
         return "activities/swimTraining";
     }
+
     @GetMapping("/bikeTraining")
     public String bikeTraining(Model model, HttpSession session) {
         model.addAttribute("bikeActivity", new BikeActivity());
@@ -95,6 +97,7 @@ public class pageController {
         model.addAttribute("user", user);
         return "activities/bikeTraining";
     }
+
     @GetMapping("/runTraining")
     public String runTraining(Model model, HttpSession session) {
         model.addAttribute("runActivity", new RunActivity());

@@ -27,11 +27,6 @@ public class userHandler {
     Method for adding users to the database, this method calls for the userService which talks to the
     database.
     */
-
-    /*@PostMapping("/addUser")
-    public String addUser(@RequestBody User user, Model model) {
-
-     */
     @PostMapping("/addUser")
     public String addUser(@RequestParam("fname") String fname, @RequestParam("lname") String lname, @RequestParam("email") String email, @RequestParam("password") String password, @RequestParam("evaluationScore") int evaluationScore, @RequestParam("image") MultipartFile image, Model model) throws IOException {
         String imageString = Base64.getEncoder().encodeToString(image.getBytes());

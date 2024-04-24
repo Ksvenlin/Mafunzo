@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class RegisterActivityController {
     @Autowired
-private UserService userService;
-private User user;
+    private UserService userService;
+    private User user;
+
     @PostMapping("/registerWalk")
     public String registerWalk(HttpSession session, WalkActivity walkActivity, Model model) {
         user = (User) session.getAttribute("loggedUser");
@@ -32,26 +33,21 @@ private User user;
 
     @PostMapping("/registerRun")
     public String registerRun(@ModelAttribute RunActivity runActivity) {
-        //User user = new User(new XpSystem(10, 10, 10, 10, 10), "fname","lname", "email", "password", 10);
         user.getActivitiesList().add(runActivity);
         return "homePage";
     }
 
     @PostMapping("/registerSwim")
     public String registerSwim(@ModelAttribute SwimActivity swimActivity) {
-        //User user = new User(new XpSystem(10, 10, 10, 10, 10), "fname","lname", "email", "password", 10);
         user.getActivitiesList().add(swimActivity);
         return "homePage";
     }
 
     @PostMapping("/registerBike")
     public String registerBike(@ModelAttribute BikeActivity bikeActivity) {
-        //User user = new User(new XpSystem(10, 10, 10, 10, 10), "fname","lname", "email", "password", 10);
         user.getActivitiesList().add(bikeActivity);
         return "homePage";
     }
-
-
 
 
 }

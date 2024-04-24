@@ -26,6 +26,7 @@
     border-radius: 10%;
     padding: 20px;
 }
+
 .profile-pic-in-page .fullName h2 {
     text-align: center;
     margin-top: 20px;
@@ -53,6 +54,7 @@
     font-family: 'Press Start 2P', cursive;
     width: 100%;
 }
+
 .profile-pic-in-page h4 {
     text-align: center;
     margin-top: 20px;
@@ -85,7 +87,7 @@
     font-size: 1rem;
     font-family: 'Press Start 2P', cursive;
     text-align: center;
-    color: #ffffff ;
+    color: #ffffff;
     margin-top: -20px;
 }
 
@@ -104,7 +106,7 @@
 }
 
 .xp-bar {
-    width:calc(100% - 2em);
+    width: calc(100% - 2em);
     height: 100%;
     background-color: #0080ff;
     border-radius: 5px;
@@ -134,6 +136,9 @@
     border-radius: 10px;
     font-family: 'Press Start 2P', cursive;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .activity {
@@ -141,6 +146,21 @@
     padding: 1em;
     margin-bottom: 20px;
     border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.activities ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.activities li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .streak-container {
@@ -159,14 +179,14 @@
     margin-right: 5px;
 }
 
-.streak-container h4{
-text-align: center;
-margin-top: auto;
-margin-bottom: auto;
-color: #ffffff !important;
-font-size: 1.25rem;
-font-family: 'Press Start 2P', cursive;
-width: 100%;
+.streak-container h4 {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #ffffff !important;
+    font-size: 1.25rem;
+    font-family: 'Press Start 2P', cursive;
+    width: 100%;
 }
 
 
