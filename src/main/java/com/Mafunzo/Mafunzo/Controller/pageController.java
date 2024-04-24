@@ -33,6 +33,12 @@ public class pageController {
         return "homePage";
     }
 
+    @GetMapping("/logOut")
+    public String logOut(HttpSession session) {
+        session.removeAttribute("loggedUser");
+        return "redirect:/index";
+    }
+
     @GetMapping("/profilepage")
     public String profile(HttpSession session, Model model) {
         User user = (User) session.getAttribute("loggedUser");

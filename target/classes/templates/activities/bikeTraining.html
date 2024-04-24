@@ -17,9 +17,10 @@
     <a href="registerActivity">Registrera Aktivitet</a>
     <a href="#register">Vänner</a>
     <a href="profilepage">
-        <img src="../images/profilepic.png" alt="Profile Picture" class="profile-pic">
+        <img th:src="'data:image/jpeg;base64,'+${user.image}" alt="Profile Picture" class="profile-pic">
     </a>
-    <a href="search.html" class="fas fa-search"></a>
+    <a th:href="@{/logOut}" class="button">Avsluta</a>
+
 </nav>
 
 <div class="endurance-container">

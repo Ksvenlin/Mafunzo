@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -20,10 +19,11 @@
     <a href="registerActivity">Registrera Aktivitet</a>
     <a href="#register">Vänner</a>
     <a href="profilepage">
-        <!--<img src="../images/kevin.jpeg" alt="Profile Picture" class="profile-pic" > -->
         <img th:src="'data:image/jpeg;base64,'+${user.image}" alt="Profile Picture" class="profile-pic">
     </a>
-    <a href="search.html" class="fas fa-search"></a>
+    <a th:href="@{/logOut}" class="button">Avsluta</a>
+
+
 </nav>
 
 <div class="content-container-profile">
@@ -52,21 +52,21 @@
             </div>
         </div>
 
-            <div class="activities">
-                <ul>
-                    <li th:each="activity : ${user.activitiesList}">
-                        <div class="activity">
-                            <!--<h3 th:text="${activity.getName()}">Activity Name</h3>
-                            <p th:text="${activity.getDescpriction()}">Activity Description</p>
-                            <p th:text="'duration: ' + ${activity.getDuration()} + ' min'">Duration</p>
-                            <p th:text="'distance: ' + ${activity.getDistance()} + 'km'">Distance  </p>-->
-                            <p th:text="${activity.printInfo}">Activity Name</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+        <div class="activities">
+            <ul>
+                <li th:each="activity : ${user.activitiesList}">
+                    <div class="activity">
+                        <!--<h3 th:text="${activity.getName()}">Activity Name</h3>
+                        <p th:text="${activity.getDescpriction()}">Activity Description</p>
+                        <p th:text="'duration: ' + ${activity.getDuration()} + ' min'">Duration</p>
+                        <p th:text="'distance: ' + ${activity.getDistance()} + 'km'">Distance  </p>-->
+                        <p th:text="${activity.printInfo}">Activity Name</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-        
+
     </div>
 </div>
 </body>

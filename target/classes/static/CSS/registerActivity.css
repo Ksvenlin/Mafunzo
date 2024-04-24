@@ -1,13 +1,13 @@
-.content-container{
+.content-container {
     background-color: rgba(59, 56, 56, 0.8);
     width: auto;
     height: auto;
     margin: 50px 250px; /* marginaler på bakgrunden */
-    border-radius: 50px;/* rundar hörnen */
-    text-align:  center;
+    border-radius: 50px; /* rundar hörnen */
+    text-align: center;
     overflow: hidden;
     alignment-baseline: auto;
-    padding: 0 0 100px ;
+    padding: 0 0 100px;
 }
 
 .image-grid button {

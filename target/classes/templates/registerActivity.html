@@ -19,7 +19,8 @@
     <a href="profilepage">
         <img th:src="'data:image/jpeg;base64,'+${user.image}" alt="Profile Picture" class="profile-pic">
     </a>
-    <a href="search.html" class="fas fa-search"></a>
+    <a th:href="@{/logOut}" class="button">Avsluta</a>
+
 </nav>
 
 <div class="content-container">
