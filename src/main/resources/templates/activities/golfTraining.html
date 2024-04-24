@@ -6,7 +6,7 @@
     <link href="CSS/navbar.css" rel="stylesheet"/>
 </head>
 <body>
-<link href="CSS/registerActivity.css" rel="stylesheet">
+<link href="CSS/Activities/golfActivities.css" rel="stylesheet">
 <nav class="navbar">
     <a href="index">
         <header>
@@ -22,6 +22,26 @@
     <a href="search.html" class="fas fa-search"></a>
 </nav>
 
-<div>
-
+<div class="endurance-container">
+    <div class="row">
+        <img src="images/gorilla-golfar.png" alt="Golf" class="bild">
+        <div class="in-data">
+            <form th:action="@{/registerGolf}" th:object="${golfActivity}" method="post">
+                <p> Varaktighet (HH, MM) </p>
+                <input type="number" th:field="*{duration}" class="duration">
+                <br> <br>
+                <p> Hål 1 </p>
+                <input type="number" th:field="" class="hole">
+                <p> Distans (km) </p>
+                <input type="number" th:field="*{distance}"  class="distance">
+                <br><br>
+                <p> Kommentar </p>
+                <input type="text" th:field="*{description}" class="description">
+                <br><br>
+                <button class="button" type="submit">Registrera</button>
+            </form>
+        </div>
+    </div>
+    <div class="caption">Promenad</div>
 </div>
+</body>
