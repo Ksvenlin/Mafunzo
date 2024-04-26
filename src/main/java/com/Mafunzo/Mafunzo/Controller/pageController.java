@@ -113,7 +113,8 @@ public class pageController {
     }
     @GetMapping("/golfTraining")
     public String golfTraining(Model model , HttpSession session) {
-        model.addAttribute("golfActivity", new GolfActivity());
+        GolfActivity temp = new GolfActivity();
+        model.addAttribute("golfActivity", temp);
         User user = (User) session.getAttribute("loggedUser");
         if (user == null) {
             return "redirect:/index";

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
@@ -29,105 +30,32 @@
             <p> Varaktighet (HH, MM) </p>
             <input type="number" th:field="*{duration}" class="duration">
             <br> <br>
-            <p> Kommentar </p>
+            <p th:text="Kommentar" ></p>
             <input type="text" th:field="*{description}" class="description">
-            <br><br>
+            <br><br><br><br>
         </div>
+
         <div class="row-two" >
-            <div class="caption">Promenad</div>
+            <div class="caption">Golf</div>
         </div>
 
-        <div class="row-three" >
-            <p> Hål 1</p>
-
+        <div class="holes">
+            <div th:each="hole, holeIndex : ${golfActivity.scoreCard}">
+                <div class="row-hole">
+                    <p th:text="'Hål ' + ${hole.getHoleNumber()}" class="hole-caption"> </p>
+                    <br>
+                    <p class="strokes-caption"> Slag </p>
+                    <input type="number" min="1" th:field="*{scoreCard[__${holeIndex.index}__].strokes}" class="input-strokes" />
+                    <p class="points-caption"> Poäng </p>
+                    <input type="number" min="0" th:field="*{scoreCard[__${holeIndex.index}__].points}" class="input-points"/>
+                </div>
+            </div>
         </div>
-
-        <div class="row-four" >
-            <p> Hål 2</p>
-
-        </div>
-
-        <div class="row-five" >
-            <p> Hål 3</p>
-
-        </div>
-
-        <div class="row-six" >
-            <p> Hål 4</p>
-
-        </div>
-
-        <div class="row-seven" >
-            <p> Hål 5</p>
-
-
-        </div>
-
-        <div class="row-eight" >
-            <p> Hål 6</p>
-
-        </div>
-
-        <div class="row-nine" >
-            <p> Hål 7</p>
-
-        </div>
-
-        <div class="row-ten" >
-            <p> Hål 8</p>
-
-        </div>
-
-        <div class="row-eleven" >
-            <p> Hål 9</p>
-
-        </div>
-
-        <div class="row-twelve" >
-            <p> Hål 10</p>
-
-        </div>
-
-        <div class="row-thirteen" >
-            <p> Hål 11</p>
-
-        </div>
-
-        <div class="row-fourteen" >
-            <p> Hål 12</p>
-
-        </div>
-
-        <div class="row-fifteen" >
-            <p> Hål 13</p>
-
-        </div>
-
-        <div class="row-sixteen" >
-            <p> Hål 14</p>
-
-        </div>
-
-        <div class="row-seventeen" >
-            <p> Hål 15</p>
-
-        </div>
-
-        <div class="row-eighteen" >
-            <p> Hål 16</p>
-
-        </div>
-
-        <div class="row-nineteen" >
-            <p> Hål 17</p>
-
-        </div>
-        <div class="row-nineteen" >
-            <p> Hål 18</p>
-
-        </div>
-
         <button class="button" type="submit">Registrera</button>
 
 </div>
+</body>
+</html>
+
+
 

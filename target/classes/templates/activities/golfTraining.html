@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
@@ -22,39 +23,39 @@
     <a th:href="@{/logOut}" class="button">Avsluta</a>
 </nav>
 
-<div class="gold-container">
+<div class="golf-container">
     <form th:action="@{/registerGolf}" th:object="${golfActivity}" method="post">
         <div class="row-one" >
             <img src="images/gorilla-golfar.png" alt="Golf" class="bild">
             <p> Varaktighet (HH, MM) </p>
             <input type="number" th:field="*{duration}" class="duration">
             <br> <br>
-            <p> Kommentar </p>
+            <p th:text="Kommentar" ></p>
             <input type="text" th:field="*{description}" class="description">
-            <br><br>
+            <br><br><br><br>
         </div>
 
         <div class="row-two" >
-            
+            <div class="caption">Golf</div>
         </div>
 
-</div>
-
-<div class="golf-container">
-    <div class="row-one">
-        <div class="in-data">
-            <form th:action="@{/registerGolf}" th:object="${golfActivity}" method="post">
-
-                <p> Hål 1 </p>
-                <input type="number" th:field="" class="hole">
-                <p> Distans (km) </p>
-                <input type="number" th:field="*{distance}"  class="distance">
-                <br><br>
-
-                <button class="button" type="submit">Registrera</button>
-            </form>
+        <div class="holes">
+            <div th:each="hole, holeIndex : ${golfActivity.scoreCard}">
+                <div class="row-hole">
+                    <p th:text="'Hål ' + ${hole.getHoleNumber()}" class="hole-caption"> </p>
+                    <br>
+                    <p class="strokes-caption"> Slag </p>
+                    <input type="number" min="1" th:field="*{scoreCard[__${holeIndex.index}__].strokes}" class="input-strokes" />
+                    <p class="points-caption"> Poäng </p>
+                    <input type="number" min="0" th:field="*{scoreCard[__${holeIndex.index}__].points}" class="input-points"/>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="caption">Promenad</div>
+        <button class="button" type="submit">Registrera</button>
+
 </div>
 </body>
+</html>
+
+
+
