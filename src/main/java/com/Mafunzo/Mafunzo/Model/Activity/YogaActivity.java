@@ -2,14 +2,24 @@ package com.Mafunzo.Mafunzo.Model.Activity;
 
 import com.Mafunzo.Mafunzo.Model.Activities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class YogaActivity implements Activities {
 
     private String description;
     private double duration;
 
+    private List<Exercise> exerciseList;
+
+
 
 
     public YogaActivity(){
+        exerciseList = new ArrayList<>();
+        Exercise temp = new Exercise();
+        temp.setExerciseNumber(exerciseList.size() + 1);
+        exerciseList.add(temp);
     }
 
     public void setDuration(double duration) {
@@ -35,8 +45,9 @@ public class YogaActivity implements Activities {
         return duration;
     }
 
-
-
+    public List<Exercise> getExerciseList() {
+        return exerciseList;
+    }
 
     @Override
     public String printInfo(){

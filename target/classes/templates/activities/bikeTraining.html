@@ -28,11 +28,11 @@
         <img src="images/gorilla-cyklar.png" alt="Cykling" class="bild">
         <div class="in-data">
             <form th:action="@{/registerBike}" th:object="${bikeActivity}" method="post">
-                <p> Varaktighet (HH, MM) </p>
+                <p> Varaktighet (Minuter) </p>
                 <input type="number" th:field="*{duration}" class="duration">
                 <br> <br>
                 <p> Distans (km) </p>
-                <input type="number" th:field="*{distance}"  class="distance">
+                <input type="number" step="0.1" th:field="*{distance}"  class="distance">
                 <br><br>
                 <p> Kommentar </p>
                 <input type="text" th:field="*{description}" class="description">

@@ -23,20 +23,41 @@
 </nav>
 
 <div class="mobility-container">
+    <form id="register" th:action="@{/registerYoga}" th:object="${yogaActivity}" method="post">
     <div class="row">
         <img src="images/gorilla-yoga.png" alt="Yoga" class="bild">
         <div class="in-data">
-            <form th:action="@{/registerYoga}" th:object="${yogaActivity}" method="post">
-                <p> Varaktighet (HH,MM) </p>
+                <p> Varaktighet (Minuter) </p>
                 <input type="number" th:field="*{duration}" class="duration">
                 <br> <br>
                 <p> Kommentar </p>
                 <input type="text" th:field="*{description}" class="description">
-                <br><br>
-                <button class="button" type="submit">Registrera</button>
-            </form>
+                <br><br><br><br>
         </div>
     </div>
-    <div class="caption">Yoga</div>
+
+    <div class="row-two" >
+        <div class="caption">Yoga</div>
+        <button class="add" type="submit" name="add"> Lägg till övning </button>
+    </div>
+
+    <div class ="exercise-container">
+        <div th:each="exercise, index : ${yogaActivity.exerciseList}">
+                <div class ="exercise">
+                    <br>
+                    <p th:text="'Övning ' + ${exercise.exerciseNumber}" class="exercise-caption" ></p>
+                    <br>
+                    <div>
+                        <p th:text="Namn" class="exercise-name"></p>
+                        <input type="text" th:field="*{exerciseList[__${index.index}__].name}" class="input-name"/>
+                        <p class="exercise-duration" > Tid (Minuter)</p>
+                        <input type="text" th:field="*{exerciseList[__${index.index}__].rep}" class="input-name"/>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <button class="button" type="submit" name="register">Registrera</button>
+    </form>
 </div>
 </body>
+</html>

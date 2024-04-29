@@ -3,10 +3,10 @@
     background-color: rgba(59, 56, 56, 0.8);
     width: 52%;
     height:38%;
-    margin: 50px auto; /* marginaler på bakgrunden */
-    border-radius: 50px;/* rundar hörnen */
+    margin: 50px auto;
+    border-radius: 50px;
     text-align: center;
-    padding: 75px 75px 75px;
+    padding: 75px 75px 90px;
 }
 
 .mobility-container .caption {
@@ -16,6 +16,7 @@
     font-family: sans-serif;
     text-align: left;
     margin-top: 10%;
+    margin-left: 7.5%;
 }
 
 .mobility-container .bild{
@@ -44,14 +45,31 @@
     width: 400px;
     float: right;
 }
+
 .mobility-container p{
     display: inline-block;
     margin-left : auto;
     color: #ffffff;
     font-family: sans-serif;
 }
-.mobility-container button{
+
+.mobility-container .button{
     float: right;
+    font-size: 2rem;
+    background-color: rgba(59, 56, 56, 0.8);
+    color: white;
+    border: 3px solid rgb(200, 200,200);
+    border-radius: 50px;
+    margin: 2.5%;
+}
+.mobility-container .add{
+    float: right;
+    font-size: 1rem;
+    background-color: rgba(59, 56, 56, 0.8);
+    color: white;
+    border: 3px solid rgb(200, 200,200);
+    border-radius: 50px;
+    margin: 2.5%;
 }
 
 

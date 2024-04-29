@@ -64,15 +64,24 @@ private User user;
     }
 
     @PostMapping("/registerYoga")
-    public String registerYoga(HttpSession session, YogaActivity yogaActivity, Model model) {
-        user = (User) session.getAttribute("loggedUser");
-        user.getActivitiesList().add(yogaActivity);
-        userService.updateActivity(user);
-        model.addAttribute("user", user);
+    public String registerYoga(HttpSession session, @RequestParam(required = false) String register, @RequestParam(required = false) String add, YogaActivity yogaActivity, Model model) {
+
+        if (add != null) {
+            user = (User) session.getAttribute("loggedUser");
+            model.addAttribute("user", user);
+            Exercise tempExercise = new Exercise();
+            yogaActivity.getExerciseList().add(tempExercise);
+            for(int i = 0; i < yogaActivity.getExerciseList().size(); i++ ){
+                yogaActivity.getExerciseList().get(i).setExerciseNumber(i+1);
+            }
+            model.addAttribute("yogaActivity", yogaActivity);
+            return "activities/yogaTraining";
+        } else if (register != null) {
+            user = (User) session.getAttribute("loggedUser");
+            user.getActivitiesList().add(yogaActivity);
+            userService.updateActivity(user);
+            model.addAttribute("user", user);
+        }
         return "profilepage";
     }
-
-
-
-
 }
