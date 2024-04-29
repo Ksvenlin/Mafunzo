@@ -81,6 +81,16 @@
     padding: 0px;
 }
 
+.password-instructions {
+    display: none;
+    border: 2px solid #ff0000;
+    margin-top: 5px;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 input {
     width: 100%;
     background: transparent;
@@ -115,7 +125,8 @@ input {
 }
 
 input[type='text'][placeholder='Email'],
-input[type='password'] {
+input[type='password'],
+input[type='file'] {
     border-bottom: 3px solid transparent;
     transition: border-color 0.3s ease;
 }

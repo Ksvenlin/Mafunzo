@@ -1,3 +1,0 @@
-function continueButtonClick (email, password) {
-
-}
