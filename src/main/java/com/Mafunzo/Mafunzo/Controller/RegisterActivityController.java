@@ -3,7 +3,6 @@ package com.Mafunzo.Mafunzo.Controller;
 import com.Mafunzo.Mafunzo.Model.Activity.*;
 import com.Mafunzo.Mafunzo.Model.User;
 import com.Mafunzo.Mafunzo.Model.UserService;
-import com.Mafunzo.Mafunzo.Model.XpSystem;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -79,6 +78,58 @@ private User user;
         } else if (register != null) {
             user = (User) session.getAttribute("loggedUser");
             user.getActivitiesList().add(yogaActivity);
+            userService.updateActivity(user);
+            model.addAttribute("user", user);
+        }
+        return "profilepage";
+    }
+    @PostMapping("/registerStretching")
+    public String registerStretching(HttpSession session, @RequestParam(required = false) String register, @RequestParam(required = false) String add, StretchActivity stretchActivity, Model model) {
+
+        if (add != null) {
+            user = (User) session.getAttribute("loggedUser");
+            model.addAttribute("user", user);
+            Exercise tempExercise = new Exercise();
+            stretchActivity.getExerciseList().add(tempExercise);
+            for(int i = 0; i < stretchActivity.getExerciseList().size(); i++ ){
+                stretchActivity.getExerciseList().get(i).setExerciseNumber(i+1);
+            }
+            model.addAttribute("stretchTraining", stretchActivity);
+            return "activities/stretchTraining";
+        } else if (register != null) {
+            user = (User) session.getAttribute("loggedUser");
+            user.getActivitiesList().add(stretchActivity);
+            userService.updateActivity(user);
+            model.addAttribute("user", user);
+        }
+        return "profilepage";
+    }
+
+    @PostMapping("/registerOther")
+    public String registerSwim(HttpSession session, OtherActivity otherActivity , Model model) {
+        user = (User) session.getAttribute("loggedUser");
+        user.getActivitiesList().add(otherActivity);
+        userService.updateActivity(user);
+        model.addAttribute("user", user);
+        return "profilepage";
+    }
+
+    @PostMapping("/registerStrength")
+    public String registerStrength(HttpSession session, @RequestParam(required = false) String register, @RequestParam(required = false) String add, StrengthActivity strengthActivity, Model model) {
+
+        if (add != null) {
+            user = (User) session.getAttribute("loggedUser");
+            model.addAttribute("user", user);
+            Exercise tempExercise = new Exercise();
+            strengthActivity.getExerciseList().add(tempExercise);
+            for(int i = 0; i < strengthActivity.getExerciseList().size(); i++ ){
+                strengthActivity.getExerciseList().get(i).setExerciseNumber(i+1);
+            }
+            model.addAttribute("strengthTraining", strengthActivity);
+            return "activities/strengthTraining";
+        } else if (register != null) {
+            user = (User) session.getAttribute("loggedUser");
+            user.getActivitiesList().add(strengthActivity);
             userService.updateActivity(user);
             model.addAttribute("user", user);
         }

@@ -6,7 +6,7 @@
     <link href="CSS/navbar.css" rel="stylesheet"/>
 </head>
 <body>
-<link href="CSS/Activities/mobilityActivities.css" rel="stylesheet">
+<link href="CSS/Activities/yogaActivities.css" rel="stylesheet">
 <nav class="navbar">
     <a href="index">
         <header>
@@ -22,7 +22,7 @@
     <a th:href="@{/logOut}" class="button">Avsluta</a>
 </nav>
 
-<div class="mobility-container">
+<div class="container">
     <form id="register" th:action="@{/registerYoga}" th:object="${yogaActivity}" method="post">
     <div class="row">
         <img src="images/gorilla-yoga.png" alt="Yoga" class="bild">
@@ -38,11 +38,13 @@
 
     <div class="row-two" >
         <div class="caption">Yoga</div>
-        <button class="add" type="submit" name="add"> Lägg till övning </button>
     </div>
 
     <div class ="exercise-container">
-        <div th:each="exercise, index : ${yogaActivity.exerciseList}">
+        <button class="add" type="submit" name="add"> Lägg till övning </button>
+        <br>  <br> <br><br> <br>
+        <div class="exercise-grid">
+            <div th:each="exercise, index : ${yogaActivity.exerciseList}">
                 <div class ="exercise">
                     <br>
                     <p th:text="'Övning ' + ${exercise.exerciseNumber}" class="exercise-caption" ></p>
@@ -51,7 +53,7 @@
                         <p th:text="Namn" class="exercise-name"></p>
                         <input type="text" th:field="*{exerciseList[__${index.index}__].name}" class="input-name"/>
                         <p class="exercise-duration" > Tid (Minuter)</p>
-                        <input type="text" th:field="*{exerciseList[__${index.index}__].rep}" class="input-name"/>
+                        <input type="number" th:field="*{exerciseList[__${index.index}__].rep}" class="input-name"/>
                     </div>
                 </div>
             </div>

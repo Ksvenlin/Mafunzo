@@ -6,11 +6,11 @@
     <link href="CSS/navbar.css" rel="stylesheet"/>
 </head>
 <body>
-<link href="CSS/registerActivity.css" rel="stylesheet">
+<link href="CSS/Activities/otherActivities.css" rel="stylesheet">
 <nav class="navbar">
     <a href="index">
         <header>
-            <img src="images/övrigt.webp" alt="Header image">
+            <img src="images/logo.png" alt="Header image">
             <h1>Mafunzo</h1>
         </header>
     </a>
@@ -22,6 +22,24 @@
     <a th:href="@{/logOut}" class="button">Avsluta</a>
 </nav>
 
-<div>
-
+<div class="container">
+    <form id="register-other" th:action="@{/registerOther}" th:object="${otherActivity}" method="post">
+        <div class="row">
+            <img src="images/övrigt.webp" alt="Yoga" class="bild">
+            <div class="in-data">
+                <p> Varaktighet (Minuter) </p>
+                <input type="number" th:field="*{duration}" class="duration">
+                <br> <br>
+                <p> Kommentar </p>
+                <input type="text" th:field="*{description}" class="description">
+                <br><br><br><br>
+            </div>
+        </div>
+        <div class="row-two" >
+            <div class="caption">Övrigt</div>
+            <button class="button" type="submit" name="register">Registrera</button>
+        </div>
+    </form>
 </div>
+</body>
+</html>

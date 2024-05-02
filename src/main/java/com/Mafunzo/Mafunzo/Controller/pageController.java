@@ -58,15 +58,6 @@ public class pageController {
 
     //Mappings for rerouting the user to the correct page when clicking on the different activities
 
-    @GetMapping("/strengthTraining")
-    public String strengthTraining(Model model, HttpSession session) {
-        User user = (User) session.getAttribute("loggedUser");
-        if (user == null) {
-            return "redirect:/index";
-        }
-        model.addAttribute("user", user);
-        return "activities/strengthTraining";
-    }
 
     @GetMapping("/walkTraining")
     public String walkTraining(Model model, HttpSession session) {
@@ -132,6 +123,37 @@ public class pageController {
         }
         model.addAttribute("user", user);
         return "activities/yogaTraining";
+    }
+
+    @GetMapping("/stretchTraining")
+    public String stretchTraining(Model model , HttpSession session) {
+        model.addAttribute("stretchActivity", new StretchActivity());
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
+        return "activities/stretchTraining";
+    }
+    @GetMapping("/otherTraining")
+    public String otherTraining(Model model , HttpSession session) {
+        model.addAttribute("otherActivity", new OtherActivity());
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
+        return "activities/otherTraining";
+    }
+    @GetMapping("/strengthTraining")
+    public String strengthTraining(Model model , HttpSession session) {
+        model.addAttribute("strengthTraining", new StrengthActivity());
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
+        return "activities/strengthTraining";
     }
 
 
