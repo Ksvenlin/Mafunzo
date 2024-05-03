@@ -5,6 +5,11 @@ import com.Mafunzo.Mafunzo.Model.Activities;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+/**
+ * Class that represents a bike activity
+ *
+ * @author Isak Hakola & Kasper Svenlin
+ */
 public class BikeActivity implements Activities {
 
     private String description;
@@ -12,12 +17,13 @@ public class BikeActivity implements Activities {
     private double distance;
 
 
-    public BikeActivity(){
+    public BikeActivity() {
     }
 
     public void setDuration(double duration) {
         this.duration = duration;
     }
+
     public void setDistance(double distance) {
         this.distance = distance;
     }
@@ -46,7 +52,7 @@ public class BikeActivity implements Activities {
 
 
     @Override
-    public String printInfo(){
+    public String printInfo() {
         return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
                 "\n" + "Tid: " + getDuration() + " minuter" + "\n" + "Distans: " + getDistance() + " km";
     }

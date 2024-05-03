@@ -9,6 +9,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * User is a class that represents a user.
+ *
+ * @author Kevin Nordkvist, William Starå, Adam Mheisen
+ */
 @Document("User")
 public class User implements Serializable {
     @Id

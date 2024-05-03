@@ -2,12 +2,18 @@ package com.Mafunzo.Mafunzo.Model.Activity;
 
 import com.Mafunzo.Mafunzo.Model.Activities;
 
-public class OtherActivity implements Activities{
+/**
+ * Class that represents an "other" activity
+ *
+ * @author Kevin Nordkvist & Kasper Svenlin
+ */
+
+public class OtherActivity implements Activities {
 
     private String description;
     private double duration;
 
-    public OtherActivity(){
+    public OtherActivity() {
     }
 
     public void setDuration(double duration) {
@@ -34,7 +40,7 @@ public class OtherActivity implements Activities{
 
 
     @Override
-    public String printInfo(){
+    public String printInfo() {
         return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
                 "\n" + "Tid: " + getDuration() + " minuter" + "\n";
     }

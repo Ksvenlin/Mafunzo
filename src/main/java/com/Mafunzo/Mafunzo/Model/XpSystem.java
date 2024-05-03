@@ -2,6 +2,12 @@ package com.Mafunzo.Mafunzo.Model;
 
 import java.io.Serializable;
 
+/**
+ * Class that represents the xp system of a user
+ *
+ * @author Adam Mheisen
+ */
+
 public class XpSystem implements Serializable {
 
     private double xp;

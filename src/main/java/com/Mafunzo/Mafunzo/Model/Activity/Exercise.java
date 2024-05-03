@@ -1,5 +1,11 @@
 package com.Mafunzo.Mafunzo.Model.Activity;
 
+/**
+ * Class that represents an exercise
+ *
+ * @author Isak Hakola & Kasper Svenlin
+ */
+
 public class Exercise {
 
     private int exerciseNumber;

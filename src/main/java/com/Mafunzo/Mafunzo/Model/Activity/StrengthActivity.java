@@ -6,12 +6,17 @@ import com.Mafunzo.Mafunzo.Model.Activities;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * StrengthActivity is a class that represents a strength activity.
+ *
+ * @author Kevin Nordkvist & Kasper Svenlin
+ */
 public class StrengthActivity implements Activities {
-    private List<Exercise> exerciseList;
+    private final List<Exercise> exerciseList;
     private double duration;
     private String description;
 
-    public StrengthActivity(){
+    public StrengthActivity() {
         exerciseList = new ArrayList<>();
         Exercise temp = new Exercise();
         temp.setExerciseNumber(exerciseList.size() + 1);

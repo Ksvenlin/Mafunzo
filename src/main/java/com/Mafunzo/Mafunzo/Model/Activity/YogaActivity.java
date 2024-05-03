@@ -5,6 +5,12 @@ import com.Mafunzo.Mafunzo.Model.Activities;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * YogaActivity is a class that represents a yoga activity.
+ *
+ * @author Isak Hakola & Kasper Svenlin
+ */
+
 public class YogaActivity implements Activities {
 
     private String description;
@@ -13,9 +19,7 @@ public class YogaActivity implements Activities {
     private List<Exercise> exerciseList;
 
 
-
-
-    public YogaActivity(){
+    public YogaActivity() {
         exerciseList = new ArrayList<>();
         Exercise temp = new Exercise();
         temp.setExerciseNumber(exerciseList.size() + 1);
@@ -50,7 +54,7 @@ public class YogaActivity implements Activities {
     }
 
     @Override
-    public String printInfo(){
+    public String printInfo() {
         return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
                 "\n" + "Tid: " + getDuration() + " minuter";
     }

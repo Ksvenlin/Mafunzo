@@ -5,6 +5,12 @@ import com.Mafunzo.Mafunzo.Model.Activities;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+/**
+ * Class that represents a walk activity
+ *
+ * @author Isak Hakola & Kasper Svenlin
+ */
+
 public class WalkActivity implements Activities {
 
     private String description;
@@ -12,12 +18,13 @@ public class WalkActivity implements Activities {
     private double distance;
 
 
-    public WalkActivity(){
+    public WalkActivity() {
     }
 
     public void setDuration(double duration) {
         this.duration = duration;
     }
+
     public void setDistance(double distance) {
         this.distance = distance;
     }
@@ -46,7 +53,7 @@ public class WalkActivity implements Activities {
 
 
     @Override
-    public String printInfo(){
+    public String printInfo() {
         return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
                 "\n" + "Tid: " + getDuration() + " minuter" + "\n" + "Distans: " + getDistance() + " km";
     }

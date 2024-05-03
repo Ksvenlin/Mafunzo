@@ -6,6 +6,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * UserService is a class that is used to interact with the database and the UserRepo class.
+ *
+ * @Author Kevin Nordkvist, William Starå, Adam Mheisen & Isak Hakola
+ */
 @Service
 public class UserService {
     @Autowired

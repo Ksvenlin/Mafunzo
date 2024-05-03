@@ -1,4 +1,6 @@
-
+<!---
+@author Kasper Svenlin
+ --->
 <!doctype html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
@@ -25,29 +27,31 @@
 
 <div class="golf-container">
     <form th:action="@{/registerGolf}" th:object="${golfActivity}" method="post">
-        <div class="row-one" >
+        <div class="row-one">
             <img src="images/gorilla-golfar.png" alt="Golf" class="bild">
             <p> Varaktighet (Minuter) </p>
             <input type="number" th:field="*{duration}" class="duration">
             <br> <br>
-            <p th:text="Kommentar" ></p>
+            <p th:text="Kommentar"></p>
             <input type="text" th:field="*{description}" class="description">
             <br><br><br><br>
         </div>
 
-        <div class="row-two" >
+        <div class="row-two">
             <div class="caption">Golf</div>
         </div>
 
         <div class="holes">
             <div th:each="hole, holeIndex : ${golfActivity.scoreCard}">
                 <div class="row-hole">
-                    <p th:text="'Hål ' + ${hole.getHoleNumber()}" class="hole-caption"> </p>
+                    <p th:text="'Hål ' + ${hole.getHoleNumber()}" class="hole-caption"></p>
                     <br>
                     <p class="strokes-caption"> Slag </p>
-                    <input type="number" min="0" th:field="*{scoreCard[__${holeIndex.index}__].strokes}" class="input-strokes" />
+                    <input type="number" min="0" th:field="*{scoreCard[__${holeIndex.index}__].strokes}"
+                           class="input-strokes"/>
                     <p class="points-caption"> Poäng </p>
-                    <input type="number" min="0" th:field="*{scoreCard[__${holeIndex.index}__].points}" class="input-points"/>
+                    <input type="number" min="0" th:field="*{scoreCard[__${holeIndex.index}__].points}"
+                           class="input-points"/>
                 </div>
             </div>
         </div>

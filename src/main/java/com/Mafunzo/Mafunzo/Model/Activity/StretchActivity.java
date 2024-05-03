@@ -5,6 +5,11 @@ import com.Mafunzo.Mafunzo.Model.Activities;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * StretchActivity is a class that represents a stretching activity.
+ *
+ * @author Kevin Nordkvist & Kasper Svenlin
+ */
 public class StretchActivity implements Activities {
 
     private String description;
@@ -12,7 +17,7 @@ public class StretchActivity implements Activities {
 
     private List<Exercise> exerciseList;
 
-    public StretchActivity(){
+    public StretchActivity() {
         exerciseList = new ArrayList<>();
         Exercise temp = new Exercise();
         temp.setExerciseNumber(exerciseList.size() + 1);
@@ -47,7 +52,7 @@ public class StretchActivity implements Activities {
     }
 
     @Override
-    public String printInfo(){
+    public String printInfo() {
         return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
                 "\n" + "Tid: " + getDuration() + " minuter";
     }

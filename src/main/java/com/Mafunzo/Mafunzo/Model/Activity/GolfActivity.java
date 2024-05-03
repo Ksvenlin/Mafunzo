@@ -5,6 +5,11 @@ import com.Mafunzo.Mafunzo.Model.Activities;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * GolfActivity is a class that represents a golf activity.
+ *
+ * @author Isak Hakola & Kasper Svenlin
+ */
 public class GolfActivity implements Activities {
 
     private String description;
@@ -12,10 +17,10 @@ public class GolfActivity implements Activities {
     private List<Hole> scoreCard;
 
 
-    public GolfActivity(){
+    public GolfActivity() {
         scoreCard = new ArrayList<>();
-        for(int i = 0; i < 18; i++){
-            scoreCard.add(new Hole(0,0, i+1));
+        for (int i = 0; i < 18; i++) {
+            scoreCard.add(new Hole(0, 0, i + 1));
         }
     }
 
@@ -50,23 +55,24 @@ public class GolfActivity implements Activities {
     }
 
     @Override
-    public String printInfo(){
+    public String printInfo() {
         int totalPoints = 0;
         int totalStrokes = 0;
-        for(Hole hole : scoreCard){
-           totalPoints += hole.getPoints();
-           totalStrokes += hole.getStrokes();
+        for (Hole hole : scoreCard) {
+            totalPoints += hole.getPoints();
+            totalStrokes += hole.getStrokes();
         }
         return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
                 "\n" + "Tid: " + getDuration() + " minuter" + "\n" +
-                "Slag: "+ totalStrokes + " Poäng: " + totalPoints;
+                "Slag: " + totalStrokes + " Poäng: " + totalPoints;
     }
-    public static class Hole{
+
+    public static class Hole {
         private int strokes;
         private int points;
         private int holeNumber;
 
-        public Hole(int strokes, int points, int holeNumber){
+        public Hole(int strokes, int points, int holeNumber) {
             this.holeNumber = holeNumber;
             this.strokes = strokes;
             this.points = points;

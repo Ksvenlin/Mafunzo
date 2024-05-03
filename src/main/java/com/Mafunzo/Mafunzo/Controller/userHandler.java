@@ -19,15 +19,29 @@ import java.util.Base64;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+ * This class handles login, registration and verification of users.
+ */
 @RestController
 public class userHandler {
     @Autowired
     UserService userService;
 
-    /*
-    Method for adding users to the database, this method calls for the userService which talks to the
-    database.
-    */
+
+    /**
+     * This method is used to add a user to the database. It checks if the email is already in use, if the password is valid and if the image is uploaded.
+     *
+     * @param fname           parameter for first name as a String
+     * @param lname           parameter for last name as a String
+     * @param email           parameter for email as a String
+     * @param password        parameter for password as a String
+     * @param evaluationScore parameter for evaluation score as an int
+     * @param image           parameter for image as a MultipartFile
+     * @param model           parameter for model as a Model
+     * @return ResponseEntity<String> returns a message if the user was added or not. Returns error messages if needed.
+     * @throws IOException
+     * @author William Starå
+     */
 
     @PostMapping("/addUser")
     public ResponseEntity<String> addUser(@RequestParam("fname") String fname, @RequestParam("lname") String lname, @RequestParam("email") String email, @RequestParam("password") String password, @RequestParam("evaluationScore") int evaluationScore, @RequestParam("image") MultipartFile image, Model model) throws IOException {
@@ -55,9 +69,15 @@ public class userHandler {
         return ResponseEntity.ok("{\"message\": \"Inloggning lyckades!\"}");
     }
 
-    /*
-    Method for verifying the user who tries to log in.
-    */
+    /**
+     * This method is used to verify a user when it logs in. It checks if the users email exists and then that the password is the same, if not
+     * it throws back an error with a message.
+     *
+     * @param user    parameter for user as a User
+     * @param session parameter for session as a HttpSession
+     * @return ResponseEntity<String> returns a message if the user was verified or not. Returns an error message if not successful.
+     * @author Adam Mheisen, Kevin Nordkvist, William Starå
+     */
 
     @PostMapping("/verifyUser")
     public ResponseEntity<String> verifyUser(@RequestBody User user, HttpSession session) {
