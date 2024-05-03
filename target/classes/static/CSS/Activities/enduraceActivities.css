@@ -1,11 +1,15 @@
+/**
+ @author Isak Hakola & Kasper Svenlin
+ */
+
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 .endurance-container {
     background-color: rgba(59, 56, 56, 0.8);
     width: 52%;
-    height:38%;
+    height: 38%;
     margin: 50px auto; /* marginaler på bakgrunden */
-    border-radius: 50px;/* rundar hörnen */
+    border-radius: 50px; /* rundar hörnen */
     text-align: center;
     padding: 75px 75px 75px;
 }
@@ -19,13 +23,12 @@
     margin-top: 10%;
 }
 
-.endurance-container .bild{
+.endurance-container .bild {
     float: left;
     height: 250px;
     width: 250px;
     border-radius: 50px;
 }
-
 
 
 .endurance-container .duration {
@@ -45,13 +48,15 @@
     width: 400px;
     float: right;
 }
-.endurance-container p{
+
+.endurance-container p {
     display: inline-block;
-    margin-left : auto;
+    margin-left: auto;
     color: #ffffff;
     font-family: sans-serif;
 }
-.endurance-container button{
+
+.endurance-container button {
     float: right;
 }
 
