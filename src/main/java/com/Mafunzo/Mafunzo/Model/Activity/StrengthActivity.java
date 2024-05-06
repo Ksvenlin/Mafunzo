@@ -3,6 +3,7 @@ package com.Mafunzo.Mafunzo.Model.Activity;
 
 import com.Mafunzo.Mafunzo.Model.Activities;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,10 @@ public class StrengthActivity implements Activities {
     private List<Exercise> exerciseList;
     private double duration;
     private String description;
+    private String caption;
+    private LocalDateTime timeStamp;
+
+
 
     public StrengthActivity() {
         exerciseList = new ArrayList<>();
@@ -51,6 +56,22 @@ public class StrengthActivity implements Activities {
     @Override
     public void setDuration(double duration) {
         this.duration = duration;
+    }
+
+    public String getCaption() {
+        return caption;
+    }
+
+    public void setCaption(String caption) {
+        this.caption = caption;
+    }
+
+    public LocalDateTime getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(LocalDateTime timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     @Override

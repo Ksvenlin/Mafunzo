@@ -1,5 +1,7 @@
 package com.Mafunzo.Mafunzo.Model;
 
+import java.time.LocalDateTime;
+
 /**
  * Interface for activities
  *
@@ -16,6 +18,8 @@ public interface Activities {
     double getDuration();
 
     void setDuration(double duration);
+
+    LocalDateTime getTimeStamp();
 
     String printInfo();
 

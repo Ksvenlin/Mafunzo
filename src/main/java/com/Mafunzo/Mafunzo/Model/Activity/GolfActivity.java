@@ -2,6 +2,7 @@ package com.Mafunzo.Mafunzo.Model.Activity;
 
 import com.Mafunzo.Mafunzo.Model.Activities;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,10 @@ public class GolfActivity implements Activities {
     private String description;
     private double duration;
     private List<Hole> scoreCard;
+    private String caption;
+    private LocalDateTime timeStamp;
+
+
 
 
     public GolfActivity() {
@@ -52,6 +57,22 @@ public class GolfActivity implements Activities {
 
     public double getDuration() {
         return duration;
+    }
+
+    public String getCaption() {
+        return caption;
+    }
+
+    public void setCaption(String caption) {
+        this.caption = caption;
+    }
+
+    public LocalDateTime getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(LocalDateTime timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     @Override

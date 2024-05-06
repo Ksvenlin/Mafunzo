@@ -15,6 +15,8 @@ public class BikeActivity implements Activities {
     private String description;
     private double duration;
     private double distance;
+    private String caption;
+    private  LocalDateTime timeStamp;
 
 
     public BikeActivity() {
@@ -50,6 +52,21 @@ public class BikeActivity implements Activities {
         return distance;
     }
 
+    public String getCaption() {
+        return caption;
+    }
+
+    public void setCaption(String caption) {
+        this.caption = caption;
+    }
+
+    public LocalDateTime getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(LocalDateTime timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 
     @Override
     public String printInfo() {

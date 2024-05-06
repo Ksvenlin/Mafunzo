@@ -31,7 +31,7 @@
             <img src="images/gorilla-gym.png" alt="Yoga" class="bild">
             <div class="in-data">
                 <p> Varaktighet (Minuter) </p>
-                <input type="number" th:field="*{duration}" class="duration">
+                <input type="number" min="2" th:field="*{duration}" class="duration">
                 <br> <br>
                 <p> Kommentar </p>
                 <input type="text" th:field="*{description}" class="description">

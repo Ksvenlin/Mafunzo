@@ -24,14 +24,15 @@ public class User implements Serializable {
     @Indexed(unique = true)
     private String email;
     private String password;
-    private XpSystem xp;
+    private XpSystem xpSystem;
     private List<User> friends;
     private List<Activities> activitiesList;
     private String image;
+    private boolean streakIsUpdated;
 
 
-    public User(XpSystem xp, String fname, String lname, String email, String password, int evaluationScore, String image) {
-        this.xp = new XpSystem(0, 1, 0, 0, 100);
+    public User(XpSystem xpSystem, String fname, String lname, String email, String password, int evaluationScore, String image) {
+        this.xpSystem = new XpSystem(0, 1, 0, 0, 100);
         this.fname = fname;
         this.lname = lname;
         this.email = email;
@@ -40,12 +41,12 @@ public class User implements Serializable {
         this.friends = new ArrayList<>();
         this.evaluationScore = evaluationScore;
         this.image = image;
+        this.streakIsUpdated = false;
     }
 
     public User() {
     }
 
-    //TOOD: koppla ett user objekt till profilsida.
     public String getFname() {
         return fname;
     }
@@ -86,23 +87,23 @@ public class User implements Serializable {
         return evaluationScore;
     }
 
-    public double getXp() {
-        if (this.xp == null) {
-            return 0;
+    public XpSystem getXpSystem() {
+        if (this.xpSystem == null) {
+            return new XpSystem(0, 1, 0, 0, 100);
         }
-        return xp.getXp();
+        return xpSystem;
     }
 
     public int getLvl() {
-        if (this.xp == null) {
+        if (this.xpSystem == null) {
             return 1;
         }
-        return xp.getLvl();
+        return xpSystem.getLvl();
     }
 
-    public void setXp(XpSystem xp) {
+   /* public void setXp(double xp) {
         this.xp = xp;
-    }
+    }*/
 
     public List<Activities> getActivitiesList() {
         if (this.activitiesList == null) {
@@ -112,24 +113,31 @@ public class User implements Serializable {
     }
 
     public int getStreak() {
-        if (this.xp == null) {
+        if (this.xpSystem == null) {
             return 0;
         }
-        return xp.getStreak();
+        return xpSystem.getStreak();
     }
 
     public double getXpToLevel() {
-        if (this.xp == null) {
+        if (this.xpSystem == null) {
             return 100;
         }
-        return xp.getXpToLevel();
+        return xpSystem.getXpToLevel();
     }
 
     public int getInactiveDays() {
-        if (this.xp == null) {
+        if (this.xpSystem == null) {
             return 0;
         }
-        return xp.getInactiveDays();
+        return xpSystem.getInactiveDays();
+    }
+
+    public void setStreakIsUpdated(boolean streakIsUpdated) {
+        this.streakIsUpdated = streakIsUpdated;
+    }
+    public boolean getStreakIsUpdated(){
+        return  streakIsUpdated;
     }
 
     public String getImage() {

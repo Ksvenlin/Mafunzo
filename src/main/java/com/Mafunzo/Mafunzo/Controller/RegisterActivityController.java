@@ -3,11 +3,15 @@ package com.Mafunzo.Mafunzo.Controller;
 import com.Mafunzo.Mafunzo.Model.Activity.*;
 import com.Mafunzo.Mafunzo.Model.User;
 import com.Mafunzo.Mafunzo.Model.UserService;
+import com.Mafunzo.Mafunzo.Model.XpSystem;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+
 
 /**
  * This controller is used to retrieve information from the user and register the activity in the user's profile.
@@ -17,9 +21,10 @@ public class RegisterActivityController {
     @Autowired
     private UserService userService;
     private User user;
+    private XpSystem xpSystem = new XpSystem(0, 1, 0, 0, 100);
 
     /**
-     * This method is used to register a walk activity in the user's profile.
+     * This method is used to register a walk activity in the user's profile, and sets the xp to the user based on the evaluation score
      *
      * @param session      the session of the user.
      * @param walkActivity The walk activity that the user wants to register.
@@ -30,10 +35,17 @@ public class RegisterActivityController {
 
     @PostMapping("/registerWalk")
     public String registerWalk(HttpSession session, WalkActivity walkActivity, Model model) {
+
+        //Detta är temporärt för att testa och kommer tas bort Star
+        walkActivity.setCaption("Gång Caption");
+        //Slut
+        walkActivity.setTimeStamp(LocalDateTime.now());
         user = (User) session.getAttribute("loggedUser");
         user.getActivitiesList().add(walkActivity);
         userService.updateActivity(user);
+        xpSystem = user.getXpSystem();
         model.addAttribute("user", user);
+        xpHandler();
         return "profilepage";
     }
 
@@ -48,10 +60,15 @@ public class RegisterActivityController {
      */
     @PostMapping("/registerRun")
     public String registerRun(HttpSession session, RunActivity runActivity, Model model) {
+        //Detta är temporärt för att testa och kommer tas bort Star
+        runActivity.setCaption("Löpning Caption");
+        //Slut
+        runActivity.setTimeStamp(LocalDateTime.now());
         user = (User) session.getAttribute("loggedUser");
         user.getActivitiesList().add(runActivity);
         userService.updateActivity(user);
         model.addAttribute("user", user);
+        xpHandler();
         return "profilepage";
     }
 
@@ -66,10 +83,15 @@ public class RegisterActivityController {
      */
     @PostMapping("/registerSwim")
     public String registerSwim(HttpSession session, SwimActivity swimActivity, Model model) {
+        //Detta är temporärt för att testa och kommer tas bort Star
+        swimActivity.setCaption("Simning Caption");
+        //Slut
+        swimActivity.setTimeStamp(LocalDateTime.now());
         user = (User) session.getAttribute("loggedUser");
         user.getActivitiesList().add(swimActivity);
         userService.updateActivity(user);
         model.addAttribute("user", user);
+        xpHandler();
         return "profilepage";
     }
 
@@ -84,10 +106,15 @@ public class RegisterActivityController {
      */
     @PostMapping("/registerBike")
     public String registerBike(HttpSession session, BikeActivity bikeActivity, Model model) {
+        //Detta är temporärt för att testa och kommer tas bort Star
+        bikeActivity.setCaption("Cykel Caption");
+        //Slut
+        bikeActivity.setTimeStamp(LocalDateTime.now());
         user = (User) session.getAttribute("loggedUser");
         user.getActivitiesList().add(bikeActivity);
         userService.updateActivity(user);
         model.addAttribute("user", user);
+        xpHandler();
         return "profilepage";
     }
 
@@ -102,10 +129,15 @@ public class RegisterActivityController {
      */
     @PostMapping("/registerGolf")
     public String registerGolf(HttpSession session, GolfActivity golfActivity, Model model) {
+        //Detta är temporärt för att testa och kommer tas bort Star
+        golfActivity.setCaption("Golf Caption");
+        //Slut
+        golfActivity.setTimeStamp(LocalDateTime.now());
         user = (User) session.getAttribute("loggedUser");
         user.getActivitiesList().add(golfActivity);
         userService.updateActivity(user);
         model.addAttribute("user", user);
+        xpHandler();
         return "profilepage";
     }
 
@@ -122,7 +154,9 @@ public class RegisterActivityController {
      */
     @PostMapping("/registerYoga")
     public String registerYoga(HttpSession session, @RequestParam(required = false) String register, @RequestParam(required = false) String add, YogaActivity yogaActivity, Model model) {
-
+        //Detta är temporärt för att testa och kommer tas bort Star
+        yogaActivity.setCaption("Yoga Caption");
+        //Slut
         if (add != null) {
             user = (User) session.getAttribute("loggedUser");
             model.addAttribute("user", user);
@@ -134,10 +168,12 @@ public class RegisterActivityController {
             model.addAttribute("yogaActivity", yogaActivity);
             return "activities/yogaTraining";
         } else if (register != null) {
+            yogaActivity.setTimeStamp(LocalDateTime.now());
             user = (User) session.getAttribute("loggedUser");
             user.getActivitiesList().add(yogaActivity);
             userService.updateActivity(user);
             model.addAttribute("user", user);
+            xpHandler();
         }
         return "profilepage";
     }
@@ -156,6 +192,9 @@ public class RegisterActivityController {
     @PostMapping("/registerStretching")
     public String registerStretching(HttpSession session, @RequestParam(required = false) String register, @RequestParam(required = false) String add, StretchActivity stretchActivity, Model model) {
 
+        //Detta är temporärt för att testa och kommer tas bort Star
+        stretchActivity.setCaption("Stretching Caption");
+        //Slut
         if (add != null) {
             user = (User) session.getAttribute("loggedUser");
             model.addAttribute("user", user);
@@ -167,10 +206,12 @@ public class RegisterActivityController {
             model.addAttribute("stretchTraining", stretchActivity);
             return "activities/stretchTraining";
         } else if (register != null) {
+            stretchActivity.setTimeStamp(LocalDateTime.now());
             user = (User) session.getAttribute("loggedUser");
             user.getActivitiesList().add(stretchActivity);
             userService.updateActivity(user);
             model.addAttribute("user", user);
+            xpHandler();
         }
         return "profilepage";
     }
@@ -186,11 +227,16 @@ public class RegisterActivityController {
      */
 
     @PostMapping("/registerOther")
-    public String registerSwim(HttpSession session, OtherActivity otherActivity, Model model) {
+    public String registerOther(HttpSession session, OtherActivity otherActivity, Model model) {
+        //Detta är temporärt för att testa och kommer tas bort Star
+        otherActivity.setCaption("Övrig Caption");
+        //Slut
+        otherActivity.setTimeStamp(LocalDateTime.now());
         user = (User) session.getAttribute("loggedUser");
         user.getActivitiesList().add(otherActivity);
         userService.updateActivity(user);
         model.addAttribute("user", user);
+        xpHandler();
         return "profilepage";
     }
 
@@ -208,7 +254,9 @@ public class RegisterActivityController {
 
     @PostMapping("/registerStrength")
     public String registerStrength(HttpSession session, @RequestParam(required = false) String register, @RequestParam(required = false) String add, StrengthActivity strengthActivity, Model model) {
-
+        //Detta är temporärt för att testa och kommer tas bort Star
+        strengthActivity.setCaption("Styrketräning Caption");
+        //Slut
         if (add != null) {
             user = (User) session.getAttribute("loggedUser");
             model.addAttribute("user", user);
@@ -220,11 +268,19 @@ public class RegisterActivityController {
             model.addAttribute("strengthTraining", strengthActivity);
             return "activities/strengthTraining";
         } else if (register != null) {
+            strengthActivity.setTimeStamp(LocalDateTime.now());
             user = (User) session.getAttribute("loggedUser");
             user.getActivitiesList().add(strengthActivity);
             userService.updateActivity(user);
             model.addAttribute("user", user);
+            xpHandler();
         }
         return "profilepage";
     }
+
+    public void xpHandler() {
+        xpSystem.calculateUserEvaluationXpGain(user);
+        xpSystem.checkIfLvlUp();
+    }
 }
+

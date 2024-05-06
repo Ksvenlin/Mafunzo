@@ -30,7 +30,7 @@
         <div class="row-one">
             <img src="images/gorilla-golfar.png" alt="Golf" class="bild">
             <p> Varaktighet (Minuter) </p>
-            <input type="number" th:field="*{duration}" class="duration">
+            <input type="number" min="2" th:field="*{duration}" class="duration">
             <br> <br>
             <p th:text="Kommentar"></p>
             <input type="text" th:field="*{description}" class="description">
