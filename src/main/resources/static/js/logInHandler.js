@@ -1,4 +1,3 @@
-
 /*This part of the script creates variables for the different elements in the HTML file
 
  */
@@ -252,7 +251,12 @@ submitButton.onclick = function () {
     email.style.borderColor = "#ccc"
     password.style.borderColor = "#ccc"
     imagebox.style.borderColor = "#ccc"
+    nameField1.style.borderColor = "#ccc"
+    nameField2.style.borderColor = "#ccc"
     passwordInstructions.style.display = 'none';
+
+    this.setAttribute('disabled', 'disabled');
+    this.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Laddar...';
 
     totalScore = 0;
 
@@ -262,8 +266,7 @@ submitButton.onclick = function () {
         }
     });
 
-
-    if(file.files.length === 0){
+    if (file.files.length === 0) {
         file.style.borderColor = "#ff4444"
         showSnackbar("Du måste ladda upp en profilbild", "#ff4444", "#b20000")
     } else {
@@ -282,6 +285,8 @@ submitButton.onclick = function () {
         body: formData
     })
         .then(response => {
+            this.removeAttribute('disabled');
+            this.innerHTML = 'Submit';
             if (!response.ok) {
                 switch (response.status) {
                     case 416:
@@ -304,6 +309,21 @@ submitButton.onclick = function () {
                         response.json().then(data => {
                             showSnackbar(data.message, "#ff4444", "#b20000")
                         })
+                        break;
+
+                    case 410:
+                        nameField1.style.borderColor = "#ff4444"
+                        response.json().then(data => {
+                            showSnackbar(data.message, "#ff4444", "#b20000")
+                        })
+                        break;
+
+                    case 411:
+                        nameField2.style.borderColor = "#ff4444"
+                        response.json().then(data => {
+                            showSnackbar(data.message, "#ff4444", "#b20000")
+                        })
+
                         break;
                 }
             } else {

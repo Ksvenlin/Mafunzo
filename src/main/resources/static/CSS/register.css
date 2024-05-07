@@ -129,6 +129,8 @@ input {
 }
 
 input[type='text'][placeholder='Email'],
+input[type='text'][placeholder='Förnamn'],
+input[type='text'][placeholder='Efternamn'],
 input[type='password'],
 input[type='file'] {
     border-bottom: 3px solid transparent;

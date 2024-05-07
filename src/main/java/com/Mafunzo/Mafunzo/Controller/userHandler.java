@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
 import java.util.regex.Pattern;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 
 /**
  * This class handles login, registration and verification of users.
@@ -47,18 +49,41 @@ public class userHandler {
     public ResponseEntity<String> addUser(@RequestParam("fname") String fname, @RequestParam("lname") String lname, @RequestParam("email") String email, @RequestParam("password") String password, @RequestParam("evaluationScore") int evaluationScore, @RequestParam("image") MultipartFile image, Model model) throws IOException {
         List<User> avalibleUsers = userService.getAllUsers();
 
-        if (image == null || image.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE).body("{\"message\": \"Du måste ladda upp en profilbild\"}");
+        //Check if first name is empty
+        if(fname.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.GONE).body("{\"message\": \"Du måste fylla i ett förnamn\"}");
         }
 
+        //Check if last name is empty
+        if(lname.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.LENGTH_REQUIRED).body("{\"message\": \"Du måste fylla i ett efternamn\"}");
+        }
+
+        /*
+        Check if email is already in use and that it is valid
+        Checking if match is found first since som premade users does not have a valid email
+        */
         for (User user : avalibleUsers) {
             if (user.getEmail().equals(email)) {
                 return ResponseEntity.status(HttpStatus.CONFLICT).body("{\"message\": \"Mejladressen används redan\"}");
             }
         }
 
+        try {
+            InternetAddress emailAddr = new InternetAddress(email);
+            emailAddr.validate();
+        } catch (AddressException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("{\"message\": \"Mejladressen är ogiltig\"}");
+        }
+
+        //Check if password is valid
         if (!Pattern.compile("(?=.*[A-Z])(?=.*[^A-Za-z0-9 ])(?=.*[!@#$%&*()_+=|<>?{}\\[\\]~-])").matcher(password).find() || password.length() < 8) {
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("{\"message\": \"Lösenordet är ogiltigt\"}");
+        }
+
+        //Check if image is uploaded
+        if (image == null || image.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE).body("{\"message\": \"Du måste ladda upp en profilbild\"}");
         }
 
         String imageString = Base64.getEncoder().encodeToString(image.getBytes());
