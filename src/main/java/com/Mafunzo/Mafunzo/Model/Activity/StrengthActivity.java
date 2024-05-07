@@ -12,7 +12,7 @@ import java.util.List;
  * @author Kevin Nordkvist & Kasper Svenlin
  */
 public class StrengthActivity implements Activities {
-    private final List<Exercise> exerciseList;
+    private List<Exercise> exerciseList;
     private double duration;
     private String description;
 

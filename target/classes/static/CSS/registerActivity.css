@@ -1,9 +1,13 @@
+/**
+ @author Kasper svenlin & Isak Hakola.
+ */
+
 .content-container {
     background-color: rgba(59, 56, 56, 0.8);
     width: auto;
     height: auto;
-    margin: 50px 250px; /* marginaler på bakgrunden */
-    border-radius: 50px; /* rundar hörnen */
+    margin: 50px 250px;
+    border-radius: 50px;
     text-align: center;
     overflow: hidden;
     alignment-baseline: auto;
