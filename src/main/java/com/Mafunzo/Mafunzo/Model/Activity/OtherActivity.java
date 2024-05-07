@@ -3,6 +3,7 @@ package com.Mafunzo.Mafunzo.Model.Activity;
 import com.Mafunzo.Mafunzo.Model.Activities;
 
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 /**
  * Class that represents an "other" activity

@@ -4,6 +4,7 @@ import com.Mafunzo.Mafunzo.Model.Activities;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 /**
  * Class that represents a walk activity
@@ -17,7 +18,7 @@ public class WalkActivity implements Activities {
     private double duration;
     private double distance;
     private String caption;
-    private  LocalDateTime timeStamp;
+    private LocalDateTime timeStamp;
 
 
 

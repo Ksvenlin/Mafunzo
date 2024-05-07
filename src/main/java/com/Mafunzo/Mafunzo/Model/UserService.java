@@ -2,6 +2,7 @@ package com.Mafunzo.Mafunzo.Model;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 @Service
 public class UserService {
     @Autowired
-    private UserRepo userRepo;
+    UserRepo userRepo;
 
     public User getUserByEmail(String email) {
         return userRepo.findByEmail(email).orElse(null);
@@ -33,7 +34,7 @@ public class UserService {
     public User updateActivity(User user) {
         User existingUser = userRepo.findByEmail(user.getEmail()).orElse(null);
         if (existingUser != null) {
-            existingUser.setActivitiesList(user.getActivitiesList());
+            existingUser = user;
             return userRepo.save(existingUser);
         } else {
             throw new RuntimeException("User not found");

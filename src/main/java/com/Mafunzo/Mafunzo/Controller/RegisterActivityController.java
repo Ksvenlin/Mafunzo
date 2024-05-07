@@ -3,14 +3,15 @@ package com.Mafunzo.Mafunzo.Controller;
 import com.Mafunzo.Mafunzo.Model.Activity.*;
 import com.Mafunzo.Mafunzo.Model.User;
 import com.Mafunzo.Mafunzo.Model.UserService;
-import com.Mafunzo.Mafunzo.Model.XpSystem;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Clock;
 import java.time.LocalDateTime;
+
 
 
 /**
@@ -21,8 +22,7 @@ public class RegisterActivityController {
     @Autowired
     private UserService userService;
     private User user;
-    private XpSystem xpSystem = new XpSystem(0, 1, 0, 0, 100);
-
+    private XpController xpController = new XpController();
     /**
      * This method is used to register a walk activity in the user's profile, and sets the xp to the user based on the evaluation score
      *
@@ -39,13 +39,12 @@ public class RegisterActivityController {
         //Detta är temporärt för att testa och kommer tas bort Star
         walkActivity.setCaption("Gång Caption");
         //Slut
-        walkActivity.setTimeStamp(LocalDateTime.now());
+        walkActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
         user = (User) session.getAttribute("loggedUser");
         user.getActivitiesList().add(walkActivity);
+        user = xpController.xpHandler(user);
         userService.updateActivity(user);
-        xpSystem = user.getXpSystem();
         model.addAttribute("user", user);
-        xpHandler();
         return "profilepage";
     }
 
@@ -63,12 +62,12 @@ public class RegisterActivityController {
         //Detta är temporärt för att testa och kommer tas bort Star
         runActivity.setCaption("Löpning Caption");
         //Slut
-        runActivity.setTimeStamp(LocalDateTime.now());
+        runActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
         user = (User) session.getAttribute("loggedUser");
         user.getActivitiesList().add(runActivity);
+        user = xpController.xpHandler(user);
         userService.updateActivity(user);
         model.addAttribute("user", user);
-        xpHandler();
         return "profilepage";
     }
 
@@ -86,12 +85,12 @@ public class RegisterActivityController {
         //Detta är temporärt för att testa och kommer tas bort Star
         swimActivity.setCaption("Simning Caption");
         //Slut
-        swimActivity.setTimeStamp(LocalDateTime.now());
+        swimActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
         user = (User) session.getAttribute("loggedUser");
         user.getActivitiesList().add(swimActivity);
+        user = xpController.xpHandler(user);
         userService.updateActivity(user);
         model.addAttribute("user", user);
-        xpHandler();
         return "profilepage";
     }
 
@@ -109,12 +108,12 @@ public class RegisterActivityController {
         //Detta är temporärt för att testa och kommer tas bort Star
         bikeActivity.setCaption("Cykel Caption");
         //Slut
-        bikeActivity.setTimeStamp(LocalDateTime.now());
+        bikeActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
         user = (User) session.getAttribute("loggedUser");
         user.getActivitiesList().add(bikeActivity);
+        user = xpController.xpHandler(user);
         userService.updateActivity(user);
         model.addAttribute("user", user);
-        xpHandler();
         return "profilepage";
     }
 
@@ -132,12 +131,12 @@ public class RegisterActivityController {
         //Detta är temporärt för att testa och kommer tas bort Star
         golfActivity.setCaption("Golf Caption");
         //Slut
-        golfActivity.setTimeStamp(LocalDateTime.now());
+        golfActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
         user = (User) session.getAttribute("loggedUser");
         user.getActivitiesList().add(golfActivity);
+        user = xpController.xpHandler(user);
         userService.updateActivity(user);
         model.addAttribute("user", user);
-        xpHandler();
         return "profilepage";
     }
 
@@ -168,12 +167,12 @@ public class RegisterActivityController {
             model.addAttribute("yogaActivity", yogaActivity);
             return "activities/yogaTraining";
         } else if (register != null) {
-            yogaActivity.setTimeStamp(LocalDateTime.now());
+            yogaActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
             user = (User) session.getAttribute("loggedUser");
             user.getActivitiesList().add(yogaActivity);
+            user = xpController.xpHandler(user);
             userService.updateActivity(user);
             model.addAttribute("user", user);
-            xpHandler();
         }
         return "profilepage";
     }
@@ -206,37 +205,13 @@ public class RegisterActivityController {
             model.addAttribute("stretchTraining", stretchActivity);
             return "activities/stretchTraining";
         } else if (register != null) {
-            stretchActivity.setTimeStamp(LocalDateTime.now());
+            stretchActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
             user = (User) session.getAttribute("loggedUser");
             user.getActivitiesList().add(stretchActivity);
+            user = xpController.xpHandler(user);
             userService.updateActivity(user);
             model.addAttribute("user", user);
-            xpHandler();
         }
-        return "profilepage";
-    }
-
-    /**
-     * This method is used to register an "other" activity in the user's profile.
-     *
-     * @param session       the session of the user.
-     * @param otherActivity an instance of the otherActivity object.
-     * @param model         the model that is used to send information to the view.
-     * @return the HTML filepath of the profile page.
-     * @author Kasper Svenlin & Kevin Nordkvist
-     */
-
-    @PostMapping("/registerOther")
-    public String registerOther(HttpSession session, OtherActivity otherActivity, Model model) {
-        //Detta är temporärt för att testa och kommer tas bort Star
-        otherActivity.setCaption("Övrig Caption");
-        //Slut
-        otherActivity.setTimeStamp(LocalDateTime.now());
-        user = (User) session.getAttribute("loggedUser");
-        user.getActivitiesList().add(otherActivity);
-        userService.updateActivity(user);
-        model.addAttribute("user", user);
-        xpHandler();
         return "profilepage";
     }
 
@@ -268,19 +243,40 @@ public class RegisterActivityController {
             model.addAttribute("strengthTraining", strengthActivity);
             return "activities/strengthTraining";
         } else if (register != null) {
-            strengthActivity.setTimeStamp(LocalDateTime.now());
+            strengthActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
             user = (User) session.getAttribute("loggedUser");
             user.getActivitiesList().add(strengthActivity);
+            user = xpController.xpHandler(user);
             userService.updateActivity(user);
             model.addAttribute("user", user);
-            xpHandler();
         }
         return "profilepage";
     }
 
-    public void xpHandler() {
-        xpSystem.calculateUserEvaluationXpGain(user);
-        xpSystem.checkIfLvlUp();
+    /**
+     * This method is used to register an "other" activity in the user's profile.
+     *
+     * @param session       the session of the user.
+     * @param otherActivity an instance of the otherActivity object.
+     * @param model         the model that is used to send information to the view.
+     * @return the HTML filepath of the profile page.
+     * @author Kasper Svenlin & Kevin Nordkvist
+     */
+
+    @PostMapping("/registerOther")
+    public String registerOther(HttpSession session, OtherActivity otherActivity, Model model) {
+        //Detta är temporärt för att testa och kommer tas bort Star
+        otherActivity.setCaption("Övrig Caption");
+        //Slut
+        //ZoneId zoneId = ZoneId.of("Europe/Paris");
+        //ZonedDateTime now = ZonedDateTime.now(zoneId);
+        //otherActivity.setTimeStamp(now);
+        otherActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
+        user = (User) session.getAttribute("loggedUser");
+        user.getActivitiesList().add(otherActivity);
+        user = xpController.xpHandler(user);
+        userService.updateActivity(user);
+        model.addAttribute("user", user);
+        return "profilepage";
     }
 }
-

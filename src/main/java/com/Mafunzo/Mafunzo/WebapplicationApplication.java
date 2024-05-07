@@ -1,5 +1,7 @@
 package com.Mafunzo.Mafunzo;
 
+import com.Mafunzo.Mafunzo.Model.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -15,7 +17,8 @@ import java.util.TimerTask;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class WebapplicationApplication {
     private static MongoClientConnectionExample con = new MongoClientConnectionExample();
-    private static TimeHandler timeHandler;
+    @Autowired
+    private static TimeHandler timeHandler = new TimeHandler();
 
     public static void main(String[] args) {
         SpringApplication.run(WebapplicationApplication.class, args);
