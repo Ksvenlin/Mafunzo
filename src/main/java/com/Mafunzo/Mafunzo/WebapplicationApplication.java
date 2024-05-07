@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 /**
  * WebapplicationApplication is the main class of the application.
  *
- * @Author Kevin Nordkvist, Kasper Svenlin, William Starå, Adam Mheisen & Isak Hakola
+ * @author Kevin Nordkvist, Kasper Svenlin, William Starå, Adam Mheisen & Isak Hakola
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class WebapplicationApplication {

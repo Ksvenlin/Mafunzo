@@ -10,19 +10,38 @@
 </head>
 <body>
 <nav class="navbar">
-    <a href="home">
-        <header>
-            <img src="../images/logo.png" alt="Header image">
-            <h1>Mafunzo</h1>
-        </header>
-    </a>
-    <a href="registerActivity">Registrera Aktivitet</a>
-    <a href="#register">Vänner</a>
-    <a href="profilepage">
-        <img th:src="'data:image/jpeg;base64,'+${user.image}" alt="Profile Picture" class="profile-pic">
-    </a>
-    <a th:href="@{/logOut}" class="button">Avsluta</a>
+
+
+    <div class="titel">
+        <a href="home">
+            <header>
+                <img src="../images/logo.png" alt="Header image">
+                <h1>Mafunzo</h1>
+            </header>
+        </a>
+    </div>
+
+
+    <div class = "hamburger">
+        <ul>
+            <li></li>
+            <a href="/profilepage">Profil</a>
+            <li></li>
+            <a href="/registerActivity">Registrera aktivitet</a>
+            <li></li>
+            <a href="">Sök</a>
+            <li></li>
+            <a href="/logOut">Logga ut</a>
+
+        </ul>
+    </div>
+
+    <div class="notification">
+
+    </div>
+
 </nav>
+
 
 </body>
 </html>

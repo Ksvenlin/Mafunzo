@@ -4,15 +4,37 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+
 nav {
-    margin-bottom: 30px;
-    background-color: #ff7100;
-    display: flex;
     justify-content: center;
+    display: flex;
     padding: 0.5rem;
-    border-radius: 10px;
-    align-content: center;
 }
+
+.titel {
+    background-color: #ff7100;
+    align-self: center;
+    border-radius: 75px;
+    height: 140px;
+    width: 500px;
+    text-align: center;
+    margin: 30px auto 30px;
+}
+
+.hamburger {
+    background-color: #ff7100;
+    align-self: flex-end;
+    border-radius: 75px;
+    height: 140px;
+    width: 500px;
+    margin: 30px auto 30px;
+}
+
+.notification {
+align-self: flex-start;
+}
+
+
 
 body {
     margin: 0;
@@ -42,7 +64,6 @@ header {
     transition: color 0.3s ease;
     justify-content: center;
     align-items: center;
-
 }
 
 .navbar a {
@@ -69,7 +90,7 @@ header img,
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 47px;
     font-family: 'Press Start 2P', cursive;
     color: #ffffff;
 }
