@@ -2,7 +2,7 @@ package com.Mafunzo.Mafunzo.Controller;
 
 import com.Mafunzo.Mafunzo.Model.User;
 import com.Mafunzo.Mafunzo.Model.UserService;
-import com.Mafunzo.Mafunzo.Model.XpSystem;
+import com.Mafunzo.Mafunzo.Model.XpHandler;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -88,7 +88,7 @@ public class UserHandler {
 
         String imageString = Base64.getEncoder().encodeToString(image.getBytes());
         System.out.println("ImageString " + imageString);
-        User savedUser = userService.saveUser(new User(new XpSystem(0, 1, 0, 0, 100), fname, lname, email, password, evaluationScore, imageString));
+        User savedUser = userService.saveUser(new User(new XpHandler(0, 1, 0, 0, 100), fname, lname, email, password, evaluationScore, imageString));
         model.addAttribute("user", savedUser);
 
         return ResponseEntity.ok("{\"message\": \"Inloggning lyckades!\"}");

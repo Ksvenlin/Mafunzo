@@ -1,16 +1,15 @@
 package com.Mafunzo.Mafunzo.Model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 
 /**
- * Class that represents the xp system of a user
+ * Class that represents the xp of a user
  *
  * @author Adam Mheisen
  */
 
-public class XpSystem implements Serializable {
+public class XpHandler implements Serializable {
 
     private double xp;
     private int lvl = 1;
@@ -19,17 +18,14 @@ public class XpSystem implements Serializable {
     private int streak;
     private int inactiveDays;
 
-    public XpSystem(double xp, int lvl, int streak, int inactiveDays, double xpToLevel) {
+    public XpHandler(double xp, int lvl, int streak, int inactiveDays, double xpToLevel) {
         this.xp = xp;
         this.lvl = lvl;
         this.streak = streak;
         this.inactiveDays = inactiveDays;
         this.xpToLevel = xpToLevel;
     }
-
-
-
-
+    
     public double getXp() {
         return xp;
     }
