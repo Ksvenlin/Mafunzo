@@ -31,9 +31,12 @@ public class TimeHandler {
         };
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 13);
-        calendar.set(Calendar.MINUTE, 45);
+        calendar.set(Calendar.MINUTE, 52);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
+        calendar.set(Calendar.AM_PM, Calendar.PM);
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
+        
 
         Date firstTime = calendar.getTime();
         if (firstTime.before(new Date())) {
