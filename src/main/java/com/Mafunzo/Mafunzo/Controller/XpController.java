@@ -15,17 +15,16 @@ public class XpController {
         if (streak == 14) {
             baseMultiplier = (7 * streak) + 2;
         } else if (streak >= 1 && streak <= 6) {
-            baseMultiplier = (7* streak);
-        }else if(streak >= 7 && streak <= 13){
-            baseMultiplier = ( streak) + 2;
-        }
-        else if (streak > 14) {
+            baseMultiplier = (7 * streak);
+        } else if (streak >= 7 && streak <= 13) {
+            baseMultiplier = (streak) + 2;
+        } else if (streak > 14) {
             baseMultiplier = 200;
         }
-        if(streak == 0){
+        if (streak == 0) {
             return 10;
         }
-        return ((10 * baseMultiplier)/100) + 10;
+        return ((10 * baseMultiplier) / 100) + 10;
     }
 
     public User calculateUserEvaluationXpGain(User user) {
@@ -57,33 +56,33 @@ public class XpController {
     }
 
 
-    public double checkDailyDuration(User user){
+    public double checkDailyDuration(User user) {
         double totalDailyDuration = 0;
         LocalDate todaysDate = LocalDate.now(Clock.systemDefaultZone());
-        for(Activities activity: user.getActivitiesList()){
+        for (Activities activity : user.getActivitiesList()) {
             LocalDate tempDate = activity.getTimeStamp().toLocalDate();
-            if(tempDate.equals(todaysDate)){
+            if (tempDate.equals(todaysDate)) {
                 totalDailyDuration += activity.getDuration();
-            }else{
+            } else {
                 break;
             }
         }
         return totalDailyDuration;
     }
 
-
-    public User checkIfLvlUp(User user){
-        if(user.getXpSystem().getXp() >= user.getXpToLevel() && user.getLvl() < 100) {
+    public User checkIfLvlUp(User user) {
+        if (user.getXpSystem().getXp() >= user.getXpToLevel() && user.getLvl() < 100) {
             user.getXpSystem().setLvl(user.getXpSystem().getLvl() + 1);
             user.getXpSystem().setXp(user.getXpSystem().getXp() - user.getXpToLevel());
             user.getXpSystem().setXpToLevel((int) (user.getXpToLevel() + user.getLvl() * 10));
         }
         return user;
     }
+
     public User xpHandler(User user) {
         user = calculateUserEvaluationXpGain(user);
         user = checkIfLvlUp(user);
 
-        return  user;
+        return user;
     }
 }

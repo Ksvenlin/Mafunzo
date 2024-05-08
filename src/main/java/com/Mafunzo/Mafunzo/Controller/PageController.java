@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * to access the data from the backend.
  */
 @Controller
-public class pageController {
+public class PageController {
 
     /**
      * This method is the first method that is called when the user enters the application. It returns the login page.
@@ -76,7 +76,7 @@ public class pageController {
             return "redirect:/index";
         }
         model.addAttribute("user", user);
-        return "profilepage";
+        return "profilePage";
     }
 
     /**

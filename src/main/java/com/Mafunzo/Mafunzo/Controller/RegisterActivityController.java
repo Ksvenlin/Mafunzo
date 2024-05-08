@@ -8,11 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.Clock;
 import java.time.LocalDateTime;
-
-
 
 /**
  * This controller is used to retrieve information from the user and register the activity in the user's profile.
@@ -45,7 +42,7 @@ public class RegisterActivityController {
         user = xpController.xpHandler(user);
         userService.updateActivity(user);
         model.addAttribute("user", user);
-        return "profilepage";
+        return "profilePage";
     }
 
     /**
@@ -68,7 +65,7 @@ public class RegisterActivityController {
         user = xpController.xpHandler(user);
         userService.updateActivity(user);
         model.addAttribute("user", user);
-        return "profilepage";
+        return "profilePage";
     }
 
     /**
@@ -91,7 +88,7 @@ public class RegisterActivityController {
         user = xpController.xpHandler(user);
         userService.updateActivity(user);
         model.addAttribute("user", user);
-        return "profilepage";
+        return "profilePage";
     }
 
     /**
@@ -114,7 +111,7 @@ public class RegisterActivityController {
         user = xpController.xpHandler(user);
         userService.updateActivity(user);
         model.addAttribute("user", user);
-        return "profilepage";
+        return "profilePage";
     }
 
     /**
@@ -137,7 +134,7 @@ public class RegisterActivityController {
         user = xpController.xpHandler(user);
         userService.updateActivity(user);
         model.addAttribute("user", user);
-        return "profilepage";
+        return "profilePage";
     }
 
     /**
@@ -174,7 +171,7 @@ public class RegisterActivityController {
             userService.updateActivity(user);
             model.addAttribute("user", user);
         }
-        return "profilepage";
+        return "profilePage";
     }
 
     /**
@@ -212,7 +209,7 @@ public class RegisterActivityController {
             userService.updateActivity(user);
             model.addAttribute("user", user);
         }
-        return "profilepage";
+        return "profilePage";
     }
 
     /**
@@ -250,7 +247,7 @@ public class RegisterActivityController {
             userService.updateActivity(user);
             model.addAttribute("user", user);
         }
-        return "profilepage";
+        return "profilePage";
     }
 
     /**
@@ -277,6 +274,6 @@ public class RegisterActivityController {
         user = xpController.xpHandler(user);
         userService.updateActivity(user);
         model.addAttribute("user", user);
-        return "profilepage";
+        return "profilePage";
     }
 }

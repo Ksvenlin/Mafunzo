@@ -25,7 +25,7 @@ import javax.mail.internet.InternetAddress;
  * This class handles login, registration and verification of users.
  */
 @RestController
-public class userHandler {
+public class UserHandler {
     @Autowired
     UserService userService;
 

@@ -6,7 +6,6 @@ import com.Mafunzo.Mafunzo.Model.XpSystem;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.*;
 
 @Component
@@ -15,12 +14,11 @@ public class TimeHandler {
     UserService userService;
 
     public TimeHandler() {
-        // Empty constructor
     }
 
     @PostConstruct
-    public void init() {
-        dailyStreakCheck();  // Start the timer after dependency injection is complete
+    public void initialize() {
+        dailyStreakCheck();
     }
 
     public void dailyStreakCheck() {
@@ -32,18 +30,18 @@ public class TimeHandler {
             }
         };
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.HOUR_OF_DAY, 13);
+        calendar.set(Calendar.MINUTE, 45);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
 
         Date firstTime = calendar.getTime();
-        if (firstTime.before(new Date())) {  // If the time is in the past, schedule for the next day
+        if (firstTime.before(new Date())) {
             calendar.add(Calendar.DAY_OF_MONTH, 1);
             firstTime = calendar.getTime();
         }
 
-        long period = 24 * 60 * 60 * 1000;  // 24 hours in milliseconds
+        long period = 24 * 60 * 60 * 1000;
         timer.scheduleAtFixedRate(timerTask, firstTime, period);
     }
 

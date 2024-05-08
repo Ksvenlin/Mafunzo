@@ -47,6 +47,7 @@ public class StretchActivity implements Activities {
         return "Stretching";
     }
 
+
     public double getDuration() {
         return duration;
     }
