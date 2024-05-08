@@ -2,7 +2,7 @@ package com.Mafunzo.Mafunzo.Controller;
 
 import com.Mafunzo.Mafunzo.Model.User;
 import com.Mafunzo.Mafunzo.Model.UserService;
-import com.Mafunzo.Mafunzo.Model.XpSystem;
+import com.Mafunzo.Mafunzo.Model.XpHandler;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -49,13 +49,13 @@ public class TimeHandler {
     public void checkInactiveDaysForAllUsers() {
         List<User> users = userService.getAllUsers();
         for (User user : users) {
-            XpSystem xpSystem = user.getXpSystem();
+            XpHandler xpHandler = user.getXpSystem();
             if (!user.getStreakIsUpdated()) {
-                xpSystem.setInactiveDays(xpSystem.getInactiveDays() + 1);
+                xpHandler.setInactiveDays(xpHandler.getInactiveDays() + 1);
             }
-            int inactiveDays = xpSystem.getInactiveDays();
+            int inactiveDays = xpHandler.getInactiveDays();
             if (inactiveDays >= 3) {
-                xpSystem.setStreak(0);
+                xpHandler.setStreak(0);
             }
             user.setStreakIsUpdated(false);
         }

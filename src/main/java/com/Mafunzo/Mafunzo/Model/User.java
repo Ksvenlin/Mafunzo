@@ -4,7 +4,6 @@ import jakarta.persistence.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,15 +23,15 @@ public class User implements Serializable {
     @Indexed(unique = true)
     private String email;
     private String password;
-    private XpSystem xpSystem;
+    private XpHandler xpHandler;
     private List<User> friends;
     private List<Activities> activitiesList;
     private String image;
     private boolean streakIsUpdated;
 
 
-    public User(XpSystem xpSystem, String fname, String lname, String email, String password, int evaluationScore, String image) {
-        this.xpSystem = new XpSystem(0, 1, 0, 0, 100);
+    public User(XpHandler xpHandler, String fname, String lname, String email, String password, int evaluationScore, String image) {
+        this.xpHandler = new XpHandler(0, 1, 0, 0, 100);
         this.fname = fname;
         this.lname = lname;
         this.email = email;
@@ -87,18 +86,18 @@ public class User implements Serializable {
         return evaluationScore;
     }
 
-    public XpSystem getXpSystem() {
-        if (this.xpSystem == null) {
-            return new XpSystem(0, 1, 0, 0, 100);
+    public XpHandler getXpSystem() {
+        if (this.xpHandler == null) {
+            return new XpHandler(0, 1, 0, 0, 100);
         }
-        return xpSystem;
+        return xpHandler;
     }
 
     public int getLvl() {
-        if (this.xpSystem == null) {
+        if (this.xpHandler == null) {
             return 1;
         }
-        return xpSystem.getLvl();
+        return xpHandler.getLvl();
     }
 
    /* public void setXp(double xp) {
@@ -113,24 +112,24 @@ public class User implements Serializable {
     }
 
     public int getStreak() {
-        if (this.xpSystem == null) {
+        if (this.xpHandler == null) {
             return 0;
         }
-        return xpSystem.getStreak();
+        return xpHandler.getStreak();
     }
 
     public double getXpToLevel() {
-        if (this.xpSystem == null) {
+        if (this.xpHandler == null) {
             return 100;
         }
-        return xpSystem.getXpToLevel();
+        return xpHandler.getXpToLevel();
     }
 
     public int getInactiveDays() {
-        if (this.xpSystem == null) {
+        if (this.xpHandler == null) {
             return 0;
         }
-        return xpSystem.getInactiveDays();
+        return xpHandler.getInactiveDays();
     }
 
     public void setStreakIsUpdated(boolean streakIsUpdated) {
