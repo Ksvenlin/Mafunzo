@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * to access the data from the backend.
  */
 @Controller
-public class PageController {
+public class pageController {
 
     /**
      * This method is the first method that is called when the user enters the application. It returns the login page.

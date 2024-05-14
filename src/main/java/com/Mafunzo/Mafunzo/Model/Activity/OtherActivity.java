@@ -4,6 +4,7 @@ import com.Mafunzo.Mafunzo.Model.Activities;
 
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
+import java.util.List;
 
 /**
  * Class that represents an "other" activity
@@ -17,8 +18,6 @@ public class OtherActivity implements Activities {
     private double duration;
     private String caption;
     private LocalDateTime timeStamp;
-
-
 
     public OtherActivity() {
     }
@@ -59,6 +58,11 @@ public class OtherActivity implements Activities {
 
     public void setTimeStamp(LocalDateTime timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    @Override
+    public List<Exercise> getExerciseList() {
+        return null;
     }
 
     @Override

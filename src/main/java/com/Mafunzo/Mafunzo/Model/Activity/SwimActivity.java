@@ -5,6 +5,7 @@ import com.Mafunzo.Mafunzo.Model.Activities;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
+import java.util.List;
 
 /**
  * Class that represents a swim activity
@@ -69,6 +70,11 @@ public class SwimActivity implements Activities {
 
     public void setTimeStamp(LocalDateTime timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    @Override
+    public List<Exercise> getExerciseList() {
+        return null;
     }
 
     @Override

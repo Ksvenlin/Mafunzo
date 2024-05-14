@@ -4,6 +4,7 @@ import com.Mafunzo.Mafunzo.Model.Activities;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Class that represents a run activity
@@ -68,6 +69,11 @@ public class RunActivity implements Activities {
 
     public void setTimeStamp(LocalDateTime timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    @Override
+    public List<Exercise> getExerciseList() {
+        return null;
     }
 
     @Override

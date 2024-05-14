@@ -1,6 +1,9 @@
 package com.Mafunzo.Mafunzo.Model;
 
+import com.Mafunzo.Mafunzo.Model.Activity.Exercise;
+
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Interface for activities
@@ -22,5 +25,10 @@ public interface Activities {
     LocalDateTime getTimeStamp();
 
     String printInfo();
+
+    void setTimeStamp(LocalDateTime timeStamp);
+
+    List<Exercise> getExerciseList();
+
 
 }

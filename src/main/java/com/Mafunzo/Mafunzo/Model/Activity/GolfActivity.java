@@ -77,6 +77,11 @@ public class GolfActivity implements Activities {
     }
 
     @Override
+    public List<Exercise> getExerciseList() {
+        return null;
+    }
+
+    @Override
     public String printInfo() {
         int totalPoints = 0;
         int totalStrokes = 0;

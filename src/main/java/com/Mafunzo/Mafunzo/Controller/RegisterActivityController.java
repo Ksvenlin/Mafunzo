@@ -1,5 +1,6 @@
 package com.Mafunzo.Mafunzo.Controller;
 
+import com.Mafunzo.Mafunzo.Model.Activities;
 import com.Mafunzo.Mafunzo.Model.Activity.*;
 import com.Mafunzo.Mafunzo.Model.User;
 import com.Mafunzo.Mafunzo.Model.UserService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import java.time.Clock;
 import java.time.LocalDateTime;
 
@@ -20,6 +22,7 @@ public class RegisterActivityController {
     private UserService userService;
     private User user;
     private XpController xpController = new XpController();
+
     /**
      * This method is used to register a walk activity in the user's profile, and sets the xp to the user based on the evaluation score
      *
@@ -36,12 +39,7 @@ public class RegisterActivityController {
         //Detta är temporärt för att testa och kommer tas bort Star
         walkActivity.setCaption("Gång Caption");
         //Slut
-        walkActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
-        user = (User) session.getAttribute("loggedUser");
-        user.getActivitiesList().add(walkActivity);
-        user = xpController.xpHandler(user);
-        userService.updateActivity(user);
-        model.addAttribute("user", user);
+        processAndSaveUserActivity(walkActivity, (User) session.getAttribute("loggedUser"), model);
         return "profilePage";
     }
 
@@ -59,12 +57,7 @@ public class RegisterActivityController {
         //Detta är temporärt för att testa och kommer tas bort Star
         runActivity.setCaption("Löpning Caption");
         //Slut
-        runActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
-        user = (User) session.getAttribute("loggedUser");
-        user.getActivitiesList().add(runActivity);
-        user = xpController.xpHandler(user);
-        userService.updateActivity(user);
-        model.addAttribute("user", user);
+        processAndSaveUserActivity(runActivity, (User) session.getAttribute("loggedUser"), model);
         return "profilePage";
     }
 
@@ -82,12 +75,7 @@ public class RegisterActivityController {
         //Detta är temporärt för att testa och kommer tas bort Star
         swimActivity.setCaption("Simning Caption");
         //Slut
-        swimActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
-        user = (User) session.getAttribute("loggedUser");
-        user.getActivitiesList().add(swimActivity);
-        user = xpController.xpHandler(user);
-        userService.updateActivity(user);
-        model.addAttribute("user", user);
+        processAndSaveUserActivity(swimActivity, (User) session.getAttribute("loggedUser"), model);
         return "profilePage";
     }
 
@@ -105,12 +93,7 @@ public class RegisterActivityController {
         //Detta är temporärt för att testa och kommer tas bort Star
         bikeActivity.setCaption("Cykel Caption");
         //Slut
-        bikeActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
-        user = (User) session.getAttribute("loggedUser");
-        user.getActivitiesList().add(bikeActivity);
-        user = xpController.xpHandler(user);
-        userService.updateActivity(user);
-        model.addAttribute("user", user);
+        processAndSaveUserActivity(bikeActivity, (User) session.getAttribute("loggedUser"), model);
         return "profilePage";
     }
 
@@ -128,12 +111,8 @@ public class RegisterActivityController {
         //Detta är temporärt för att testa och kommer tas bort Star
         golfActivity.setCaption("Golf Caption");
         //Slut
-        golfActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
-        user = (User) session.getAttribute("loggedUser");
-        user.getActivitiesList().add(golfActivity);
-        user = xpController.xpHandler(user);
-        userService.updateActivity(user);
-        model.addAttribute("user", user);
+        processAndSaveUserActivity(golfActivity, (User) session.getAttribute("loggedUser"), model);
+
         return "profilePage";
     }
 
@@ -154,22 +133,10 @@ public class RegisterActivityController {
         yogaActivity.setCaption("Yoga Caption");
         //Slut
         if (add != null) {
-            user = (User) session.getAttribute("loggedUser");
-            model.addAttribute("user", user);
-            Exercise tempExercise = new Exercise();
-            yogaActivity.getExerciseList().add(tempExercise);
-            for (int i = 0; i < yogaActivity.getExerciseList().size(); i++) {
-                yogaActivity.getExerciseList().get(i).setExerciseNumber(i + 1);
-            }
-            model.addAttribute("yogaActivity", yogaActivity);
+            model.addAttribute("yogaActivity", (YogaActivity) addExercise(yogaActivity, (User) session.getAttribute("loggedUser"), model));
             return "activities/yogaTraining";
         } else if (register != null) {
-            yogaActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
-            user = (User) session.getAttribute("loggedUser");
-            user.getActivitiesList().add(yogaActivity);
-            user = xpController.xpHandler(user);
-            userService.updateActivity(user);
-            model.addAttribute("user", user);
+            processAndSaveUserActivity(yogaActivity, (User) session.getAttribute("loggedUser"), model);
         }
         return "profilePage";
     }
@@ -192,22 +159,10 @@ public class RegisterActivityController {
         stretchActivity.setCaption("Stretching Caption");
         //Slut
         if (add != null) {
-            user = (User) session.getAttribute("loggedUser");
-            model.addAttribute("user", user);
-            Exercise tempExercise = new Exercise();
-            stretchActivity.getExerciseList().add(tempExercise);
-            for (int i = 0; i < stretchActivity.getExerciseList().size(); i++) {
-                stretchActivity.getExerciseList().get(i).setExerciseNumber(i + 1);
-            }
-            model.addAttribute("stretchTraining", stretchActivity);
+            model.addAttribute("stretchTraining", (StretchActivity) addExercise(stretchActivity, (User) session.getAttribute("loggedUser"), model));
             return "activities/stretchTraining";
         } else if (register != null) {
-            stretchActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
-            user = (User) session.getAttribute("loggedUser");
-            user.getActivitiesList().add(stretchActivity);
-            user = xpController.xpHandler(user);
-            userService.updateActivity(user);
-            model.addAttribute("user", user);
+            processAndSaveUserActivity(stretchActivity, (User) session.getAttribute("loggedUser"), model);
         }
         return "profilePage";
     }
@@ -230,22 +185,11 @@ public class RegisterActivityController {
         strengthActivity.setCaption("Styrketräning Caption");
         //Slut
         if (add != null) {
-            user = (User) session.getAttribute("loggedUser");
-            model.addAttribute("user", user);
-            Exercise tempExercise = new Exercise();
-            strengthActivity.getExerciseList().add(tempExercise);
-            for (int i = 0; i < strengthActivity.getExerciseList().size(); i++) {
-                strengthActivity.getExerciseList().get(i).setExerciseNumber(i + 1);
-            }
-            model.addAttribute("strengthTraining", strengthActivity);
+            model.addAttribute("strengthTraining", (StrengthActivity) addExercise(strengthActivity, user = (User) session.getAttribute("loggedUser"), model));
             return "activities/strengthTraining";
         } else if (register != null) {
-            strengthActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
-            user = (User) session.getAttribute("loggedUser");
-            user.getActivitiesList().add(strengthActivity);
-            user = xpController.xpHandler(user);
-            userService.updateActivity(user);
-            model.addAttribute("user", user);
+            processAndSaveUserActivity(strengthActivity, (User) session.getAttribute("loggedUser"), model);
+
         }
         return "profilePage";
     }
@@ -262,18 +206,43 @@ public class RegisterActivityController {
 
     @PostMapping("/registerOther")
     public String registerOther(HttpSession session, OtherActivity otherActivity, Model model) {
-        //Detta är temporärt för att testa och kommer tas bort Star
-        otherActivity.setCaption("Övrig Caption");
-        //Slut
-        //ZoneId zoneId = ZoneId.of("Europe/Paris");
-        //ZonedDateTime now = ZonedDateTime.now(zoneId);
-        //otherActivity.setTimeStamp(now);
-        otherActivity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
-        user = (User) session.getAttribute("loggedUser");
-        user.getActivitiesList().add(otherActivity);
-        user = xpController.xpHandler(user);
-        userService.updateActivity(user);
-        model.addAttribute("user", user);
+        otherActivity.setCaption("Övrig Caption");//Detta är temporärt för att testa och kommer tas bort Star
+        processAndSaveUserActivity(otherActivity, (User) session.getAttribute("loggedUser"), model);
         return "profilePage";
+    }
+
+    /**
+     * This method is used to process and save the user's activity in the user's profile.
+     *
+     * @param activity the activity that the user wants to register.
+     * @param user     the user that wants to register the activity.
+     * @param model    the model that is used to send information to the view.
+     * @return the HTML filepath of the profile page.
+     * @author Kasper Svenlin & Adam Mheisen
+     */
+    public void processAndSaveUserActivity(Activities activity, User user, Model model) {
+        activity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
+        user.getActivitiesList().add(activity);
+        userService.updateActivity(xpController.registerXpToUser(user));
+        model.addAttribute("user", user);
+    }
+
+    /**
+     * This method is used to add an exercise to the activities that has multiple activities.
+     *
+     * @param activity the activity that the user wants to add an exercise to.
+     * @param user     the user that wants to add the exercise.
+     * @param model    the model that is used to send information to the view.
+     * @return the activity with the added exercise.
+     * @author Adam Mheisen, Kasper Svenlin
+     */
+    public Activities addExercise(Activities activity, User user, Model model) {
+        model.addAttribute("user", user);
+        Exercise tempExercise = new Exercise();
+        activity.getExerciseList().add(tempExercise);
+        for (int i = 0; i < activity.getExerciseList().size(); i++) {
+            activity.getExerciseList().get(i).setExerciseNumber(i + 1);
+        }
+        return activity;
     }
 }
