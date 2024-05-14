@@ -8,44 +8,39 @@
 nav {
     justify-content: center;
     display: flex;
-    padding: 0.5rem;
+    padding: 0.5rem
+
+}
+
+
+.titel {
+    background-color: #ff7100;
+    border-radius: 75px;
+    height: 140px;
+    margin: 50px auto;
+    overflow: hidden;
+    display: flex;
 }
 
 .notification {
     background-color: #ff7100;
-    align-self: flex-start;
     border-radius: 75px;
     height: 140px;
     width: 150px;
-    text-align: center;
-    margin: 30px auto 30px -20px;
-
-}
-
-.titel {
-    background-color: #ff7100;
-    align-self: center;
-    border-radius: 75px;
-    height: 140px;
-    width: 500px;
-    text-align: center;
-    margin: 30px auto 30px;
+    text-align: left;
+    margin: 50px auto 30px 50px;
     overflow: hidden;
-    display: flex; /* Add this line */
-    justify-content: center; /* Add this line */
-    align-items: center; /* Add this line */
 }
 
 .hamburger {
     background-color: #ff7100;
-    align-self: flex-end;
     border-radius: 75px;
     height: 140px;
     width: 150px;
-    text-align: center;
-    margin: 10px auto 30px;
+    text-align: right;
+    margin: 50px 50px 30px auto;
+    font-size: 50px;
 }
-
 
 
 
