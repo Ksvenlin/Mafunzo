@@ -20,7 +20,7 @@
         </header>
     </a>
     <a href="registerActivity">Registrera Aktivitet</a>
-    <a href="#register">Vänner</a>
+    <a href="searchPage">Vänner</a>
     <a href="profilepage">
         <img th:src="'data:image/jpeg;base64,'+${user.image}" alt="Profile Picture" class="profile-pic">
     </a>
@@ -33,7 +33,6 @@
     <div class="profile-flex-container">
         <div class="profile-and-xp">
             <div class="profile-pic-in-page">
-                <!--<img src="../images/kevin.jpeg" alt="profilePic"> -->
                 <img th:src="'data:image/jpeg;base64,'+${user.image}" alt="Profile Picture" class="profile-pic">
 
                 <div th:if="${user}">

@@ -1,12 +1,18 @@
 package com.Mafunzo.Mafunzo.Controller;
 
 import com.Mafunzo.Mafunzo.Model.Activity.*;
+import com.Mafunzo.Mafunzo.Model.SearchUsers;
 import com.Mafunzo.Mafunzo.Model.User;
+import com.Mafunzo.Mafunzo.Model.UserService;
 import jakarta.servlet.http.HttpSession;
 // org.springframework.boot.Banner;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This Controller is responsible for the routing of the different pages in the application. It also checks if the user
@@ -15,6 +21,9 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class pageController {
+
+    @Autowired
+    private UserService userService;
 
     /**
      * This method is the first method that is called when the user enters the application. It returns the login page.
@@ -269,5 +278,17 @@ public class pageController {
         }
         model.addAttribute("user", user);
         return "activities/strengthTraining";
+    }
+
+    @GetMapping("/searchPage")
+    public String searchPage(Model model, HttpSession session){
+        SearchUsers searchUsers = new SearchUsers(userService.getAllUsers());
+        model.addAttribute("searchUsers", searchUsers);
+        User user = (User) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("user", user);
+        return "searchPage";
     }
 }

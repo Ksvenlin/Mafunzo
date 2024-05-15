@@ -40,4 +40,7 @@ public class UserService {
             throw new RuntimeException("User not found");
         }
     }
+    public List<User> searchUsers(String name) {
+        return userRepo.findByNameContainingIgnoreCase(name);
+    }
 }

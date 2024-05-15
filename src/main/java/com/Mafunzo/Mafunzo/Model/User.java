@@ -24,10 +24,12 @@ public class User implements Serializable {
     private String email;
     private String password;
     private XpHandler xpHandler;
-    private List<User> friends;
+    private List<User> follower;
+    private List<User> following;
     private List<Activities> activitiesList;
     private String image;
     private boolean streakIsUpdated;
+    private String name;
 
 
     public User(XpHandler xpHandler, String fname, String lname, String email, String password, int evaluationScore, String image) {
@@ -37,7 +39,8 @@ public class User implements Serializable {
         this.email = email;
         this.password = password;
         this.activitiesList = new ArrayList<>();
-        this.friends = new ArrayList<>();
+        this.follower = new ArrayList<>();
+        this.following = new ArrayList<>();
         this.evaluationScore = evaluationScore;
         this.image = image;
         this.streakIsUpdated = false;
@@ -46,40 +49,16 @@ public class User implements Serializable {
     public User() {
     }
 
-    public String getFname() {
-        return fname;
-    }
-
-    public void setFname(String fname) {
-        this.fname = fname;
-    }
-
-    public String getLname() {
-        return lname;
-    }
-
     public String getName() {
         return fname + " " + lname;
-    }
-
-    public void setLname(String lname) {
-        this.lname = lname;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public int getEvaluationScore() {
@@ -100,15 +79,25 @@ public class User implements Serializable {
         return xpHandler.getLvl();
     }
 
-   /* public void setXp(double xp) {
-        this.xp = xp;
-    }*/
-
     public List<Activities> getActivitiesList() {
         if (this.activitiesList == null) {
             return new ArrayList<>();
         }
         return activitiesList;
+    }
+
+    public List<User> getFollower(){
+        if (this.follower == null) {
+            return new ArrayList<>();
+        }
+        return follower;
+    }
+
+    public List<User> getFollowing(){
+        if (this.following == null) {
+            return new ArrayList<>();
+        }
+        return following;
     }
 
     public int getStreak() {
@@ -125,16 +114,10 @@ public class User implements Serializable {
         return xpHandler.getXpToLevel();
     }
 
-    public int getInactiveDays() {
-        if (this.xpHandler == null) {
-            return 0;
-        }
-        return xpHandler.getInactiveDays();
-    }
-
     public void setStreakIsUpdated(boolean streakIsUpdated) {
         this.streakIsUpdated = streakIsUpdated;
     }
+
     public boolean getStreakIsUpdated(){
         return  streakIsUpdated;
     }
@@ -145,10 +128,6 @@ public class User implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public void setActivitiesList(List<Activities> activitiesList) {
-        this.activitiesList = activitiesList;
     }
 
 }
