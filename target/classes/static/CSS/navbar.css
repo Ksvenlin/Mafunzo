@@ -8,9 +8,31 @@
 nav {
     justify-content: center;
     display: flex;
-    padding: 0.5rem
+    padding: 0.5rem;
+    text-shadow: 2px 2px black;
 
 }
+
+#menu {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: #ffffff;
+    height: 25px;
+    background-color: #ff7100;
+    border-radius: 25%;
+    text-align: center;
+    align-self: auto;
+    width: 85%;
+    border: none;
+    text-shadow: 2px 2px black;
+
+
+}
+
+#menu:hover {
+    color: black;
+}
+
 
 
 .titel {
@@ -20,26 +42,31 @@ nav {
     margin: 50px auto;
     overflow: hidden;
     display: flex;
+    box-shadow: 2px 2px black;
 }
 
 .notification {
     background-color: #ff7100;
     border-radius: 75px;
     height: 140px;
-    width: 150px;
+    width: 250px;
     text-align: left;
     margin: 50px auto 30px 50px;
-    overflow: hidden;
+    overflow: hidden; box-shadow: 2px 2px black;
 }
 
 .hamburger {
     background-color: #ff7100;
     border-radius: 75px;
     height: 140px;
-    width: 150px;
+    width: 250px;
     text-align: right;
     margin: 50px 50px 30px auto;
     font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px black;
 }
 
 
