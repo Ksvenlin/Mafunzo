@@ -48,6 +48,7 @@ nav {
 
 .notification {
     background-color: #ff7100;
+    box-shadow: 2px 2px black;
     border-radius: 75px;
     height: 140px;
     width: 250px;
