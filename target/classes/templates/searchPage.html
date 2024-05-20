@@ -1,7 +1,7 @@
 <!---
 @author Adam Mheisen
  --->
-<!--
+
 <!doctype html>
 <html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -10,6 +10,7 @@
     <link href="../CSS/navbar.css" rel="stylesheet"/>
 </head>
 <body>
+<link href="CSS/followerPage.css" rel="stylesheet">
 <nav class="navbar">
 
     <div class="notification">
@@ -39,52 +40,6 @@
     </div>
 </nav>
 
-
-<div class="userList">
-    <form th:action="@{/search}" th:object="${search}" method="post">
-        <label>
-            <input type="text" name="search" />
-        </label>
-        <button type="submit">Sök</button>
-    </form>
-    <form th:action="@{/followerUserPage}" method="post">
-        <div th:each="user : ${searchUsers.userList}">
-            <form th:action="@{/followerUserPage}" method="post">
-                <button type="submit">
-                    <input type="hidden" name="email" th:value="${user.email}" />
-                    <p th:text="${user.getName()}">User Name</p>
-                    <img th:src="'data:image/jpeg;base64,'+${user.image}" alt="Profile Picture" class="profile-pic">
-                </button>
-            </form>
-        </div>
-    </form>
-</div>
-</body>
-</html>
--->
-<!doctype html>
-<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="UTF-8">
-    <title>Välkommen till Mafunzo!</title>
-    <link href="../CSS/navbar.css" rel="stylesheet"/>
-    <link href="../CSS/followerPage.css" rel="stylesheet"/>
-</head>
-<body>
-<nav class="navbar">
-    <a href="home">
-        <header>
-            <img src="../images/logo.png" alt="Header image">
-            <h1>Mafunzo</h1>
-        </header>
-    </a>
-    <a href="registerActivity">Registrera Aktivitet</a>
-    <a href="#register">Vänner</a>
-    <a href="profilepage">
-        <img th:src="'data:image/jpeg;base64,'+${user.image}" alt="Profile Picture" class="profile-pic">
-    </a>
-    <a th:href="@{/logOut}" class="button">Avsluta</a>
-</nav>
 
 <div class="userList">
     <form th:action="@{/search}" th:object="${search}" method="post" class="search-form">
