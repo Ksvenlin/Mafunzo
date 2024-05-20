@@ -289,6 +289,8 @@ public class pageController {
             return "redirect:/index";
         }
         model.addAttribute("user", user);
+        String search = "";
+        model.addAttribute("search", search);
         return "searchPage";
     }
 }

@@ -36,15 +36,15 @@ public class FollowController {
 
 
     @PostMapping("/search")
-    public String search(@RequestParam(value = "searchButton", required = false) String search, HttpSession session, Model model){
+    public String search(@RequestParam(value = "search", required = false)String search, HttpSession session, Model model){
         User user = (User) session.getAttribute("loggedUser");
         if (user == null) {
             return "redirect:/index";
         }
         model.addAttribute("user", user);
-        SearchUsers searchUsers;
+        SearchUsers searchUsers = new SearchUsers(userService.getAllUsers());
         if(search != null) {
-            searchUsers = new SearchUsers(userService.searchUsers(search));
+            searchUsers = new SearchUsers(userService.searchUsers(search, search));
         }else {
             searchUsers = new SearchUsers(userService.getAllUsers());
         }

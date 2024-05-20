@@ -29,7 +29,7 @@ public class User implements Serializable {
     private List<Activities> activitiesList;
     private String image;
     private boolean streakIsUpdated;
-    private String name;
+
 
 
     public User(XpHandler xpHandler, String fname, String lname, String email, String password, int evaluationScore, String image) {

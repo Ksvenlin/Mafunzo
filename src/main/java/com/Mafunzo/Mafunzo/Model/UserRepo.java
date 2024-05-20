@@ -24,6 +24,6 @@ public interface UserRepo extends MongoRepository<User, String> {
      */
     Optional<User> findByEmail(String email);
 
-    List<User> findByNameContainingIgnoreCase(String name);
+    List<User> findByFnameContainingIgnoreCaseOrLnameContainingIgnoreCase(String lname, String fname);
 
 }
