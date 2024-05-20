@@ -1,7 +1,7 @@
 <!---
 @author Adam Mheisen
  --->
-
+<!--
 <!doctype html>
 <html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -44,6 +44,54 @@
             </form>
         </div>
     </form>
+</div>
+</body>
+</html>
+-->
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Välkommen till Mafunzo!</title>
+    <link href="../CSS/navbar.css" rel="stylesheet"/>
+    <link href="../CSS/followerPage.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar">
+    <a href="home">
+        <header>
+            <img src="../images/logo.png" alt="Header image">
+            <h1>Mafunzo</h1>
+        </header>
+    </a>
+    <a href="registerActivity">Registrera Aktivitet</a>
+    <a href="#register">Vänner</a>
+    <a href="profilepage">
+        <img th:src="'data:image/jpeg;base64,'+${user.image}" alt="Profile Picture" class="profile-pic">
+    </a>
+    <a th:href="@{/logOut}" class="button">Avsluta</a>
+</nav>
+
+<div class="userList">
+    <form th:action="@{/search}" th:object="${search}" method="post" class="search-form">
+        <label>
+            <input type="text" name="search" class="search-input" />
+        </label>
+        <button type="submit" class="search-button">Sök</button>
+    </form>
+    <div class="user-container">
+    <div class="results-grid">
+        <div th:each="user : ${searchUsers.userList}" class="user-card">
+            <form th:action="@{/followerUserPage}" method="post">
+                <button type="submit" class="user-button">
+                    <input type="hidden" name="email" th:value="${user.email}" />
+                    <p th:text="${user.getName()}" class="user-name">User Name</p>
+                    <img th:src="'data:image/jpeg;base64,'+${user.image}" alt="Profile Picture" class="profile-pic">
+                </button>
+            </form>
+        </div>
+    </div>
+    </div>
 </div>
 </body>
 </html>
