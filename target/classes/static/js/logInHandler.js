@@ -1,5 +1,5 @@
-/*This part of the script creates variables for the different elements in the HTML file
-
+/**
+This part of the script creates variables for the different elements in the HTML file
  */
 
 let registerButton = document.getElementById("registerButton");
@@ -7,7 +7,6 @@ let loginButton = document.getElementById("loginButton");
 let fname = document.getElementById("nameField1")
 let lname = document.getElementById("nameField2")
 let imagebox = document.getElementById("file")
-let title = document.getElementById("title");
 let q1 = document.getElementById("question1");
 let q2 = document.getElementById("question2");
 let q3 = document.getElementById("question3");
@@ -17,7 +16,7 @@ let continueButton = document.getElementById("continueButton");
 let submitButton = document.getElementById("submit");
 let returnButton = document.getElementById("returnButton");
 let passwordInstructions = document.getElementById("passwordInstructions");
-
+let createNewDayButton = document.getElementById("createDateButton");
 
 let nameField1 = document.querySelector("#nameField1 input");
 let nameField2 = document.querySelector("#nameField2 input");
@@ -27,19 +26,20 @@ let contentContainer = document.querySelector('.content-container-register');
 let buttonfield = document.querySelector('.button-field');
 let radioButtons = document.querySelectorAll("input[type='radio']");
 let file = document.querySelector("#file");
+let continueElement = document.querySelector('.continue');
+
 
 let totalScore = 0;
 fname.style.maxHeight = "0";
 lname.style.maxHeight = "0";
 imagebox.style.maxHeight = "0";
 passwordInstructions.style.display = "none";
-title.innerHTML = "Logga in";
 registerButton.classList.add("disable");
 loginButton.classList.remove("disable");
 isLogInButtonPressed = true;
 
 
-/*
+/**
 This part adds event listeners to the radio buttons in the evaluation form. When a radio button is checked
 the event listeners fire and the next question is displayed. When the last question is answered
 the submit button is displayed.
@@ -93,7 +93,7 @@ q3.style.maxHeight = '0';
 q4.style.maxHeight = '0';
 q5.style.maxHeight = '0';
 
-/*
+/**
 These two functions control the visability of the login and register buttons. When the login button is pressed
 the register form is hidden and the login form is displayed. When the register button is pressed the login form
 is hidden and the register form is displayed.
@@ -106,10 +106,10 @@ loginButton.onclick = function () {
     fname.style.maxHeight = "0";
     lname.style.maxHeight = "0";
     imagebox.style.display = "none";
-    title.innerHTML = "Logga in";
     registerButton.classList.add("disable");
     loginButton.classList.remove("disable");
     isLogInButtonPressed = true;
+    continueButton.innerHTML = "Login";
 }
 
 registerButton.onclick = function () {
@@ -117,13 +117,13 @@ registerButton.onclick = function () {
     lname.style.maxHeight = "60px";
     imagebox.style.display = "block";
     imagebox.style.maxHeight = "60px";
-    title.innerHTML = "Registrera dig";
     registerButton.classList.remove("disable");
     loginButton.classList.add("disable");
     isLogInButtonPressed = false;
+    continueButton.innerHTML = "Continue";
 }
 
-/*
+/**
 This function creates a snackbar that displays a message for 3 seconds. The color and border of the snackbar
 is set depending on the color and border parameters that are passed to the function.
 This method shows the notification message with the response from the backend as a notification box.
@@ -143,7 +143,7 @@ function showSnackbar(message, color, border) {
     }, 3000);
 }
 
-/*
+/**
 The returnButton onclick function handles the logic for what happens when the return button is pressed.
 it hides all the questions and sets the buttonfield with the login and register buttons to be displayed.
 it also resets the width of the content container and brings back the continue button :)
@@ -166,6 +166,8 @@ returnButton.onclick = function () {
     continueButton.style.display = 'block';
     returnButton.style.display = 'none';
     submitButton.style.display = 'none';
+    continueElement.style.marginTop = '-100px'; // Change '0px' to the value you want
+
 
     radioButtons.forEach(function (radio) {
         radio.checked = false;
@@ -173,7 +175,23 @@ returnButton.onclick = function () {
 
 }
 
-/*
+/**
+ *
+ */
+createNewDayButton.onclick = function () {
+    fetch('/updateDay', {
+        method: 'POST'
+    })
+        .then(response => {
+            if (response.ok) {
+                showSnackbar("Dagen har uppdaterats", "#44ff44", '#00b300')
+            } else {
+                showSnackbar("Dagen kunde inte uppdateras", "#ff4444", "#b20000")
+            }
+        })
+}
+
+/**
 The continue onClick function handles the logic for what happens when the continue button is pressed.
 If the isLogInButtonPressed variable is true it sends a post request to the backend with the email and password
 that the user has entered. If the response is not ok it will display a snackbar with the error message from the backend.
@@ -233,6 +251,8 @@ continueButton.onclick = function () {
         contentContainer.style.width = '65%';
         continueButton.style.display = 'none';
         returnButton.style.display = 'block';
+        continueElement.style.marginTop = '20px'; // Change '0px' to the value you want
+
 
         q1.style.padding = '12px';
         q1.style.maxHeight = '120px';
@@ -240,7 +260,7 @@ continueButton.onclick = function () {
     }
 }
 
-/*
+/**
 The submit button onclick fires when the submit button is clicked. This button only appears when the evaluation form
 is fully filled in. It starts off by calculation the total score of the evaluation form.
 It then sends the data to the backend as JSON strings and if the response is not ok it will display a snackbar with the error message
@@ -276,7 +296,6 @@ submitButton.onclick = function () {
         formData.append("email", email.value);
         formData.append("password", password.value);
         formData.append("evaluationScore", totalScore);
-
         formData.append("image", file.files[0]);
     }
 
