@@ -14,31 +14,44 @@
 <link href="CSS/registerActivity.css" rel="stylesheet">
 
 <div class="content-container-register">
+    <button id="createDateButton"> Date +1 </button>
+
     <div class="form-box">
         <h1 id="title">
-            Registrera dig
+            Mafunzo
         </h1>
+
         <button id="returnButton" class="return-button">&larr; Return</button>
+
         <form>
             <div class="input-box">
+                <div class="button-field">
+                    <button type="button" id="registerButton">
+                        Register
+                    </button>
+                    <button type="button" id="loginButton" class="disable">
+                        Login
+                    </button>
+                </div>
+
                 <div class="input-group" id="nameField1">
-                    <input type="text" placeholder="Förnamn">
+                    <input type="text" placeholder="Firstname">
                 </div>
                 <div class="input-group" id="nameField2">
-                    <input type="text" placeholder="Efternamn">
+                    <input type="text" placeholder="Lastname">
                 </div>
                 <div class="input-group">
                     <input type="text" placeholder="Email">
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="Lösenord">
+                    <input type="password" placeholder="Password">
                 </div>
                 <div id="passwordInstructions" class="password-instructions">
-                    <p>Lösenordet måste innehålla:</p>
+                    <p>The password must contain:</p>
                     <ul>
-                        <li>Minst 8 tecken</li>
-                        <li>Minst en stor bokstav</li>
-                        <li>Minst en siffra och ett specialtecken</li>
+                        <li>At least 8 characters</li>
+                        <li>At least one capital letter</li>
+                        <li>At least one number and one special character</li>
                     </ul>
                 </div>
                 <div class="input-group">
@@ -122,21 +135,12 @@
             </div>
         </form>
 
-        <div class="button-field">
-            <button type="button" id="registerButton">
-                Registera dig
-            </button>
-            <button type="button" id="loginButton" class="disable">
-                Logga in
-            </button>
-        </div>
-
         <div class="continue">
             <button class='common-button' type="button" id="continueButton">
-                Fortsätt
+                Login
             </button>
             <button class='common-button' type="submit" id="submit">
-                Skicka in
+                Send
             </button>
         </div>
     </div>
@@ -146,4 +150,3 @@
 <script src="../js/logInHandler.js"></script>
 </body>
 </html>
-

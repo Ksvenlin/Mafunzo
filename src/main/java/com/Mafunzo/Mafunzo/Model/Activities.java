@@ -30,5 +30,4 @@ public interface Activities {
 
     List<Exercise> getExerciseList();
 
-
 }

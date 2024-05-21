@@ -12,9 +12,9 @@ import java.util.Optional;
  *
  * @author Kevin Nordkvist & Adam Mheisen
  */
+
 @Repository
 public interface UserRepo extends MongoRepository<User, String> {
-
     /**
      * Method that finds a user by email in the DB.
      *

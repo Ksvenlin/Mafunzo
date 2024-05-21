@@ -29,7 +29,6 @@ public class userHandler {
     @Autowired
     UserService userService;
 
-
     /**
      * This method is used to add a user to the database. It checks if the email is already in use, if the password is valid and if the image is uploaded.
      *
