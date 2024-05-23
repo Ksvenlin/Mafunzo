@@ -5,7 +5,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title> Välkommen till Mafunzo! </title>
+    <title> Welcome to Mafunzo! </title>
     <link href="CSS/navbar.css" rel="stylesheet"/>
 </head>
 <body>
@@ -13,7 +13,7 @@
 <nav class="navbar">
 
     <div class="notification">
-        <a href="/notification">
+        <a>
             <img src="../images/notification.png">
         </a>
     </div>
@@ -29,9 +29,9 @@
 
     <div class="hamburger">
         <select id ="menu" onChange="window.location.href=this.value">
-            <option value="home" >Home</option>
+            <option value="home" >Menu</option>
             <option value="profilepage">Profile</option>
-            <option value="registerActivity">Activities</option>
+            <option value="registerActivity">Add activity</option>
             <option value="searchPage">Search</option>
             <option value="logOut">Log out</option>
         </select>
@@ -43,10 +43,10 @@
     <form th:action="@{/registerGolf}" th:object="${golfActivity}" method="post">
         <div class="row-one">
             <img src="images/gorilla-golfar.png" alt="Golf" class="bild">
-            <p> Varaktighet (Minuter) </p>
+            <p> Duration (minutes) </p>
             <input type="number" min="2" th:field="*{duration}" class="duration">
             <br> <br>
-            <p th:text="Kommentar"></p>
+            <p th:text="Comment"></p>
             <input type="text" th:field="*{description}" class="description">
             <br><br><br><br>
         </div>
@@ -60,16 +60,16 @@
                 <div class="row-hole">
                     <p th:text="'Hål ' + ${hole.getHoleNumber()}" class="hole-caption"></p>
                     <br>
-                    <p class="strokes-caption"> Slag </p>
+                    <p class="strokes-caption"> Strokes </p>
                     <input type="number" min="0" th:field="*{scoreCard[__${holeIndex.index}__].strokes}"
                            class="input-strokes"/>
-                    <p class="points-caption"> Poäng </p>
+                    <p class="points-caption"> Points </p>
                     <input type="number" min="0" th:field="*{scoreCard[__${holeIndex.index}__].points}"
                            class="input-points"/>
                 </div>
             </div>
         </div>
-        <button class="button" type="submit">Registrera</button>
+        <button class="button" type="submit">Register</button>
     </form>
 </div>
 </body>

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
@@ -50,12 +49,12 @@ public class userHandler {
 
         //Check if first name is empty
         if(fname.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.GONE).body("{\"message\": \"Du måste fylla i ett förnamn\"}");
+            return ResponseEntity.status(HttpStatus.GONE).body("{\"message\": \"Please fill in your first name!\"}");
         }
 
         //Check if last name is empty
         if(lname.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.LENGTH_REQUIRED).body("{\"message\": \"Du måste fylla i ett efternamn\"}");
+            return ResponseEntity.status(HttpStatus.LENGTH_REQUIRED).body("{\"message\": \"Please fill in ur surname!\"}");
         }
 
         /*
@@ -64,7 +63,7 @@ public class userHandler {
         */
         for (User user : avalibleUsers) {
             if (user.getEmail().equals(email)) {
-                return ResponseEntity.status(HttpStatus.CONFLICT).body("{\"message\": \"Mejladressen används redan\"}");
+                return ResponseEntity.status(HttpStatus.CONFLICT).body("{\"message\": \"Email already in use!\"}");
             }
         }
 
@@ -72,17 +71,17 @@ public class userHandler {
             InternetAddress emailAddr = new InternetAddress(email);
             emailAddr.validate();
         } catch (AddressException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("{\"message\": \"Mejladressen är ogiltig\"}");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("{\"message\": \"Invalid email!\"}");
         }
 
         //Check if password is valid
         if (!Pattern.compile("(?=.*[A-Z])(?=.*[^A-Za-z0-9 ])(?=.*[!@#$%&*()_+=|<>?{}\\[\\]~-])").matcher(password).find() || password.length() < 8) {
-            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("{\"message\": \"Lösenordet är ogiltigt\"}");
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("{\"message\": \"Invalid password!\"}");
         }
 
         //Check if image is uploaded
         if (image == null || image.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE).body("{\"message\": \"Du måste ladda upp en profilbild\"}");
+            return ResponseEntity.status(HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE).body("{\"message\": \"You have to select a profile picture!\"}");
         }
 
         String imageString = Base64.getEncoder().encodeToString(image.getBytes());
@@ -90,7 +89,7 @@ public class userHandler {
         User savedUser = userService.saveUser(new User(new XpHandler(0, 1, 0, 0, 100), fname, lname, email, password, evaluationScore, imageString));
         model.addAttribute("user", savedUser);
 
-        return ResponseEntity.ok("{\"message\": \"Inloggning lyckades!\"}");
+        return ResponseEntity.ok("{\"message\": \"Login Successful!\"}");
     }
 
     /**
@@ -107,12 +106,12 @@ public class userHandler {
     public ResponseEntity<String> verifyUser(@RequestBody User user, HttpSession session) {
         User loggedUser = userService.getUserByEmail(user.getEmail());
         if (loggedUser == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"message\": \"Användaren hittades inte :/\"}");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"message\": \"User not found :/\"}");
         } else if (!loggedUser.getPassword().equals(user.getPassword())) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"Fel lösenord :/\"}");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"Wrong password :/\"}");
         } else {
             session.setAttribute("loggedUser", loggedUser);
-            return ResponseEntity.ok("{\"message\": \"Inloggningen lyckades!\"}");
+            return ResponseEntity.ok("{\"message\": \"Login successful!\"}");
         }
     }
 }

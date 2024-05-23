@@ -136,5 +136,6 @@ public class XpController {
         user.getXpSystem().setXp(user.getXpSystem().getXp() + xpIncrease);
         user.setStreakIsUpdated(true);
         user.getXpSystem().setStreak(user.getXpSystem().getStreak() + 1);
+        user.getXpSystem().setInactiveDays(0);
     }
 }

@@ -5,7 +5,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title> Välkommen till Mafunzo! </title>
+    <title> Welcome to Mafunzo! </title>
     <link href="CSS/navbar.css" rel="stylesheet"/>
 </head>
 <body>
@@ -13,7 +13,7 @@
 <nav class="navbar">
 
     <div class="notification">
-        <a href="/notification">
+        <a>
             <img src="../images/notification.png">
         </a>
     </div>
@@ -29,9 +29,9 @@
 
     <div class="hamburger">
         <select id ="menu" onChange="window.location.href=this.value">
-            <option value="home" >Home</option>
+            <option value="home" >Menu</option>
             <option value="profilepage">Profile</option>
-            <option value="registerActivity">Activities</option>
+            <option value="registerActivity">Add activity</option>
             <option value="searchPage">Search</option>
             <option value="logOut">Log out</option>
         </select>
@@ -42,12 +42,12 @@
 <div class="content-container">
     <div class="image-grid">
         <button onclick="window.location.href='strengthTraining'">
-            <div class="caption">Styrketräning</div>
+            <div class="caption">Strength Training</div>
             <img src="images/gorilla-gym.png" alt="Styrketräning" class="bild">
         </button>
 
         <button onclick="window.location.href='runTraining'">
-            <div class="caption">Löpning</div>
+            <div class="caption">Running</div>
             <img src="images/gorilla-löper.png" alt="Löpning" class="bild">
         </button>
 
@@ -57,17 +57,17 @@
         </button>
 
         <button onclick="window.location.href='walkTraining'">
-            <div class="caption">Promenad</div>
+            <div class="caption">Walk</div>
             <img src="images/gorilla-promenerar.png" alt="Promenad" class="bild">
         </button>
 
         <button onclick="window.location.href='bikeTraining'">
-            <div class="caption">Cykling</div>
+            <div class="caption">Cycling</div>
             <img src="images/gorilla-cyklar.png" alt="Cykling" class="bild">
         </button>
 
         <button onclick="window.location.href='swimTraining'">
-            <div class="caption">Simning</div>
+            <div class="caption">Swimming</div>
             <img src="images/gorilla-simmar.png" alt="Simning" class="bild">
         </button>
 
@@ -82,7 +82,7 @@
         </button>
 
         <button onclick="window.location.href='otherTraining'">
-            <div class="caption">Övrigt</div>
+            <div class="caption">Other</div>
             <img src="images/övrigt.webp" alt="Övrigt" class="bild">
         </button>
     </div>

@@ -5,7 +5,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title> Välkommen till Mafunzo! </title>
+    <title> Welcome to Mafunzo! </title>
     <link href="CSS/navbar.css" rel="stylesheet"/>
 </head>
 <body>
@@ -13,7 +13,7 @@
 <nav class="navbar">
 
     <div class="notification">
-        <a href="/notification">
+        <a>
             <img src="../images/notification.png">
         </a>
     </div>
@@ -29,9 +29,9 @@
 
     <div class="hamburger">
         <select id ="menu" onChange="window.location.href=this.value">
-            <option value="home" >Home</option>
+            <option value="home" >Menu</option>
             <option value="profilepage">Profile</option>
-            <option value="registerActivity">Activities</option>
+            <option value="registerActivity">Add activity</option>
             <option value="searchPage">Search</option>
             <option value="logOut">Log out</option>
         </select>
@@ -44,21 +44,21 @@
         <div class="row">
             <img src="images/gorilla-gym.png" alt="Yoga" class="bild">
             <div class="in-data">
-                <p> Varaktighet (Minuter) </p>
+                <p> Duration (minutes) </p>
                 <input type="number" min="2" th:field="*{duration}" class="duration">
                 <br> <br>
-                <p> Kommentar </p>
+                <p> Comment </p>
                 <input type="text" th:field="*{description}" class="description">
                 <br><br><br><br>
             </div>
         </div>
 
         <div class="row-two">
-            <div class="caption">Styrketräning</div>
+            <div class="caption">Strength Training</div>
         </div>
 
         <div class="exercise-container">
-            <button class="add" type="submit" name="add"> Lägg till övning</button>
+            <button class="add" type="submit" name="add"> Add exercise</button>
             <br> <br> <br><br> <br>
             <div class="exercise-grid">
                 <div th:each="exercise, index : ${strengthTraining.exerciseList}">
@@ -67,7 +67,7 @@
                         <p th:text="'Övning ' + ${exercise.exerciseNumber}" class="exercise-caption"></p>
                         <br>
                         <div>
-                            <p th:text="Namn" class="exercise-name"></p>
+                            <p th:text="Name" class="exercise-name"></p>
                             <input type="text" th:field="*{exerciseList[__${index.index}__].name}" class="input-name"/>
                             <br>
                             <p class="exercise-duration"> Sets</p>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
             </div>
-            <button class="button" type="submit" name="register">Registrera</button>
+            <button class="button" type="submit" name="register">Register</button>
     </form>
 </div>
 </body>

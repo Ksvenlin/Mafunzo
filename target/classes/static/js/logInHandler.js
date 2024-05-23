@@ -207,7 +207,7 @@ continueButton.onclick = function () {
         /*
         Fetch sends the request to the spring backend to the post mapping /login. it sends the data as
         JSON strings to the backend. If the response is not ok it will display a snackbar with the error message
-        from the backend. If the response is ok it will display a snackbar with the message "Inloggning lyckades"
+        from the backend. If the response is ok it will display a snackbar with the message "Login successful!"
          */
         fetch('/verifyUser', {
             method: 'POST',
@@ -233,7 +233,7 @@ continueButton.onclick = function () {
                     })
                     throw new Error(response.message)
                 }
-                showSnackbar("Inloggning lyckades", "#44ff44", '#00b300')
+                showSnackbar("Login successful!", "#44ff44", '#00b300')
                 setTimeout(function () {
                     window.location.href = "/home";
                 }, 2000);

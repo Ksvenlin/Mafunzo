@@ -1,0 +1,26 @@
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(59, 56, 56, 0.8);
+    width: 60%;
+    margin: 30px auto;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    transition: 1.0s;
+    font-family: sans-serif;
+}
+
+.content-container h1,h2 {
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+}
+
+.content-container p {
+    color: white;
+    font-size: 24px;
+}

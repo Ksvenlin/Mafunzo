@@ -5,7 +5,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title> Välkommen till Mafunzo! </title>
+    <title> Welcome to Mafunzo! </title>
     <link href="CSS/navbar.css" rel="stylesheet"/>
 </head>
 <body>
@@ -13,7 +13,7 @@
 <nav class="navbar">
 
     <div class="notification">
-        <a href="/notification">
+        <a>
             <img src="../images/notification.png">
         </a>
     </div>
@@ -29,9 +29,9 @@
 
     <div class="hamburger">
         <select id ="menu" onChange="window.location.href=this.value">
-            <option value="home" >Home</option>
+            <option value="home" >Menu</option>
             <option value="profilepage">Profile</option>
-            <option value="registerActivity">Activities</option>
+            <option value="registerActivity">Add activity</option>
             <option value="searchPage">Search</option>
             <option value="logOut">Log out</option>
         </select>
@@ -44,19 +44,19 @@
         <img src="images/gorilla-löper.png" alt="Löpning" class="bild">
         <div class="in-data">
             <form th:action="@{/registerRun}" th:object="${runActivity}" method="post">
-                <p> Varaktighet (Minuter) </p>
+                <p> Duration (minutes) </p>
                 <input type="number" min="2" th:field="*{duration}" class="duration">
                 <br> <br>
-                <p> Distans (km) </p>
+                <p> Distance (km) </p>
                 <input type="number" step="0.1" th:field="*{distance}" class="distance">
                 <br><br>
-                <p> Kommentar </p>
+                <p> Comment </p>
                 <input type="text" th:field="*{description}" class="description">
                 <br><br>
-                <button class="button" type="submit">Registrera</button>
+                <button class="button" type="submit" name="register">Register</button>
             </form>
         </div>
     </div>
-    <div class="caption">Löpning</div>
+    <div class="caption">Running</div>
 </div>
 </body>

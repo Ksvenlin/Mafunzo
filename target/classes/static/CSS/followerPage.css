@@ -24,7 +24,7 @@
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     outline: none;
-    width: 150px;
+    min-width: 200px;
 }
 
 .user-container{
