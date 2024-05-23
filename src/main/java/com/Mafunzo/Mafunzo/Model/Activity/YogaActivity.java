@@ -1,6 +1,7 @@
 package com.Mafunzo.Mafunzo.Model.Activity;
 
 import com.Mafunzo.Mafunzo.Model.Activities;
+import com.Mafunzo.Mafunzo.Model.Day;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class YogaActivity implements Activities {
     private double duration;
     private List<Exercise> exerciseList;
     private String caption;
-    private LocalDateTime timeStamp;
+    private Day timeStamp;
 
 
 
@@ -66,11 +67,11 @@ public class YogaActivity implements Activities {
         this.caption = caption;
     }
 
-    public LocalDateTime getTimeStamp() {
+    public Day getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(LocalDateTime timeStamp) {
+    public void setTimeStamp(Day timeStamp) {
         this.timeStamp = timeStamp;
     }
 

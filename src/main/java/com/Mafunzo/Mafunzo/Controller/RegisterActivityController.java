@@ -1,9 +1,7 @@
 package com.Mafunzo.Mafunzo.Controller;
 
-import com.Mafunzo.Mafunzo.Model.Activities;
+import com.Mafunzo.Mafunzo.Model.*;
 import com.Mafunzo.Mafunzo.Model.Activity.*;
-import com.Mafunzo.Mafunzo.Model.User;
-import com.Mafunzo.Mafunzo.Model.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +19,10 @@ public class RegisterActivityController {
     @Autowired
     private UserService userService;
     private User user;
-    private XpController xpController = new XpController();
+    @Autowired
+    private XpController xpController;
+    @Autowired
+    private DayService dayService;
 
     /**
      * This method is used to register a walk activity in the user's profile, and sets the xp to the user based on the evaluation score
@@ -221,7 +222,7 @@ public class RegisterActivityController {
      * @author Kasper Svenlin & Adam Mheisen
      */
     public void processAndSaveUserActivity(Activities activity, User user, Model model) {
-        activity.setTimeStamp(LocalDateTime.now(Clock.systemDefaultZone()));
+        activity.setTimeStamp(dayService.getDay());
         user.getActivitiesList().add(activity);
         userService.updateActivity(xpController.registerXpToUser(user));
         model.addAttribute("user", user);

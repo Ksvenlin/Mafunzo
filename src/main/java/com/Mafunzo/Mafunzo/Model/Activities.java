@@ -22,11 +22,11 @@ public interface Activities {
 
     void setDuration(double duration);
 
-    LocalDateTime getTimeStamp();
+    Day getTimeStamp();
 
     String printInfo();
 
-    void setTimeStamp(LocalDateTime timeStamp);
+    void setTimeStamp(Day day);
 
     List<Exercise> getExerciseList();
 

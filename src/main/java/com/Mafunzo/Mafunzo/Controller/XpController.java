@@ -1,7 +1,12 @@
 package com.Mafunzo.Mafunzo.Controller;
 
 import com.Mafunzo.Mafunzo.Model.Activities;
+import com.Mafunzo.Mafunzo.Model.Day;
+import com.Mafunzo.Mafunzo.Model.DayService;
 import com.Mafunzo.Mafunzo.Model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Clock;
 import java.time.LocalDate;
@@ -12,7 +17,11 @@ import java.time.LocalDate;
  *
  * @author William Starå, Adam Mheisen, Kasper Svenlin, Isak Hakola, Kevin Nordkvist
  */
+@RestController
 public class XpController {
+
+    @Autowired
+    private DayService dayService;
 
     /**
      * This method calculates the XP increase for the user based on their streak.
@@ -77,13 +86,11 @@ public class XpController {
      */
     public double checkDailyDuration(User user) {
         double totalDailyDuration = 0;
-        LocalDate todaysDate = LocalDate.now(Clock.systemDefaultZone());
-        for (Activities activity : user.getActivitiesList()) {
-            LocalDate tempDate = activity.getTimeStamp().toLocalDate();
-            if (tempDate.equals(todaysDate)) {
+        Day currentday = dayService.getDay();
+        for(Activities activity : user.getActivitiesList()){
+            Day tempDate = activity.getTimeStamp();
+            if(tempDate.getDay().isEqual(currentday.getDay())){
                 totalDailyDuration += activity.getDuration();
-            } else {
-                break;
             }
         }
         return totalDailyDuration;

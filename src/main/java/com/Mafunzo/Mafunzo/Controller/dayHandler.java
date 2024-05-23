@@ -9,14 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class dayHandler {
     @Autowired
     DayService dayService;
-
-    @PostMapping("/createNewDay")
-    public void makeDate() {
-        dayService.makeDate();
-    }
+    @Autowired
+    TimeHandler handler;
 
     @PostMapping("/updateDay")
     public void updateDate() {
         dayService.updateDate();
+        handler.checkInactiveDaysForAllUsers();
     }
 }

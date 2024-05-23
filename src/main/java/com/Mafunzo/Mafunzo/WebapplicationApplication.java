@@ -23,6 +23,5 @@ public class WebapplicationApplication {
     public static void main(String[] args) {
         SpringApplication.run(WebapplicationApplication.class, args);
         con.connectMongo();
-        timeHandler.dailyStreakCheck();
     }
 }
