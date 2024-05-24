@@ -1,5 +1,5 @@
 <!---
-@author Adam Mheisen, Kevin Nordkvist
+@author Adam Mheisen, Kevin Nordkvist, Kasper Svenlin & Isak Hakola
  --->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
@@ -71,6 +71,7 @@
                 <li th:each="activity : ${searchUser.displayActivitesReverse()}">
                     <div class="activity">
                         <p th:text="${activity.printInfo}">Activity Name</p>
+                        <p th:text="${activity.getDescription()}"/>
                     </div>
                 </li>
             </ul>

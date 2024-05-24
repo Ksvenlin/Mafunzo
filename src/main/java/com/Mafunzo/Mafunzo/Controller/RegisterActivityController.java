@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 public class RegisterActivityController {
     @Autowired
     private UserService userService;
+
     private User user;
     @Autowired
     private XpController xpController;

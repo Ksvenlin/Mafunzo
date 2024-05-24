@@ -8,8 +8,12 @@ import java.time.LocalDate;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.Date;
 
+/**
+ * This class is responsible for handlingen the service actions for the Day class.
+ * It is used to Create, update and Read the date stored in the database.
+ * @author William Starå
+ */
 @Service
 public class DayService {
     @Autowired

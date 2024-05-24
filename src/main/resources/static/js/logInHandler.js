@@ -1,4 +1,11 @@
 /**
+ * This class handles the logic for the login and register page.
+ * It also handles the logic for the evaluation form.
+ * @author William Starå
+ */
+
+
+/**
 This part of the script creates variables for the different elements in the HTML file
  */
 
@@ -16,7 +23,7 @@ let continueButton = document.getElementById("continueButton");
 let submitButton = document.getElementById("submit");
 let returnButton = document.getElementById("returnButton");
 let passwordInstructions = document.getElementById("passwordInstructions");
-let createNewDayButton = document.getElementById("createDateButton");
+let updateDayButton = document.getElementById("updateDateButton");
 
 let nameField1 = document.querySelector("#nameField1 input");
 let nameField2 = document.querySelector("#nameField2 input");
@@ -27,7 +34,6 @@ let buttonfield = document.querySelector('.button-field');
 let radioButtons = document.querySelectorAll("input[type='radio']");
 let file = document.querySelector("#file");
 let continueElement = document.querySelector('.continue');
-
 
 let totalScore = 0;
 fname.style.maxHeight = "0";
@@ -94,7 +100,7 @@ q4.style.maxHeight = '0';
 q5.style.maxHeight = '0';
 
 /**
-These two functions control the visability of the login and register buttons. When the login button is pressed
+These two functions control the visibility of the login and register buttons. When the login button is pressed
 the register form is hidden and the login form is displayed. When the register button is pressed the login form
 is hidden and the register form is displayed.
 It also changes the state of the isLogInButtonPressed variable to true or false depending on which button is pressed.
@@ -166,7 +172,7 @@ returnButton.onclick = function () {
     continueButton.style.display = 'block';
     returnButton.style.display = 'none';
     submitButton.style.display = 'none';
-    continueElement.style.marginTop = '-100px'; // Change '0px' to the value you want
+    continueElement.style.marginTop = '-100px';
 
 
     radioButtons.forEach(function (radio) {
@@ -176,17 +182,19 @@ returnButton.onclick = function () {
 }
 
 /**
- *
+ * This button is used to update the day in the database by adding one day to the current day.
+ * It uses a fetch request to the backend to connect class responsible for doing this.
+ * If the response is ok it will display a snackbar with the message "Dagen har uppdaterats"
  */
-createNewDayButton.onclick = function () {
+updateDayButton.onclick = function () {
     fetch('/updateDay', {
         method: 'POST'
     })
         .then(response => {
             if (response.ok) {
-                showSnackbar("Dagen har uppdaterats", "#44ff44", '#00b300')
+                showSnackbar("The day has been updated", "#44ff44", '#00b300')
             } else {
-                showSnackbar("Dagen kunde inte uppdateras", "#ff4444", "#b20000")
+                showSnackbar("The day could not be updated", "#ff4444", "#b20000")
             }
         })
 }
@@ -201,7 +209,6 @@ so the questions fit.
 
 continueButton.onclick = function () {
     if (isLogInButtonPressed) {
-        console.log("logga in skickas från front-end till back-end")
         email.style.borderColor = "#ccc"
         password.style.borderColor = "#ccc"
         /*
@@ -251,7 +258,7 @@ continueButton.onclick = function () {
         contentContainer.style.width = '65%';
         continueButton.style.display = 'none';
         returnButton.style.display = 'block';
-        continueElement.style.marginTop = '20px'; // Change '0px' to the value you want
+        continueElement.style.marginTop = '20px';
 
 
         q1.style.padding = '12px';
@@ -288,7 +295,7 @@ submitButton.onclick = function () {
 
     if (file.files.length === 0) {
         file.style.borderColor = "#ff4444"
-        showSnackbar("Du måste ladda upp en profilbild", "#ff4444", "#b20000")
+        showSnackbar("You need to upload a profile picture :O", "#ff4444", "#b20000")
     } else {
         var formData = new FormData();
         formData.append("fname", nameField1.value);
@@ -299,6 +306,11 @@ submitButton.onclick = function () {
         formData.append("image", file.files[0]);
     }
 
+
+    /**
+     * Fetch request which uses the response to display and mark the appropriate input field
+     * with a red border and a snackbar message with the error message from the backend.
+     */
     fetch('/addUser', {
         method: 'POST',
         body: formData
@@ -346,7 +358,7 @@ submitButton.onclick = function () {
                         break;
                 }
             } else {
-                showSnackbar("Registreringen lyckades", "#44ff44", '#00b300')
+                showSnackbar("Registration was successful! :)", "#44ff44", '#00b300')
 
                 fetch('/verifyUser', {
                     method: 'POST',

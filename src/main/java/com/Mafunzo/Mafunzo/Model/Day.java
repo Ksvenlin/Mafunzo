@@ -1,7 +1,13 @@
 package com.Mafunzo.Mafunzo.Model;
 
 import java.time.LocalDate;
-import java.util.Date;
+
+/**
+ * Class which represents a date stored in the database.
+ * The date is later used to compare with the date of acitivties to see if the user has been inactive or not
+ *
+ * @Author William Starå
+ */
 
 public class Day {
     private LocalDate day;

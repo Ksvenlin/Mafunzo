@@ -5,14 +5,11 @@ import com.Mafunzo.Mafunzo.Model.SearchUsers;
 import com.Mafunzo.Mafunzo.Model.User;
 import com.Mafunzo.Mafunzo.Model.UserService;
 import jakarta.servlet.http.HttpSession;
-// org.springframework.boot.Banner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This Controller is responsible for the routing of the different pages in the application. It also checks if the user
@@ -280,6 +277,12 @@ public class pageController {
         return "activities/strengthTraining";
     }
 
+    /**
+     * This method is called when the user clicks on the "search" button in the navigation menu.
+     * @param model the model attribute from the backend
+     * @param session the session of the user to verify that the right user is logged in.
+     * @return the searchPage HTML filepath, returns the index file if the user is not logged in
+     */
     @GetMapping("/searchPage")
     public String searchPage(Model model, HttpSession session){
         SearchUsers searchUsers = new SearchUsers(userService.getAllUsers());
