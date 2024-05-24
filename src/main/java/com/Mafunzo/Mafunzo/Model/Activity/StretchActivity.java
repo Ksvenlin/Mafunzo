@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * StretchActivity is a class that represents a stretching activity.
  *
- * @author Kevin Nordkvist & Kasper Svenlin
+ * @author Isak Hakola, Kasper Svenlin & Kevin Nordkvist
  */
 public class StretchActivity implements Activities {
 
@@ -45,7 +45,7 @@ public class StretchActivity implements Activities {
 
     @Override
     public String getName() {
-        return "Stretching";
+        return "Stretch";
     }
 
 
@@ -75,7 +75,6 @@ public class StretchActivity implements Activities {
 
     @Override
     public String printInfo() {
-        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
-                "\n" + "Tid: " + getDuration() + " minuter";
+        return timeStamp.getDay().toString() + " «» " + getName() + " «» Duration: " + getDuration() + " Exercise: " + exerciseList.size();
     }
 }

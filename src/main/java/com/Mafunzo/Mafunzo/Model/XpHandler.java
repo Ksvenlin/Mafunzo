@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * Class that represents the xp of a user
  *
- * @author Adam Mheisen
+ * @author Adam Mheisen, Kasper Svenlin, William Starå
  */
 
 public class XpHandler implements Serializable {

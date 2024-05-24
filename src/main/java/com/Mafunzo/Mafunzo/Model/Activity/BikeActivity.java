@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Class that represents a bike activity
  *
- * @author Isak Hakola & Kasper Svenlin
+ * @author Isak Hakola, Kasper Svenlin & Kevin Nordkvist
  */
 public class BikeActivity implements Activities {
 
@@ -44,7 +44,7 @@ public class BikeActivity implements Activities {
 
     @Override
     public String getName() {
-        return "Cykling";
+        return "Cycling";
     }
 
     public double getDuration() {
@@ -78,7 +78,6 @@ public class BikeActivity implements Activities {
 
     @Override
     public String printInfo() {
-        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
-                "\n" + "Tid: " + getDuration() + " minuter" + "\n" + "Distans: " + getDistance() + " km";
+        return timeStamp.getDay().toString() + " «» " + getName() + " «» Duration: " + getDuration() + " min «» Distance: " + getDistance() + " km";
     }
 }

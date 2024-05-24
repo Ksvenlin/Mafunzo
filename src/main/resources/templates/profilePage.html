@@ -1,5 +1,5 @@
 <!---
-@author Adam Mheisen, Kevin Nordkvist
+@author Adam Mheisen, Kevin Nordkvist, Isak Hakola & Kasoer Svenlin
  --->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
@@ -68,13 +68,10 @@
 
         <div class="activities">
             <ul>
-                <li th:each="activity : ${user.activitiesList}">
+                <li th:each="activity : ${user.displayActivitesReverse()}">
                     <div class="activity">
-                        <!--<h3 th:text="${activity.getName()}">Activity Name</h3>
-                        <p th:text="${activity.getDescpriction()}">Activity Description</p>
-                        <p th:text="'duration: ' + ${activity.getDuration()} + ' min'">Duration</p>
-                        <p th:text="'distance: ' + ${activity.getDistance()} + 'km'">Distance  </p>-->
                         <p th:text="${activity.printInfo}">Activity Name</p>
+                        <p th:text="${activity.getDescription()}"/>
                     </div>
                 </li>
             </ul>

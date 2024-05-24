@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Class that represents a run activity
  *
- * @author Isak Hakola & Kasper Svenlin
+ * @author Isak Hakola, Kasper Svenlin & Kevin Nordkvist
  */
 public class RunActivity implements Activities {
 
@@ -45,7 +45,7 @@ public class RunActivity implements Activities {
 
     @Override
     public String getName() {
-        return "Löpning";
+        return "Run";
     }
 
     public double getDuration() {
@@ -79,7 +79,7 @@ public class RunActivity implements Activities {
 
     @Override
     public String printInfo() {
-        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
-                "\n" + "Tid: " + getDuration() + " minuter" + "\n" + "Distans: " + getDistance() + " km";
+        return timeStamp.getDay().toString() + " «» " + getName() + " «» Duration: " + getDuration() + " min «» Distance: " + getDistance() + " km";
+
     }
 }

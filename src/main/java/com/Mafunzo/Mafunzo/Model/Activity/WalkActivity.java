@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Class that represents a walk activity
  *
- * @author Isak Hakola & Kasper Svenlin
+ * @author Isak Hakola, Kasper Svenlin & Kevin Nordkvist
  */
 
 public class WalkActivity implements Activities {
@@ -47,7 +47,7 @@ public class WalkActivity implements Activities {
 
     @Override
     public String getName() {
-        return "Promenad";
+        return "Walk";
     }
 
     public double getDuration() {
@@ -81,7 +81,7 @@ public class WalkActivity implements Activities {
 
     @Override
     public String printInfo() {
-        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
-                "\n" + "Tid: " + getDuration() + " minuter" + "\n" + "Distans: " + getDistance() + " km";
+        return timeStamp.getDay().toString() + " «» " + getName() + " «» Duration: " + getDuration() + " min «» Distance: " + getDistance() + " km";
+
     }
 }

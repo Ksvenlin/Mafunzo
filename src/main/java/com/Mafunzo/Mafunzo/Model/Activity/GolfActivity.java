@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * GolfActivity is a class that represents a golf activity.
  *
- * @author Isak Hakola & Kasper Svenlin
+ * @author Isak Hakola, Kasper Svenlin & Kevin Nordkvist
  */
 public class GolfActivity implements Activities {
 
@@ -90,9 +90,8 @@ public class GolfActivity implements Activities {
             totalPoints += hole.getPoints();
             totalStrokes += hole.getStrokes();
         }
-        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
-                "\n" + "Tid: " + getDuration() + " minuter" + "\n" +
-                "Slag: " + totalStrokes + " Poäng: " + totalPoints;
+        return timeStamp.getDay().toString() + " «» " + getName() + " «» Strokes: " + totalStrokes + " «» Points: " + totalPoints;
+
     }
 
     public static class Hole {

@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * StrengthActivity is a class that represents a strength activity.
  *
- * @author Kevin Nordkvist & Kasper Svenlin
+ * @author Isak Hakola, Kasper Svenlin & Kevin Nordkvist
  */
 public class StrengthActivity implements Activities {
     private List<Exercise> exerciseList;
@@ -34,7 +34,7 @@ public class StrengthActivity implements Activities {
 
     @Override
     public String getName() {
-        return "Styrketräning";
+        return "Strength";
     }
 
     @Override
@@ -75,7 +75,6 @@ public class StrengthActivity implements Activities {
 
     @Override
     public String printInfo() {
-        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
-                "\n" + "Tid: " + getDuration() + " minuter";
+        return timeStamp.getDay().toString() + " «» "+ getName() +" «» Duration: " + getDuration() + " min «» Exercises: " + exerciseList.size();
     }
 }

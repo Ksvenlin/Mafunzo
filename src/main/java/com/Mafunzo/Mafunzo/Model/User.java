@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * User is a class that represents a user.
  *
- * @author Kevin Nordkvist, William Starå, Adam Mheisen
+ * @author Kevin Nordkvist, William Starå, Adam Mheisen, Kasper Svenlin och Isak Hakola
  */
 @Document("User")
 public class User implements Serializable {
@@ -84,6 +84,17 @@ public class User implements Serializable {
             return new ArrayList<>();
         }
         return activitiesList;
+    }
+    public List<Activities> displayActivitesReverse(){
+        if (this.activitiesList == null) {
+            return new ArrayList<>();
+        }
+        List<Activities> tempActivities = new ArrayList<>();
+        for (int i = activitiesList.size()-1; i > 0; i--) {
+            tempActivities.add(activitiesList.get(i));
+
+        }
+        return tempActivities;
     }
 
     public List<User> getFollower(){

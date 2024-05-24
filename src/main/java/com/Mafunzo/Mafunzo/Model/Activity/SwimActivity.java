@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Class that represents a swim activity
  *
- * @author Isak Hakola & Kasper Svenlin
+ * @author Isak Hakola, Kasper Svenlin & Kevin Nordkvist
  */
 public class SwimActivity implements Activities {
 
@@ -46,7 +46,7 @@ public class SwimActivity implements Activities {
 
     @Override
     public String getName() {
-        return "Simning";
+        return "Swim";
     }
 
     public double getDuration() {
@@ -80,7 +80,7 @@ public class SwimActivity implements Activities {
 
     @Override
     public String printInfo() {
-        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
-                "\n" + "Tid: " + getDuration() + " minuter" + "\n" + "Distans: " + getDistance() + " km";
+        return timeStamp.getDay().toString() + " «» " + getName() + " «» Duration: " + getDuration() + " min «» Distance: " + getDistance() + " km";
+
     }
 }

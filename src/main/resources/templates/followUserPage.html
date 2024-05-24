@@ -1,5 +1,5 @@
 <!---
-@author Adam Mheisen, Kevin Nordkvist
+@author Adam Mheisen, Kevin Nordkvist, Kasper Svenlin & Isak Hakola
  --->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
@@ -57,7 +57,7 @@
 
             </div>
             <div class="xp-bar-container">
-                <div class="xp-bar" th:style="'width:' + ${searchUser.getXpSystem.getXp} + '%'"></div>
+                <div class="xp-bar" th:style="'width:' + (${searchUser.getXpSystem.getXp} / ${searchUser.getXpToLevel} * 100) + '%'"></div>
                 <div class="xp-text" th:text="${searchUser.getXpSystem.getXp} + '/' + ${searchUser.getXpToLevel}">0/100</div>
                 <div class="streak-container">
                     <img src="../images/fire-emoji-yo.png" alt="fire-emoji" class="fire-emoji">
@@ -68,9 +68,10 @@
 
         <div class="activities">
             <ul>
-                <li th:each="activity : ${searchUser.activitiesList}">
+                <li th:each="activity : ${searchUser.displayActivitesReverse()}">
                     <div class="activity">
                         <p th:text="${activity.printInfo}">Activity Name</p>
+                        <p th:text="${activity.getDescription()}"/>
                     </div>
                 </li>
             </ul>

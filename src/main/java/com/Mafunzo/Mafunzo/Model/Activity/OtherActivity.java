@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Class that represents an "other" activity
  *
- * @author Kevin Nordkvist & Kasper Svenlin
+ * @author Isak Hakola, Kasper Svenlin & Kevin Nordkvist
  */
 
 public class OtherActivity implements Activities {
@@ -38,7 +38,7 @@ public class OtherActivity implements Activities {
 
     @Override
     public String getName() {
-        return "Övrig";
+        return "Other";
     }
 
     public double getDuration() {
@@ -68,7 +68,7 @@ public class OtherActivity implements Activities {
 
     @Override
     public String printInfo() {
-        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
-                "\n" + "Tid: " + getDuration() + " minuter" + "\n";
+        return timeStamp.getDay().toString() + " «» " + getName() + " «» Duration: " + getDuration() + " min";
+
     }
 }

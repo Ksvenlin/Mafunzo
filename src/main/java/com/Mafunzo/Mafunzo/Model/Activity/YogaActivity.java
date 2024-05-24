@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * YogaActivity is a class that represents a yoga activity.
  *
- * @author Isak Hakola & Kasper Svenlin
+ * @author Isak Hakola, Kasper Svenlin & Kevin Nordkvist
  */
 
 public class YogaActivity implements Activities {
@@ -77,7 +77,7 @@ public class YogaActivity implements Activities {
 
     @Override
     public String printInfo() {
-        return "Aktivitet: " + getName() + "\n" + "Beskrivning: " + getDescription() +
-                "\n" + "Tid: " + getDuration() + " minuter";
+        return timeStamp.getDay().toString() + " «» " + getName() + " «» Duration: " + getDuration() + " Exercise: " + exerciseList.size();
+
     }
 }
