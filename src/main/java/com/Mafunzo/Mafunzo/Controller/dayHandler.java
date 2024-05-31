@@ -20,6 +20,10 @@ public class dayHandler {
     @Autowired
     TimeHandler handler;
 
+    /**
+     * This method updates the date in the database.
+     * It also checks for inactive days for all users.
+     */
     @PostMapping("/updateDay")
     public void updateDate() {
         dayService.updateDate();
